@@ -314,7 +314,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .lb-bar{position:absolute;left:0;right:0;height:50%;background:#000;z-index:4;pointer-events:none;animation:lbopen 1.4s cubic-bezier(.77,0,.18,1) .2s forwards}
 .lb-bar.top{top:0;transform-origin:top}.lb-bar.bot{bottom:0;transform-origin:bottom}
 @keyframes lbopen{to{transform:scaleY(0)}}
-@media (max-width:700px){.scene-ui{top:80px}.scene-bars b{width:26px}}
+@media (max-width:700px){.hud span{display:none}.scene-ui{top:78px}.scene-bars b{width:26px}.hero-body{padding-top:170px}}
 @media (prefers-reduced-motion:reduce){.lb-bar{display:none}}
 </style>
 </head>
