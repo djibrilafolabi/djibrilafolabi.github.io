@@ -6,6 +6,13 @@
 <title>Portfolio Djibril Afolabi</title>
 <meta name="description" content="Djibril Afolabi, communication digitale et création de contenus vidéo : films d'entreprise, événements, mariages, contenus réseaux sociaux.">
 <meta name="theme-color" content="#101312">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Djibril Afolabi · Communication digitale &amp; création vidéo">
+<meta property="og:description" content="Films d'entreprise, événements, mariages et contenus réseaux sociaux. Du brief à la publication.">
+<meta property="og:url" content="https://djibrilafolabi.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101312'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23D8362B'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Djibril Afolabi","jobTitle":"Communication digitale et création de contenus vidéo","url":"https://djibrilafolabi.github.io/"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -316,6 +323,27 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 @keyframes lbopen{to{transform:scaleY(0)}}
 @media (max-width:700px){.hud span{display:none}.scene-ui{top:78px}.scene-bars b{width:26px}.hero-body{padding-top:170px}}
 @media (prefers-reduced-motion:reduce){.lb-bar{display:none}}
+
+/* ---------- Veille : curseur, progression, chiffres, manifeste animé, signature ---------- */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:120;pointer-events:none}
+.cursor{position:fixed;left:0;top:0;z-index:110;pointer-events:none;display:none}
+.cursor i{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:#fff;mix-blend-mode:difference;transition:transform .25s}
+.cursor span{position:absolute;left:-36px;top:-36px;width:72px;height:72px;border-radius:50%;border:1px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;transform:scale(.35);transition:transform .3s cubic-bezier(.2,.7,.2,1),background .3s,border-color .3s}
+.cursor.big span{transform:scale(1);background:var(--accent);border-color:var(--accent)}
+.cursor.big i{transform:scale(0)}
+@media (hover:hover) and (pointer:fine){.cursor{display:block}.cursor-on, .cursor-on a, .cursor-on button{cursor:none!important}}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line);background:var(--bg-deep)}
+.stats div{padding:48px var(--gut) 44px;display:flex;flex-direction:column;gap:10px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{font-size:clamp(44px,6vw,92px);font-weight:800;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.7)}
+.stats span{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:800px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats div{padding:32px 20px;border-bottom:1px solid var(--line)}.stats div:nth-child(2n){border-right:0}}
+.statement h2 .w{opacity:.22;transition:opacity .35s}
+.statement h2 .w.lit{opacity:1}
+.wordmark{overflow:hidden;white-space:nowrap;text-align:center;padding:48px 0 0;background:var(--bg-lift);font-size:clamp(48px,11.5vw,190px);font-weight:800;letter-spacing:-.02em;line-height:.95;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.35);transition:color .6s,-webkit-text-stroke-color .6s}
+.wordmark:hover{color:var(--accent);-webkit-text-stroke-color:var(--accent)}
+.btn.mag{transition:transform .25s cubic-bezier(.2,.7,.2,1),filter .2s;will-change:transform}
+@media (prefers-reduced-motion:reduce){.progress{display:none}.statement h2 .w{opacity:1;transition:none}}
 </style>
 </head>
 <body>
@@ -344,6 +372,8 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
   <a href="#contact" data-s="contact" aria-label="Contact">06</a>
 </nav>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><i></i><span></span></div>
 <main>
 <section class="hero" id="accueil">
   <div class="hero-bg"></div>
@@ -469,6 +499,13 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
   </div>
 </section>
 
+<section class="stats" aria-label="En chiffres">
+  <div><b data-n="8" data-pad="2">08</b><span>Films en ligne</span></div>
+  <div><b data-n="44">44</b><span>Photographies</span></div>
+  <div><b data-n="25">25</b><span>Images par seconde</span></div>
+  <div><b>4K</b><span>Tournage &amp; export</span></div>
+</section>
+
 <section class="statement">
   <h2>Un regard créatif, du premier brief à la dernière image.</h2>
   <div class="statement-foot">
@@ -522,6 +559,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 </section>
 </main>
 
+<div class="wordmark" aria-hidden="true">Djibril Afolabi</div>
 <footer class="foot">
   <span>© 2026 Djibril Afolabi</span>
   <a href="#accueil">Retour en haut ↑</a>
@@ -917,6 +955,70 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
         t.classList.add('rv');
         if(t.classList.contains('cat')) t.style.setProperty('--d', (Array.prototype.indexOf.call(t.parentNode.children, t) * 0.12) + 's');
         cio.observe(t);
+      });
+    }
+  })();
+
+  /* Veille : progression, curseur, chiffres, manifeste, aimants */
+  (function(){
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var bar = document.getElementById('progress');
+    function prog(){ var h = document.documentElement.scrollHeight - innerHeight; bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')'; }
+    if(!reduce){ addEventListener('scroll', prog, {passive:true}); prog(); }
+
+    /* Curseur */
+    var cur = document.getElementById('cursor');
+    if(cur && matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce){
+      document.documentElement.classList.add('cursor-on');
+      var cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
+      addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; });
+      (function loop(){ cx += (tx - cx) * .2; cy += (ty - cy) * .2; cur.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)'; requestAnimationFrame(loop); })();
+      var label = cur.querySelector('span');
+      document.addEventListener('pointerover', function(e){
+        var t = e.target.closest ? e.target.closest('.clip, .cat, #cmp, .btn, .chip, .link-play, .seg button') : null;
+        if(!t){ cur.classList.remove('big'); return; }
+        var txt = t.classList.contains('clip') ? 'Lire' : t.id === 'cmp' ? 'Glisser' : t.classList.contains('cat') ? 'Voir' : '';
+        label.textContent = txt;
+        cur.classList.toggle('big', !!txt);
+      });
+    }
+
+    /* Chiffres animés */
+    var nums = document.querySelectorAll('.stats b[data-n]');
+    function count(b){
+      var n = +b.getAttribute('data-n'), pd = b.getAttribute('data-pad'), t0 = null;
+      function f(v){ v = Math.round(v); return pd ? ('0' + v).slice(-2) : String(v); }
+      if(reduce){ b.textContent = f(n); return; }
+      function tick(ts){ if(t0 === null) t0 = ts; var k = Math.min(1, (ts - t0) / 1400); b.textContent = f(n * (1 - Math.pow(1 - k, 3))); if(k < 1) requestAnimationFrame(tick); }
+      requestAnimationFrame(tick);
+    }
+    if('IntersectionObserver' in window){
+      var sio = new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ count(x.target); sio.unobserve(x.target); } }); }, {threshold:.6});
+      nums.forEach(function(b){ if(!reduce) b.textContent = b.getAttribute('data-pad') ? '00' : '0'; sio.observe(b); });
+    }
+
+    /* Manifeste : les mots s'allument au défilement */
+    var h2 = document.querySelector('.statement h2');
+    if(h2 && !reduce){
+      var words = h2.textContent.trim().split(/\s+/);
+      h2.textContent = '';
+      words.forEach(function(w, i){ var sp = document.createElement('span'); sp.className = 'w'; sp.textContent = w; h2.appendChild(sp); if(i < words.length - 1) h2.appendChild(document.createTextNode(' ')); });
+      var spans = h2.querySelectorAll('.w');
+      function lit(){
+        var r = h2.getBoundingClientRect(), p = (innerHeight * .85 - r.top) / (innerHeight * .5 + r.height * .6);
+        p = Math.max(0, Math.min(1, p));
+        var n = Math.round(p * spans.length);
+        spans.forEach(function(s, i){ s.classList.toggle('lit', i < n); });
+      }
+      addEventListener('scroll', lit, {passive:true}); lit();
+    }
+
+    /* Boutons aimantés */
+    if(!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches){
+      document.querySelectorAll('.btn').forEach(function(b){
+        b.classList.add('mag');
+        b.addEventListener('pointermove', function(e){ var r = b.getBoundingClientRect(); b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .18) + 'px,' + ((e.clientY - r.top - r.height / 2) * .3) + 'px)'; });
+        b.addEventListener('pointerleave', function(){ b.style.transform = ''; });
       });
     }
   })();
