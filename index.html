@@ -5,33 +5,34 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Portfolio Djibril Afolabi</title>
 <meta name="description" content="Djibril Afolabi, communication digitale et création de contenus vidéo : films d'entreprise, événements, mariages, contenus réseaux sociaux.">
-<meta name="theme-color" content="#101312">
+<meta name="theme-color" content="#0b0b0c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Djibril Afolabi · Communication digitale &amp; création vidéo">
 <meta property="og:description" content="Films d'entreprise, événements, mariages et contenus réseaux sociaux. Du brief à la publication.">
 <meta property="og:url" content="https://djibrilafolabi.github.io/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101312'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23D8362B'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0c'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23C8A97A'/%3E%3C/svg%3E">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Djibril Afolabi","jobTitle":"Communication digitale et création de contenus vidéo","url":"https://djibrilafolabi.github.io/"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* Layout : site sombre en une page, plein cadre, grandes capitales, un seul rouge d'accent.
    Hero plein écran de texte, puis catégories, pellicule de clips, parcours, contact. */
 :root{
-  --bg:#101312;
-  --bg-deep:#0b0e0d;
-  --bg-lift:#161c1a;
-  --fg:#F2F0EC;
-  --fg-soft:#DAD8D3;
-  --muted:#A9AFAA;
-  --faint:#7F8883;
+  --bg:#0b0b0c;
+  --bg-deep:#070708;
+  --bg-lift:#111113;
+  --fg:#EFEAE0;
+  --fg-soft:#D6D0C4;
+  --muted:#9C978C;
+  --faint:#76726A;
   --line:rgba(255,255,255,.14);
   --line-strong:rgba(255,255,255,.28);
-  --accent:#D8362B;
-  --on-accent:#FFFFFF;
-  --font:'Rubik',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --accent:#C8A97A;
+  --on-accent:#0b0b0c;
+  --serif:'Instrument Serif','Cormorant Garamond',Georgia,serif;
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --gut:clamp(16px,6.3vw,90px);
   --hero-img:none;
   color-scheme:dark;
@@ -52,7 +53,7 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 .sec-title{font-weight:800;font-size:clamp(28px,3.2vw,44px);letter-spacing:.04em;text-transform:uppercase}
 
 /* ---------- Navigation ---------- */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px var(--gut);background:rgba(16,19,18,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px var(--gut);background:rgba(11,11,12,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;min-height:44px}
 .brand i{display:block;width:14px;height:14px;background:var(--accent);border-radius:2px}
 .nav-links{display:flex;align-items:center;gap:36px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-soft)}
@@ -83,7 +84,7 @@ button{font-family:inherit;color:inherit;cursor:pointer}
   radial-gradient(ellipse 60% 45% at 68% 30%,rgba(150,190,178,.38),transparent 70%),
   radial-gradient(ellipse 90% 30% at 50% 50%,rgba(200,220,212,.18),transparent 70%),
   radial-gradient(ellipse 45% 70% at 0% 100%,rgba(0,0,0,.85),transparent 70%),
-  linear-gradient(180deg,rgba(16,19,18,.25) 0%,rgba(16,19,18,.55) 58%,var(--bg) 100%),
+  linear-gradient(180deg,rgba(11,11,12,.25) 0%,rgba(11,11,12,.55) 58%,var(--bg) 100%),
   linear-gradient(112deg,#16211f 0%,#2a403c 36%,#3b5a55 52%,#1a2624 100%)}
 .hero-media{position:absolute;inset:0;z-index:0;background:var(--hero-img) center/cover no-repeat}
 .hero-fog{position:absolute;inset:-20% -10%;z-index:0;background:radial-gradient(ellipse 40% 22% at 30% 55%,rgba(210,230,222,.16),transparent 70%),radial-gradient(ellipse 36% 20% at 75% 62%,rgba(210,230,222,.12),transparent 70%);animation:drift 26s ease-in-out infinite alternate}
@@ -100,7 +101,7 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 .pole:first-child::before{content:"";position:absolute;top:-1px;left:0;width:34%;height:2px;background:var(--accent)}
 .pole svg{flex:none;color:var(--accent)}
 .pole h3{font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
-.pole p{margin-top:10px;font-size:14px;line-height:1.6;color:#B4B9B4;max-width:330px}
+.pole p{margin-top:10px;font-size:14px;line-height:1.6;color:#A7A296;max-width:330px}
 @media (max-width:900px){.poles{grid-template-columns:minmax(0,1fr);gap:0}.pole{padding-bottom:6px}.pole+.pole{border-top:1px solid var(--line)}.pole:first-child::before{display:none}}
 
 /* ---------- Catégories ---------- */
@@ -111,7 +112,7 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 .cat{position:relative;display:block;aspect-ratio:2/3;border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:transform .25s,border-color .25s}
 .cat:nth-child(2){transform:translateY(-28px);border-color:var(--line-strong)}
 .cat:hover{border-color:var(--accent)}
-.cat-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,19,18,0) 40%,rgba(16,19,18,.92) 100%)}
+.cat-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,0) 40%,rgba(11,11,12,.92) 100%)}
 .cat-num{position:absolute;top:14px;left:18px;font-weight:800;font-size:clamp(54px,6vw,92px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55);font-variant-numeric:tabular-nums}
 .cat-label{position:absolute;left:0;right:0;bottom:24px;text-align:center}
 .cat-label b{display:block;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase}
@@ -126,17 +127,17 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 .reel-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px 48px;padding:100px var(--gut) 44px}
 .reel-head .txt{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:18px}
 .reel-head h2{font-weight:800;font-size:clamp(42px,6.4vw,96px);line-height:.96;text-transform:uppercase}
-.reel-head p{max-width:430px;font-size:15px;line-height:1.65;color:#B4B9B4}
+.reel-head p{max-width:430px;font-size:15px;line-height:1.65;color:#A7A296}
 .counter{display:flex;align-items:flex-end;gap:16px}
-.counter strong{font-weight:800;font-size:clamp(88px,13vw,190px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px #5a655f;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.counter strong{font-weight:800;font-size:clamp(88px,13vw,190px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px #5d5950;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .counter span{padding-bottom:6px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);line-height:1.7}
 .filters{display:flex;flex-wrap:wrap;gap:10px;padding:0 var(--gut) 32px}
 .chip{min-height:44px;padding-inline:20px;background:transparent;border:1px solid var(--line-strong);border-radius:2px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-soft);transition:background .2s,border-color .2s}
 .chip:hover{border-color:#fff}
 .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-.strip{overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:18px;scrollbar-width:thin;scrollbar-color:#3a4540 transparent}
+.strip{overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:18px;scrollbar-width:thin;scrollbar-color:#3a3832 transparent}
 .film{width:max-content;min-width:100%;padding-inline:var(--gut);display:flex;flex-direction:column;gap:12px}
-.holes{height:14px;background:linear-gradient(90deg,transparent 0 8px,#2a312e 8px 22px,transparent 22px 30px) 0 0/30px 14px repeat-x}
+.holes{height:14px;background:linear-gradient(90deg,transparent 0 8px,#26251f 8px 22px,transparent 22px 30px) 0 0/30px 14px repeat-x}
 .frames{display:flex;gap:16px}
 .clip{position:relative;flex:0 0 min(78vw,440px);display:block;aspect-ratio:16/9;border:1px solid var(--line-strong);border-radius:3px;overflow:hidden;scroll-snap-align:start;transition:border-color .2s,transform .2s}
 .clip:hover{border-color:var(--accent);transform:translateY(-4px)}
@@ -162,7 +163,7 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 .statement::before{content:"";position:absolute;inset:0;z-index:0;background:
   radial-gradient(ellipse 70% 40% at 78% 60%,rgba(70,110,84,.38),transparent 70%),
   radial-gradient(ellipse 50% 50% at 15% 30%,rgba(40,70,52,.42),transparent 70%),
-  linear-gradient(180deg,var(--bg) 0%,rgba(16,19,18,.4) 30%,rgba(16,19,18,.55) 75%,var(--bg) 100%),
+  linear-gradient(180deg,var(--bg) 0%,rgba(11,11,12,.4) 30%,rgba(11,11,12,.55) 75%,var(--bg) 100%),
   linear-gradient(120deg,#16241c 0%,#233a2d 50%,#101a15 100%)}
 .statement>*{position:relative;z-index:1}
 .statement h2{max-width:780px;font-weight:800;font-size:clamp(32px,4.8vw,70px);line-height:1.04;text-transform:uppercase;text-wrap:balance}
@@ -180,9 +181,9 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 40px;margin-top:64px;list-style:none;padding:0}
 .step{position:relative;padding-top:28px;border-top:1px solid var(--line-strong);min-width:0}
 .step:first-child::before{content:"";position:absolute;top:-1px;left:0;width:34%;height:2px;background:var(--accent)}
-.step-n{display:block;font-weight:800;font-size:clamp(54px,6vw,88px);line-height:1;color:transparent;-webkit-text-stroke:1.5px #5a655f;font-variant-numeric:tabular-nums}
+.step-n{display:block;font-weight:800;font-size:clamp(54px,6vw,88px);line-height:1;color:transparent;-webkit-text-stroke:1.5px #5d5950;font-variant-numeric:tabular-nums}
 .step h3{margin-top:18px;font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase}
-.step p{margin-top:10px;font-size:14px;line-height:1.6;color:#B4B9B4;max-width:300px}
+.step p{margin-top:10px;font-size:14px;line-height:1.6;color:#A7A296;max-width:300px}
 @media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 32px}}
 @media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}}
 
@@ -232,7 +233,7 @@ img{max-width:100%}
 .cmp.zoom img{transform:scale(2)}
 .cmp .cmp-before{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
 .cmp.dragging img{transition:none}
-.tag{position:absolute;top:14px;padding:6px 10px;background:rgba(11,14,13,.78);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+.tag{position:absolute;top:14px;padding:6px 10px;background:rgba(7,7,8,.78);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#fff}
 .cmp .cmp-before .tag{left:14px}
 .cmp .layer:not(.cmp-before) .tag{right:14px}
 .cmp-handle{position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:#fff;pointer-events:none}
@@ -254,23 +255,23 @@ img{max-width:100%}
 .meter .v{font-variant-numeric:tabular-nums;color:#fff;font-weight:600}
 .meter .bar{grid-column:1/-1;position:relative;height:6px;background:rgba(255,255,255,.1)}
 .meter .bar i{position:absolute;top:0;bottom:0;left:0;display:block}
-.meter .bar .b{background:#6f7873;height:3px}
+.meter .bar .b{background:#77736a;height:3px}
 .meter .bar .a{background:var(--accent);height:3px;top:3px}
 .legend{display:flex;gap:18px;margin-top:14px;font-size:12px;color:var(--faint)}
-.legend span::before{content:"";display:inline-block;width:10px;height:3px;margin-right:8px;vertical-align:middle;background:#6f7873}
+.legend span::before{content:"";display:inline-block;width:10px;height:3px;margin-right:8px;vertical-align:middle;background:#77736a}
 .legend span+span::before{background:var(--accent)}
 [hidden]{display:none!important}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------- Couche futuriste : images réelles, lumière, HUD, mouvement ---------- */
-.hero-slides{position:absolute;inset:0;z-index:0;overflow:hidden;background:#0b0e0d}
+.hero-slides{position:absolute;inset:0;z-index:0;overflow:hidden;background:#070708}
 .hero-slides i{position:absolute;inset:-4%;display:block;background-size:cover;background-position:center;opacity:0;transform:scale(1.04);transition:opacity 1.8s ease}
 .hero-slides i.on{opacity:.62;animation:kb 14s ease-out forwards}
 @keyframes kb{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.16) translate3d(-1.5%,-1%,0)}}
 .hero-veil{position:absolute;inset:0;z-index:0;background:
-  linear-gradient(90deg,rgba(11,14,13,.88) 0%,rgba(11,14,13,.5) 45%,rgba(11,14,13,.15) 100%),
-  linear-gradient(180deg,rgba(11,14,13,.55) 0%,rgba(11,14,13,0) 30%,rgba(16,19,18,.7) 78%,var(--bg) 100%)}
-.hero-spot{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(420px circle at var(--mx,70%) var(--my,35%),rgba(255,255,255,.13),rgba(216,54,43,.07) 40%,transparent 70%);mix-blend-mode:screen;transition:opacity .4s}
+  linear-gradient(90deg,rgba(7,7,8,.88) 0%,rgba(7,7,8,.5) 45%,rgba(7,7,8,.15) 100%),
+  linear-gradient(180deg,rgba(7,7,8,.55) 0%,rgba(7,7,8,0) 30%,rgba(11,11,12,.7) 78%,var(--bg) 100%)}
+.hero-spot{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(420px circle at var(--mx,70%) var(--my,35%),rgba(255,255,255,.13),rgba(200,169,122,.07) 40%,transparent 70%);mix-blend-mode:screen;transition:opacity .4s}
 .hero-scan{position:absolute;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px);opacity:.5}
 .hud{position:absolute;inset:22px var(--gut);z-index:2;pointer-events:none}
 .hud b{position:absolute;width:26px;height:26px;border:0 solid rgba(255,255,255,.7)}
@@ -301,7 +302,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .js .rv.in:not(.cat){transform:none}
 .js .cat.rv.in{transform:none}
 .js .cat.rv.in:nth-child(2){transform:translateY(-28px)}
-.statement.has-img::before{background:linear-gradient(180deg,var(--bg) 0%,rgba(16,19,18,.55) 35%,rgba(16,19,18,.7) 75%,var(--bg) 100%),var(--st-img) center/cover fixed}
+.statement.has-img::before{background:linear-gradient(180deg,var(--bg) 0%,rgba(11,11,12,.55) 35%,rgba(11,11,12,.7) 75%,var(--bg) 100%),var(--st-img) center/cover fixed}
 .cmp::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),inset 0 0 80px rgba(0,0,0,.35)}
 @media (hover:none){.hero-spot{display:none}.statement.has-img::before{background-attachment:scroll}}
 @media (prefers-reduced-motion:reduce){.hero-slides i.on{animation:none}.hero h1,.hero-lead,.hero-cta,.hero .eyebrow{animation:none}.ticker div{animation:none}body::after{animation:none}.js .rv{opacity:1;transform:none;transition:none}.cat::after,.clip::after{display:none}}
@@ -344,20 +345,101 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .wordmark:hover{color:var(--accent);-webkit-text-stroke-color:var(--accent)}
 .btn.mag{transition:transform .25s cubic-bezier(.2,.7,.2,1),filter .2s;will-change:transform}
 @media (prefers-reduced-motion:reduce){.progress{display:none}.statement h2 .w{opacity:1;transition:none}}
+.mail{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;font-weight:700;font-size:clamp(18px,2vw,26px);letter-spacing:.01em;border-bottom:1px solid var(--line-strong);word-break:break-all}
+.mail:hover{border-color:var(--accent);color:#fff}
+.foot-mail{font-weight:600;letter-spacing:.04em;color:var(--fg-soft)}
+
+/* ======== Direction artistique premium : noir, ivoire, champagne ======== */
+html{font-family:var(--font)}
+body{font-weight:400;letter-spacing:.005em}
+.hero-bg{background:radial-gradient(ellipse 70% 50% at 70% 25%,#1d1c1a,transparent 70%),linear-gradient(180deg,#0b0b0c,#121214)}
+.hero-fog,.hero-scan{display:none}
+.hero-spot{background:radial-gradient(420px circle at var(--mx,70%) var(--my,35%),rgba(255,255,255,.07),transparent 70%)}
+.hero-slides{opacity:.9}
+.hero-veil{background:linear-gradient(90deg,rgba(7,7,8,.82) 0%,rgba(7,7,8,.42) 48%,rgba(7,7,8,.1) 100%),linear-gradient(180deg,rgba(7,7,8,.5) 0%,rgba(7,7,8,0) 28%,rgba(11,11,12,.75) 80%,var(--bg) 100%)}
+.hero h1,.sec-title,.reel-head h2,.statement h2,.contact h2,.grade-head h2,.script-head h2{font-family:var(--serif);font-weight:400;text-transform:none;letter-spacing:-.015em}
+.hero h1{font-size:clamp(54px,8.6vw,132px);line-height:.94;max-width:980px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.sec-title{font-size:clamp(40px,5vw,72px);line-height:1}
+.reel-head h2,.grade-head h2,.script-head h2{font-size:clamp(46px,6.6vw,100px);line-height:.96}
+.statement h2{font-size:clamp(34px,5vw,74px);line-height:1.04}
+.contact h2{font-size:clamp(56px,9vw,140px);line-height:.94}
+.eyebrow{font-weight:500;letter-spacing:.22em;color:var(--muted)}
+.eyebrow::before{height:1px;width:34px}
+.btn{border-radius:0;background:var(--fg);color:#0b0b0c;font-weight:500;letter-spacing:.18em}
+.btn:hover{filter:none;background:var(--accent)}
+.chip{border-radius:0;font-weight:500;letter-spacing:.16em}
+.chip[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:#0b0b0c}
+.seg{border-radius:0}.seg button{font-weight:500}.seg button[aria-pressed="true"]{background:var(--fg);color:#0b0b0c}
+.grip{background:var(--fg);color:#0b0b0c}
+.brand i{width:12px;height:12px;border-radius:50%;background:transparent;border:1px solid var(--fg)}
+.nav-links{gap:clamp(18px,2.4vw,34px)}
+.rec i{background:var(--fg)}
+.pole h3,.step h3{font-weight:500;letter-spacing:.14em}
+.pole svg{color:var(--accent)}
+.cat,.clip,.lb-box,.cmp{border-radius:0}
+.cat{border-color:rgba(255,255,255,.1)}
+.cat:hover,.clip:hover{border-color:var(--accent)}
+.cat>img{filter:saturate(.95) brightness(.88)}
+.cat-shade{background:linear-gradient(180deg,rgba(7,7,8,.05) 35%,rgba(7,7,8,.88) 100%)}
+.cat-num{font-family:var(--serif);font-weight:400;font-style:italic;color:rgba(239,234,224,.92);-webkit-text-stroke:0}
+.cat-label b,.clip-foot b,.lb-title{font-family:var(--serif);font-weight:400;text-transform:none;letter-spacing:0}
+.cat-label b{font-size:26px}.clip-foot b{font-size:26px;line-height:1.05}.lb-title{font-size:26px}
+.clip-foot em{font-family:var(--font)}
+.play{border-color:rgba(255,255,255,.7)}
+.clip:hover .play{background:var(--fg);border-color:var(--fg)}
+.clip:hover .play svg{fill:#0b0b0c}
+.counter strong,.step-n{font-family:var(--serif);font-weight:400;color:rgba(239,234,224,.16);-webkit-text-stroke:0;letter-spacing:0}
+.step-n{color:var(--accent);font-style:italic}
+.stats b{font-family:var(--serif);font-weight:400;color:var(--fg);-webkit-text-stroke:0;letter-spacing:-.01em}
+.stats span{font-weight:500}
+.wordmark{font-family:var(--serif);font-weight:400;text-transform:none;color:rgba(239,234,224,.07);-webkit-text-stroke:0;letter-spacing:-.02em}
+.wordmark:hover{color:rgba(200,169,122,.35);-webkit-text-stroke:0}
+.phone,.mail{font-weight:500}
+.ticker div{font-weight:500}
+.ticker span::after{background:var(--accent);width:5px;height:5px}
+.statement::before{background:linear-gradient(180deg,var(--bg),#0f0f10 50%,var(--bg))}
+.statement.has-img::before{background:linear-gradient(180deg,var(--bg) 0%,rgba(11,11,12,.6) 35%,rgba(11,11,12,.75) 75%,var(--bg) 100%),var(--st-img) center/cover fixed}
+.contact{background:linear-gradient(180deg,var(--bg) 0%,#101012 100%)}
+.cursor.big span{background:var(--fg);border-color:var(--fg);color:#0b0b0c}
+body::after{opacity:.045}
+.sec-head p,.method-head p{color:var(--muted)}
+.hud b{border-color:rgba(239,234,224,.6)}
+.hud em{display:none}
+
+/* ---------- Script : page de scénario ---------- */
+.script{padding:110px var(--gut);background:var(--bg-deep);border-top:1px solid var(--line)}
+.script-head{display:flex;flex-direction:column;gap:14px;max-width:760px;margin-bottom:56px}
+.script-head p{font-size:15px;line-height:1.6;color:var(--muted)}
+.page{position:relative;max-width:780px;margin:0 auto;padding:64px 72px 72px 96px;background:#F4EFE3;color:#161616;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.4);font-family:'Courier Prime','Courier New',Courier,monospace;font-size:16px;line-height:1.5}
+.page::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,.05),transparent 7%)}
+.page .pg{position:absolute;top:28px;right:44px;font-size:14px}
+.sp-l{margin:0 0 20px}
+.sp-l.tr{text-align:right;text-transform:uppercase}
+.sp-l.sl{text-transform:uppercase;font-weight:700;margin-top:28px}
+.sp-l.ch{margin:24px 0 0 34%;text-transform:uppercase;margin-bottom:0}
+.sp-l.dl{margin:0 12% 22px 17%}
+.caret{display:inline-block;width:9px;height:1.05em;margin-left:6px;vertical-align:-3px;background:#161616;animation:cblink 1s steps(2,jump-none) infinite}
+@keyframes cblink{50%{opacity:0}}
+.js .sp-l{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
+.js .sp-l.on{opacity:1;transform:none}
+@media (max-width:700px){.page{padding:48px 22px 48px 34px;font-size:14px}.sp-l.ch{margin-left:26%}.sp-l.dl{margin:0 2% 20px 8%}.page .pg{right:18px}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}.js .sp-l{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
 
 <header class="nav">
-  <a class="brand" href="#accueil"><i></i>Djibril Afolabi</a>
+  <a class="brand" href="#accueil" aria-label="Accueil"><i></i></a>
   <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu">
     <svg width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 1h18M1 7h18M1 13h18"/></svg>
   </button>
   <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
     <a href="#realisations">Réalisations</a>
-    <a href="#bobine">Bobine</a>
+    <a href="#bobine">Films</a>
     <a href="#etalonnage">Étalonnage</a>
+    <a href="#script">Script</a>
     <a href="#methode">Méthode</a>
     <a class="btn nav-cta" href="#contact">Contact</a>
   </nav>
@@ -366,10 +448,11 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 <nav class="pager" aria-label="Sections">
   <a href="#accueil" data-s="accueil" aria-label="Accueil">01</a>
   <a href="#realisations" data-s="realisations" aria-label="Réalisations">02</a>
-  <a href="#bobine" data-s="bobine" aria-label="Bobine">03</a>
+  <a href="#bobine" data-s="bobine" aria-label="Films">03</a>
   <a href="#etalonnage" data-s="etalonnage" aria-label="Étalonnage">04</a>
-  <a href="#methode" data-s="methode" aria-label="Méthode">05</a>
-  <a href="#contact" data-s="contact" aria-label="Contact">06</a>
+  <a href="#script" data-s="script" aria-label="Script">05</a>
+  <a href="#methode" data-s="methode" aria-label="Méthode">06</a>
+  <a href="#contact" data-s="contact" aria-label="Contact">07</a>
 </nav>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -393,7 +476,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
     <h1>Du message<br>à <em>l’image.</em></h1>
     <p class="hero-lead">Je conçois et réalise des contenus vidéo et digitaux pour les marques, les entreprises et les événements. Du brief à la publication.</p>
     <div class="hero-cta">
-      <a class="btn" href="#contact">Parlons de votre projet
+      <a class="btn" href="#contact">Me contacter
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
       </a>
       <a class="link-play" href="#bobine">
@@ -413,31 +496,29 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
       <div><h3>Production vidéo</h3><p>Préparation de tournage, interviews, films d’entreprise et captation d’événements.</p></div>
     </div>
     <div class="pole">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="9" cy="6" r="2" fill="#101312"/><circle cx="15" cy="12" r="2" fill="#101312"/><circle cx="7" cy="18" r="2" fill="#101312"/></svg>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="9" cy="6" r="2" fill="#0b0b0c"/><circle cx="15" cy="12" r="2" fill="#0b0b0c"/><circle cx="7" cy="18" r="2" fill="#0b0b0c"/></svg>
       <div><h3>Montage &amp; postproduction</h3><p>Montage, nettoyage du son, étalonnage et déclinaisons pour chaque format de diffusion.</p></div>
     </div>
   </div>
 </section>
 
 <div class="ticker" aria-hidden="true"><div>
-  <span>Premiere Pro</span><span>DaVinci Resolve</span><span>After Effects</span><span>Prises de vue drone</span><span>Étalonnage</span><span>Montage</span><span>Motion design</span><span>Son</span>
-  <span>Premiere Pro</span><span>DaVinci Resolve</span><span>After Effects</span><span>Prises de vue drone</span><span>Étalonnage</span><span>Montage</span><span>Motion design</span><span>Son</span>
+  <span>Premiere Pro</span><span>DaVinci Resolve</span><span>After Effects</span><span>Prises de vue drone</span><span>Étalonnage</span><span>Montage</span><span>Motion design</span><span>Sound design</span><span>Storytelling</span><span>Court métrage</span><span>Publicité</span>
+  <span>Premiere Pro</span><span>DaVinci Resolve</span><span>After Effects</span><span>Prises de vue drone</span><span>Étalonnage</span><span>Montage</span><span>Motion design</span><span>Sound design</span><span>Storytelling</span><span>Court métrage</span><span>Publicité</span>
 </div></div>
 
 <section class="cats-sec" id="realisations">
   <div class="sec-head">
     <h2 class="sec-title">Réalisations</h2>
-    <p id="catsSub">Choisissez une catégorie pour ouvrir la bobine.</p>
+    <p id="catsSub">Choisissez une catégorie pour voir les films.</p>
   </div>
   <div class="cats" id="cats"></div>
-  <p class="cats-note">Bientôt en ligne : entreprise, making-of, sport et mode.</p>
 </section>
 
 <section class="reel" id="bobine">
   <div class="reel-head">
     <div class="txt">
-      <div class="eyebrow">Rushes en ligne</div>
-      <h2>La bobine.</h2>
+      <h2>Les films.</h2>
       <p>Chaque image est un film. Faites défiler la pellicule et cliquez sur un clip pour le regarder.</p>
     </div>
     <div class="counter" aria-live="polite"><strong id="count">08</strong><span>clips<br>affichés</span></div>
@@ -475,9 +556,9 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
       </div>
       <div class="ctrl">
         <div class="seg" role="group" aria-label="Affichage">
-          <button type="button" data-v="0" aria-pressed="false">Avant</button>
+          <button type="button" data-v="100" aria-pressed="false">Avant</button>
           <button type="button" data-v="50" aria-pressed="true">Comparer</button>
-          <button type="button" data-v="100" aria-pressed="false">Après</button>
+          <button type="button" data-v="0" aria-pressed="false">Après</button>
         </div>
         <button class="chip" id="zoomBtn" type="button" aria-pressed="false">Zoom ×2</button>
       </div>
@@ -494,7 +575,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
         <ul class="meter" id="meter"></ul>
         <div class="legend"><span>Avant</span><span>Après</span></div>
       </div>
-      <a class="btn" href="#contact">Un film à étalonner ?</a>
+      <a class="btn" href="#contact">Me contacter</a>
     </div>
   </div>
 </section>
@@ -506,6 +587,31 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
   <div><b>4K</b><span>Tournage &amp; export</span></div>
 </section>
 
+<section class="script" id="script">
+  <div class="script-head">
+    <div class="eyebrow">Scénario</div>
+    <h2>Le script.</h2>
+    <p>Avant la caméra, il y a une page. Voici comment j’aborde une histoire.</p>
+  </div>
+  <div class="page" id="page" role="img" aria-label="Extrait de scénario">
+    <span class="pg">1.</span>
+    <div class="sp-l tr">FONDU AU NOIR.</div>
+    <div class="sp-l sl">INT. SALLE DE MONTAGE – NUIT</div>
+    <div class="sp-l ac">Un écran. Des centaines de rushes. Une timeline vide, et un curseur qui clignote.</div>
+    <div class="sp-l ch">DJIBRIL (V.O.)</div>
+    <div class="sp-l dl">Une image ne raconte rien toute seule. Il lui faut un rythme, un son, une intention.</div>
+    <div class="sp-l ac">Il pose un premier plan. Puis un deuxième. Le son entre, la couleur s’installe.</div>
+    <div class="sp-l sl">EXT. PARIS – JOUR</div>
+    <div class="sp-l ac">Un couple traverse la rue. La caméra les suit, à hauteur d’épaule. Personne ne regarde l’objectif.</div>
+    <div class="sp-l ch">DJIBRIL (V.O.)</div>
+    <div class="sp-l dl">Mon travail, c’est de les laisser oublier que je suis là.</div>
+    <div class="sp-l tr">COUPE.</div>
+    <div class="sp-l sl">INT. SALLE DE MONTAGE – PLUS TARD</div>
+    <div class="sp-l ac">Le film respire enfin. Il appuie sur espace.</div>
+    <div class="sp-l tr">FONDU AU NOIR.<span class="caret"></span></div>
+  </div>
+</section>
+
 <section class="statement">
   <h2>Un regard créatif, du premier brief à la dernière image.</h2>
   <div class="statement-foot">
@@ -513,7 +619,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
       <p>Mon objectif : des contenus clairs, soignés et adaptés à leur public, du film d’entreprise à la publication sur les réseaux sociaux.</p>
       <b>Djibril Afolabi</b>
     </div>
-    <a class="btn" href="#contact">Démarrer un projet
+    <a class="btn" href="#contact">Me contacter
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
     </a>
   </div>
@@ -538,19 +644,23 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 
 <section class="contact" id="contact">
   <div class="contact-grid">
-    <h2>Parlons de votre projet.</h2>
+    <h2>Contact.</h2>
     <div class="contact-side">
       <div>
         <div class="label">Téléphone</div>
         <div class="phone-row">
           <span class="phone" id="phone">07 58 45 74 96</span>
-          <button class="copy" id="copy" type="button">Copier</button>
         </div>
       </div>
-      <a class="btn" style="align-self:flex-start" href="https://wa.me/33758457496?text=Bonjour%20Djibril%2C%20j%E2%80%99ai%20d%C3%A9couvert%20votre%20portfolio%20et%20j%E2%80%99aimerais%20%C3%A9changer%20avec%20vous%20au%20sujet%20d%E2%80%99un%20projet." target="_blank" rel="noopener">Écrire sur WhatsApp
+      <div>
+        <div class="label">E-mail</div>
+        <a class="mail" href="mailto:djibrilafolabi@gmail.com">djibrilafolabi@gmail.com</a>
+      </div>
+      <a class="btn" style="align-self:flex-start" href="https://wa.me/33758457496?text=Bonjour%20Djibril%2C%20j%E2%80%99ai%20d%C3%A9couvert%20votre%20portfolio%20et%20je%20souhaiterais%20%C3%A9changer%20avec%20vous." target="_blank" rel="noopener">Écrire sur WhatsApp
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
       </a>
       <div class="contact-links">
+        <a href="https://www.linkedin.com/in/djibril-roberto-afolabi-511a39220/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.youtube.com/channel/UChz-QfMnSACJ5lstxM79wgg" target="_blank" rel="noopener">YouTube</a>
         <a href="https://djibrilrobertoaf.myportfolio.com/photographie" target="_blank" rel="noopener">Photographie</a>
       </div>
@@ -562,6 +672,8 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 <div class="wordmark" aria-hidden="true">Djibril Afolabi</div>
 <footer class="foot">
   <span>© 2026 Djibril Afolabi</span>
+  <a class="foot-mail" href="mailto:djibrilafolabi@gmail.com">djibrilafolabi@gmail.com</a>
+  <a href="https://www.linkedin.com/in/djibril-roberto-afolabi-511a39220/" target="_blank" rel="noopener">LinkedIn</a>
   <a href="#accueil">Retour en haut ↑</a>
 </footer>
 
@@ -577,14 +689,14 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 (function(){
   /* ===== Pour ajouter un film : une ligne ici (titre, catégorie, lien YouTube). ===== */
   var CLIPS = [
-    {title:'Court métrage 01', cat:'Fiction',   url:'https://youtu.be/MBdshXfbeRU'},
-    {title:'Événement 02',     cat:'Événement', url:'https://youtu.be/AqtWBB1l7SE'},
-    {title:'Mariage 01',       cat:'Mariage',   url:'https://youtu.be/toEyJCL-teQ'},
-    {title:'Mariage 02',       cat:'Mariage',   url:'https://youtu.be/P9t-Rjw0wDM'},
-    {title:'Mariage 03',       cat:'Mariage',   url:'https://youtu.be/q1xqYx5cMXw'},
-    {title:'Mariage 04',       cat:'Mariage',   url:'https://youtu.be/7ZokOXl0UUI'},
-    {title:'Mariage 05',       cat:'Mariage',   url:'https://youtu.be/fL5ZR_PzBl0'},
-    {title:'Mariage 06',       cat:'Mariage',   url:'https://youtu.be/rDqIY-SyS6U'}
+    {title:'Court métrage 01', cat:'Fiction',   img:'img/court-metrage-01.jpg', url:'https://youtu.be/MBdshXfbeRU'},
+    {title:'Événement 02',     cat:'Événement', img:'img/evenement-02.jpg', url:'https://youtu.be/AqtWBB1l7SE'},
+    {title:'Mariage 01',       cat:'Mariage',   img:'img/mariage-01.jpg', url:'https://youtu.be/toEyJCL-teQ'},
+    {title:'Mariage 02',       cat:'Mariage',   img:'img/mariage-02.jpg', url:'https://youtu.be/P9t-Rjw0wDM'},
+    {title:'Mariage 03',       cat:'Mariage',   img:'img/mariage-03.jpg', url:'https://youtu.be/q1xqYx5cMXw'},
+    {title:'Mariage 04',       cat:'Mariage',   img:'img/mariage-04.jpg', url:'https://youtu.be/7ZokOXl0UUI'},
+    {title:'Mariage 05',       cat:'Mariage',   img:'img/mariage-05.jpg', url:'https://youtu.be/fL5ZR_PzBl0'},
+    {title:'Mariage 06',       cat:'Mariage',   img:'img/mariage-06.jpg', url:'https://youtu.be/rDqIY-SyS6U'}
   ];
   var ADOBE = 'https://djibrilrobertoaf.myportfolio.com/photographie';
   var PHOTO_COUNT = 44;
@@ -595,13 +707,15 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
     'Photographie':'linear-gradient(135deg,#8a8f98 0%,#3d424b 55%,#13151a 100%)'
   };
   function thumb(c){
-    var id = ytId(c.url); if(!id) return null;
     var im = document.createElement('img'); im.alt = ''; im.loading = 'lazy'; im.decoding = 'async';
+    if(c.img){ im.src = c.img; return im; }
+    var id = ytId(c.url); if(!id) return null;
     im.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
     im.onload = function(){ if(im.naturalWidth && im.naturalWidth < 400){ im.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; } };
     im.onerror = function(){ im.onerror = null; im.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; };
     return im;
   }
+  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg'};
   var CARD_ORDER = ['Événement','Mariage','Fiction'];
   var CARD_NAME = {'Fiction':'Court métrage'};
 
@@ -635,8 +749,6 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
       var foot = el('div','clip-foot'); foot.appendChild(el('b',null,c.title)); foot.appendChild(el('em',null,'1920×1080')); a.appendChild(foot);
       framesEl.appendChild(a);
     });
-    var soon = el('div','soon'); soon.appendChild(el('b',null,'La suite arrive')); soon.appendChild(el('span',null,'D’autres films seront ajoutés ici.'));
-    framesEl.appendChild(soon);
     document.getElementById('count').textContent = pad(shown.length);
     strip.scrollLeft = 0;
   }
@@ -662,7 +774,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
       var n = CLIPS.filter(function(c){ return c.cat === name; }).length;
       var a = el('a','cat'); a.href = '#bobine';
       a.style.background = GRAD[name];
-      var first = CLIPS.filter(function(c){ return c.cat === name; })[0]; var ct = first && thumb(first); if(ct) a.appendChild(ct);
+      var ct = document.createElement('img'); ct.alt = ''; ct.loading = 'lazy'; ct.decoding = 'async'; ct.src = CAT_IMG[name]; a.appendChild(ct);
       a.appendChild(el('div','cat-shade'));
       a.appendChild(el('div','cat-num', pad(n)));
       var lab = el('div','cat-label'); lab.appendChild(el('b',null, CARD_NAME[name] || name)); lab.appendChild(el('span',null, n + (n > 1 ? ' vidéos' : ' vidéo'))); a.appendChild(lab);
@@ -671,6 +783,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
     });
     var p = el('a','cat'); p.href = ADOBE; p.target = '_blank'; p.rel = 'noopener';
     p.style.background = GRAD['Photographie'];
+    var pim = document.createElement('img'); pim.alt = ''; pim.loading = 'lazy'; pim.decoding = 'async'; pim.src = CAT_IMG['Photographie']; p.appendChild(pim);
     p.appendChild(el('div','cat-shade'));
     p.appendChild(el('div','cat-num', String(PHOTO_COUNT)));
     var pl = el('div','cat-label'); pl.appendChild(el('b',null,'Photographie')); pl.appendChild(el('span',null, PHOTO_COUNT + ' photos')); p.appendChild(pl);
@@ -752,7 +865,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
         }
       });
     }, {rootMargin:'-45% 0px -50% 0px'});
-    ['accueil','realisations','bobine','etalonnage','methode','contact'].forEach(function(id){ var s = document.getElementById(id); if(s) io.observe(s); });
+    ['accueil','realisations','bobine','etalonnage','script','methode','contact'].forEach(function(id){ var s = document.getElementById(id); if(s) io.observe(s); });
   }
   if(map.accueil) map.accueil.classList.add('on');
 
@@ -882,14 +995,14 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     var slidesEl = document.getElementById('heroSlides');
     var SCENES = [
-      {src:'videos/plateau.mp4',  label:'Plateau'},
-      {src:'videos/avant.mp4',    label:'Rushes'},
-      {src:'videos/apres.mp4',    label:'Étalonnage'},
-      {src:'videos/montage.mp4',  label:'Montage'},
-      {src:'videos/drone.mp4',    label:'Prises de vue aérienne'},
-      {src:'videos/camera.mp4',   label:'Image'}
+      {src:'videos/reel1.mp4', label:'Mariage'},
+      {src:'videos/reel2.mp4', label:'Mariage'},
+      {src:'videos/reel3.mp4', label:'Mariage'},
+      {src:'videos/reel6.mp4', label:'Préparatifs'},
+      {src:'videos/reel5.mp4', label:'Court métrage'},
+      {src:'videos/reel4.mp4', label:'Événement'}
     ];
-    var FALLBACK = [0,1,2,4,6].map(function(i){ var c = CLIPS[i]; return c ? {src:'https://i.ytimg.com/vi/' + ytId(c.url) + '/maxresdefault.jpg', label:c.cat} : null; }).filter(Boolean);
+    var FALLBACK = [0,1,2,4,6].map(function(i){ var c = CLIPS[i]; return c && c.img ? {src:c.img, label:c.cat} : null; }).filter(Boolean);
     function isVid(s){ return /\.mp4$/i.test(s.src); }
     function loadScene(s){ return new Promise(function(res){
       if(isVid(s)){ var v = document.createElement('video'); v.preload = 'auto'; v.muted = true; v.onloadeddata = function(){ res(s); }; v.onerror = function(){ res(null); }; v.src = s.src; setTimeout(function(){ res(null); }, 9000); }
@@ -931,7 +1044,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
     });
     if(uiBars){ uiBars.addEventListener('click', function(e){ var b = e.target.closest('b'); if(!b || !list.length) return; var j = Array.prototype.indexOf.call(uiBars.children, b); if(j !== cur){ clearInterval(timer); show(j, false); if(!reduce) timer = setInterval(next, 5200); } }); }
     var st = document.querySelector('.statement');
-    if(st){ var c3 = CLIPS[2]; if(c3){ st.style.setProperty('--st-img', 'url(https://i.ytimg.com/vi/' + ytId(c3.url) + '/maxresdefault.jpg)'); st.classList.add('has-img'); } }
+    if(st){ st.style.setProperty('--st-img', 'url(img/mariage-01.jpg)'); st.classList.add('has-img'); }
 
     var hero = document.getElementById('accueil'), spot = document.getElementById('heroSpot');
     if(hero && spot && !reduce){
@@ -945,7 +1058,7 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
       }, {passive:true});
     }
 
-    var targets = document.querySelectorAll('.sec-head, .cat, .grade-head, .cmp, .panel, .ctrl, .statement h2, .statement-foot, .step, .reel-head, .contact-grid, .tools, .cats-note');
+    var targets = document.querySelectorAll('.sec-head, .cat, .grade-head, .cmp, .panel, .ctrl, .statement h2, .statement-foot, .step, .reel-head, .contact-grid, .tools, .script-head, .page');
     if('IntersectionObserver' in window && !reduce){
       document.documentElement.classList.add('js');
       var cio = new IntersectionObserver(function(en){
@@ -957,6 +1070,17 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
         cio.observe(t);
       });
     }
+  })();
+
+  /* Script : les lignes apparaissent une à une */
+  (function(){
+    var page = document.getElementById('page'); if(!page) return;
+    var lines = page.querySelectorAll('.sp-l');
+    if(!document.documentElement.classList.contains('js') || !('IntersectionObserver' in window)){ Array.prototype.forEach.call(lines, function(l){ l.classList.add('on'); }); return; }
+    var io = new IntersectionObserver(function(en){
+      en.forEach(function(x){ if(x.isIntersecting){ io.unobserve(x.target); x.target.classList.add('on'); } });
+    }, {threshold:.5, rootMargin:'0px 0px -8% 0px'});
+    Array.prototype.forEach.call(lines, function(l){ io.observe(l); });
   })();
 
   /* Veille : progression, curseur, chiffres, manifeste, aimants */
@@ -1023,21 +1147,6 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
     }
   })();
 
-  /* Copier le numéro */
-  var copyBtn = document.getElementById('copy');
-  copyBtn.addEventListener('click', function(){
-    var phone = document.getElementById('phone');
-    function done(ok){ copyBtn.textContent = ok ? 'Copié' : 'Sélectionné'; setTimeout(function(){ copyBtn.textContent = 'Copier'; }, 1800); }
-    function select(){
-      try{ var r = document.createRange(); r.selectNodeContents(phone); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
-      done(false);
-    }
-    try{
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText('0758457496').then(function(){ done(true); }, select);
-      } else { select(); }
-    }catch(e){ select(); }
-  });
 })();
 </script>
 </body>
