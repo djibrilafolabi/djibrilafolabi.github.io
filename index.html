@@ -425,6 +425,17 @@ body::after{opacity:.045}
 .js .sp-l.on{opacity:1;transform:none}
 @media (max-width:700px){.page{padding:48px 22px 48px 34px;font-size:14px}.sp-l.ch{margin-left:26%}.sp-l.dl{margin:0 2% 20px 8%}.page .pg{right:18px}}
 @media (prefers-reduced-motion:reduce){.caret{animation:none}.js .sp-l{opacity:1;transform:none;transition:none}}
+
+/* Formats verticaux et grille de catégories */
+.frames{align-items:flex-start}
+.cat:nth-child(2),.js .cat.rv.in:nth-child(2){transform:none}
+.clip.v{flex:0 0 min(60vw,270px);aspect-ratio:9/16}
+.clip.v .clip-foot b{font-size:21px}
+.lb-box.v{width:min(100%,calc((100vh - 190px)*9/16));aspect-ratio:9/16}
+.cats{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.cat{flex:0 0 calc((100% - 60px)/4)}
+@media (max-width:980px){.cat{flex-basis:calc((100% - 20px)/2)}}
+@media (max-width:480px){.cats{gap:12px}.cat{flex-basis:calc((100% - 12px)/2)}}
 </style>
 </head>
 <body>
@@ -521,7 +532,7 @@ body::after{opacity:.045}
       <h2>Les films.</h2>
       <p>Chaque image est un film. Faites défiler la pellicule et cliquez sur un clip pour le regarder.</p>
     </div>
-    <div class="counter" aria-live="polite"><strong id="count">08</strong><span>clips<br>affichés</span></div>
+    <div class="counter" aria-live="polite"><strong id="count">12</strong><span>clips<br>affichés</span></div>
   </div>
   <div class="filters" id="filters" role="group" aria-label="Filtrer par catégorie"></div>
   <div class="strip" id="strip">
@@ -581,7 +592,7 @@ body::after{opacity:.045}
 </section>
 
 <section class="stats" aria-label="En chiffres">
-  <div><b data-n="8" data-pad="2">08</b><span>Films en ligne</span></div>
+  <div><b data-n="12" data-pad="2">12</b><span>Films en ligne</span></div>
   <div><b data-n="44">44</b><span>Photographies</span></div>
   <div><b data-n="25">25</b><span>Images par seconde</span></div>
   <div><b>4K</b><span>Tournage &amp; export</span></div>
@@ -696,7 +707,11 @@ body::after{opacity:.045}
     {title:'Mariage 03',       cat:'Mariage',   img:'img/mariage-03.jpg', url:'https://youtu.be/q1xqYx5cMXw'},
     {title:'Mariage 04',       cat:'Mariage',   img:'img/mariage-04.jpg', url:'https://youtu.be/7ZokOXl0UUI'},
     {title:'Mariage 05',       cat:'Mariage',   img:'img/mariage-05.jpg', url:'https://youtu.be/fL5ZR_PzBl0'},
-    {title:'Mariage 06',       cat:'Mariage',   img:'img/mariage-06.jpg', url:'https://youtu.be/rDqIY-SyS6U'}
+    {title:'Mariage 06',       cat:'Mariage',   img:'img/mariage-06.jpg', url:'https://youtu.be/rDqIY-SyS6U'},
+    {title:'Mode · La cour',          cat:'Mode',       img:'img/mode-01.jpg',      v:1, url:'https://youtube.com/shorts/JFMqfV5zNZE'},
+    {title:'Making-of · Le plateau',  cat:'Making-of',  img:'img/making-of-01.jpg', v:1, url:'https://youtube.com/shorts/aKxolHKaxKs'},
+    {title:'Making-of · Le cadre',    cat:'Making-of',  img:'img/making-of-02.jpg', v:1, url:'https://youtube.com/shorts/ih9gttcFc7E'},
+    {title:'Basket · Portrait',       cat:'Sport',      img:'img/basket-01.jpg',    v:1, url:'https://youtube.com/shorts/shoz_PzI104'}
   ];
   var ADOBE = 'https://djibrilrobertoaf.myportfolio.com/photographie';
   var PHOTO_COUNT = 44;
@@ -715,8 +730,8 @@ body::after{opacity:.045}
     im.onerror = function(){ im.onerror = null; im.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; };
     return im;
   }
-  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg'};
-  var CARD_ORDER = ['Événement','Mariage','Fiction'];
+  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Mode':'img/mode-01.jpg','Making-of':'img/making-of-02.jpg','Sport':'img/basket-01.jpg'};
+  var CARD_ORDER = ['Événement','Mariage','Fiction','Mode','Making-of','Sport'];
   var CARD_NAME = {'Fiction':'Court métrage'};
 
   function pad(n){ return (n < 10 ? '0' : '') + n; }
@@ -737,7 +752,7 @@ body::after{opacity:.045}
     var shown = CLIPS.filter(function(c){ return current === 'Tous' || c.cat === current; });
     shown.forEach(function(c, i){
       var a = el('a','clip');
-      a.href = c.url; a.target = '_blank'; a.rel = 'noopener';
+      a.href = c.url; a.target = '_blank'; a.rel = 'noopener'; if(c.v) a.classList.add('v');
       a.setAttribute('aria-label', c.title + ', lire la vidéo');
       a.addEventListener('click', function(e){ if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); openLb(c, a); });
       a.style.background = GRAD[c.cat] || GRAD['Fiction'];
@@ -746,7 +761,7 @@ body::after{opacity:.045}
       a.appendChild(el('small','k-n','Clip ' + pad(i + 1)));
       a.appendChild(el('small','k-c', c.cat));
       var play = el('div','play'); play.appendChild(svgPlay()); a.appendChild(play);
-      var foot = el('div','clip-foot'); foot.appendChild(el('b',null,c.title)); foot.appendChild(el('em',null,'1920×1080')); a.appendChild(foot);
+      var foot = el('div','clip-foot'); foot.appendChild(el('b',null,c.title)); foot.appendChild(el('em',null,c.v ? '1080×1920' : '1920×1080')); a.appendChild(foot);
       framesEl.appendChild(a);
     });
     document.getElementById('count').textContent = pad(shown.length);
@@ -796,11 +811,11 @@ body::after{opacity:.045}
   /* Lecteur intégré */
   var lb = document.getElementById('lb'), lbBox = document.getElementById('lbBox'), lbTitle = document.getElementById('lbTitle'), lbYt = document.getElementById('lbYt'), lbClose = document.getElementById('lbClose');
   var lastFocus = null;
-  function ytId(u){ var m = u.match(/youtu\.be\/([\w-]{6,})/) || u.match(/[?&]v=([\w-]{6,})/); return m ? m[1] : null; }
+  function ytId(u){ var m = u.match(/youtu\.be\/([\w-]{6,})/) || u.match(/shorts\/([\w-]{6,})/) || u.match(/[?&]v=([\w-]{6,})/); return m ? m[1] : null; }
   function openLb(c, trigger){
     var id = ytId(c.url); if(!id){ window.open(c.url, '_blank', 'noopener'); return; }
     lastFocus = trigger || document.activeElement;
-    lbBox.textContent = '';
+    lbBox.textContent = ''; lbBox.classList.toggle('v', !!c.v);
     var f = document.createElement('iframe');
     f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
     f.title = c.title;
