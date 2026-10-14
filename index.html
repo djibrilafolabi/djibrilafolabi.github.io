@@ -995,12 +995,12 @@ body::after{opacity:.045}
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     var slidesEl = document.getElementById('heroSlides');
     var SCENES = [
-      {src:'videos/reel1.mp4', label:'Mariage'},
-      {src:'videos/reel2.mp4', label:'Mariage'},
-      {src:'videos/reel3.mp4', label:'Mariage'},
-      {src:'videos/reel6.mp4', label:'Préparatifs'},
-      {src:'videos/reel5.mp4', label:'Court métrage'},
-      {src:'videos/reel4.mp4', label:'Événement'}
+      {src:'videos/plateau.mp4',  label:'Plateau'},
+      {src:'videos/avant.mp4',    label:'Rushes'},
+      {src:'videos/apres.mp4',    label:'Étalonnage'},
+      {src:'videos/montage.mp4',  label:'Montage'},
+      {src:'videos/drone.mp4',    label:'Prises de vue aérienne'},
+      {src:'videos/camera.mp4',   label:'Image'}
     ];
     var FALLBACK = [0,1,2,4,6].map(function(i){ var c = CLIPS[i]; return c && c.img ? {src:c.img, label:c.cat} : null; }).filter(Boolean);
     function isVid(s){ return /\.mp4$/i.test(s.src); }
