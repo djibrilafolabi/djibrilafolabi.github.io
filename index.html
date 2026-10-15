@@ -436,6 +436,16 @@ body::after{opacity:.045}
 .cat{flex:0 0 calc((100% - 60px)/4)}
 @media (max-width:980px){.cat{flex-basis:calc((100% - 20px)/2)}}
 @media (max-width:480px){.cats{gap:12px}.cat{flex-basis:calc((100% - 12px)/2)}}
+
+/* Étalonnage en mouvement */
+.motion{margin-top:80px;padding-top:56px;border-top:1px solid var(--line)}
+.motion-head{max-width:640px;margin-bottom:28px}
+.motion-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,52px);line-height:1;letter-spacing:-.01em;margin:0 0 12px;text-transform:none;color:var(--fg)}
+.motion-head p{font-size:15px;line-height:1.6;color:var(--muted)}
+.mv{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line);overflow:hidden;cursor:ew-resize;touch-action:pan-y}
+.mv video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.mv:focus-within{outline:2px solid #fff;outline-offset:3px}
+.motion .ctrl{align-items:flex-start}
 </style>
 </head>
 <body>
@@ -587,6 +597,20 @@ body::after{opacity:.045}
         <div class="legend"><span>Avant</span><span>Après</span></div>
       </div>
       <a class="btn" href="#contact">Me contacter</a>
+    </div>
+  </div>
+  <div class="motion" id="motion">
+    <div class="motion-head">
+      <h3>Plus de plans</h3>
+      <p>Glissez sur la vidéo, de gauche à droite : l’image passe du log à l’étalonnage. Choisissez un plan ci-dessous.</p>
+    </div>
+    <div class="mv" id="mv">
+      <video id="mvVideo" src="videos/etalonnage-anime.mp4" muted playsinline preload="auto" aria-label="Plans avant et après étalonnage"></video>
+      <input class="sr" id="mvRange" type="range" min="0" max="1000" value="0" step="1" aria-label="Passer de l’image brute à l’image étalonnée">
+    </div>
+    <div class="ctrl">
+      <button class="chip" id="mvPlay" type="button" aria-pressed="true">Pause</button>
+      <div class="pairs" id="mvShots"></div>
     </div>
   </div>
 </section>
@@ -1003,6 +1027,55 @@ body::after{opacity:.045}
         }
       }, {threshold:.6}).observe(cmp);
     }
+  })();
+
+  /* Étalonnage en mouvement : on glisse pour passer du log à l'étalonné */
+  (function(){
+    var v = document.getElementById('mvVideo'); if(!v) return;
+    var range = document.getElementById('mvRange'), playBtn = document.getElementById('mvPlay'), box = document.getElementById('mvShots'), mv = document.getElementById('mv');
+    var SHOTS = [['Falaises',0],['Rue de nuit',3.1],['Champ',6.2],['Forêt',9.3],['Bureau',12.4],['Chalet',15.5],['Plage',18.6],['Port',21.65],['Café',24.8],['Canyon',27.9],['Automne',30.97],['Lac',34.1]];
+    var A = 0.5, B = 1.95, LEN = 3.0;
+    var cur = 0, playing = false, visible = false, drag = false;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function startOf(i){ return SHOTS[i][1]; }
+    function endOf(i){ return (i + 1 < SHOTS.length ? startOf(i + 1) : v.duration || 37.6) - 0.2; }
+    function pos(t){ return Math.max(0, Math.min(1, (t - (startOf(cur) + A)) / (B - A))); }
+    function setP(p){ v.currentTime = startOf(cur) + A + p * (B - A); range.value = Math.round(p * 1000); }
+    function mark(){ Array.prototype.forEach.call(box.children, function(b, j){ b.setAttribute('aria-pressed', String(j === cur)); }); }
+    function setPlay(on){
+      playing = on; playBtn.textContent = on ? 'Pause' : 'Lecture'; playBtn.setAttribute('aria-pressed', String(on));
+      if(on && visible){ var pr = v.play(); if(pr && pr.catch) pr.catch(function(){}); } else { v.pause(); }
+    }
+    function select(i){
+      cur = i; mark(); v.currentTime = startOf(i);
+      setPlay(!reduce);
+    }
+    SHOTS.forEach(function(s, i){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = s[0];
+      b.addEventListener('click', function(){ select(i); }); box.appendChild(b);
+    });
+    (function loop(){
+      if(playing && !v.paused){
+        var t = v.currentTime;
+        if(t >= endOf(cur) || t < startOf(cur) - .05) v.currentTime = startOf(cur);
+        range.value = Math.round(pos(t) * 1000);
+      }
+      requestAnimationFrame(loop);
+    })();
+    range.addEventListener('input', function(){ setPlay(false); setP(+range.value / 1000); });
+    playBtn.addEventListener('click', function(){
+      if(playing){ setPlay(false); }
+      else { if(v.currentTime >= endOf(cur) - .1) v.currentTime = startOf(cur); setPlay(true); }
+    });
+    v.addEventListener('loadedmetadata', function(){ v.currentTime = startOf(0); });
+    mark();
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){
+        visible = en[0].isIntersecting;
+        if(visible){ if(!reduce && !drag && (playing || v.currentTime < .2)) setPlay(true); }
+        else { v.pause(); }
+      }, {threshold:.4}).observe(mv);
+    } else { visible = true; }
   })();
 
   /* Couche futuriste : diaporama hero, lumière, parallaxe, apparitions */
