@@ -542,7 +542,7 @@ body::after{opacity:.045}
       <h2>Les films.</h2>
       <p>Chaque image est un film. Faites défiler la pellicule et cliquez sur un clip pour le regarder.</p>
     </div>
-    <div class="counter" aria-live="polite"><strong id="count">12</strong><span>clips<br>affichés</span></div>
+    <div class="counter" aria-live="polite"><strong id="count">13</strong><span>clips<br>affichés</span></div>
   </div>
   <div class="filters" id="filters" role="group" aria-label="Filtrer par catégorie"></div>
   <div class="strip" id="strip">
@@ -616,7 +616,7 @@ body::after{opacity:.045}
 </section>
 
 <section class="stats" aria-label="En chiffres">
-  <div><b data-n="12" data-pad="2">12</b><span>Films en ligne</span></div>
+  <div><b data-n="13" data-pad="2">13</b><span>Films en ligne</span></div>
   <div><b data-n="44">44</b><span>Photographies</span></div>
   <div><b data-n="25">25</b><span>Images par seconde</span></div>
   <div><b>4K</b><span>Tournage &amp; export</span></div>
@@ -723,6 +723,7 @@ body::after{opacity:.045}
 (function(){
   /* ===== Pour ajouter un film : une ligne ici (titre, catégorie, lien YouTube). ===== */
   var CLIPS = [
+    {title:'Salon de l’auto · Récap', cat:'Événement', img:'img/salon-auto.jpg', file:'videos/recap-salon-auto.mp4', url:'videos/recap-salon-auto.mp4'},
     {title:'Court métrage 01', cat:'Fiction',   img:'img/court-metrage-01.jpg', url:'https://youtu.be/MBdshXfbeRU'},
     {title:'Événement 02',     cat:'Événement', img:'img/evenement-02.jpg', url:'https://youtu.be/AqtWBB1l7SE'},
     {title:'Mariage 01',       cat:'Mariage',   img:'img/mariage-01.jpg', url:'https://youtu.be/toEyJCL-teQ'},
@@ -836,7 +837,16 @@ body::after{opacity:.045}
   var lastFocus = null;
   function ytId(u){ var m = u.match(/youtu\.be\/([\w-]{6,})/) || u.match(/shorts\/([\w-]{6,})/) || u.match(/[?&]v=([\w-]{6,})/); return m ? m[1] : null; }
   function openLb(c, trigger){
+    if(c.file){
+      lastFocus = trigger || document.activeElement;
+      lbBox.textContent = ''; lbBox.classList.remove('v');
+      var vd = document.createElement('video'); vd.src = c.file; vd.controls = true; vd.autoplay = true; vd.playsInline = true; vd.setAttribute('playsinline',''); vd.poster = c.img || '';
+      vd.style.cssText = 'display:block;width:100%;height:100%;background:#000';
+      lbBox.appendChild(vd); lbTitle.textContent = c.title; lbYt.hidden = true; lb.hidden = false;
+      document.body.style.overflow = 'hidden'; lbClose.focus(); return;
+    }
     var id = ytId(c.url); if(!id){ window.open(c.url, '_blank', 'noopener'); return; }
+    lbYt.hidden = false;
     lastFocus = trigger || document.activeElement;
     lbBox.textContent = ''; lbBox.classList.toggle('v', !!c.v);
     var f = document.createElement('iframe');
