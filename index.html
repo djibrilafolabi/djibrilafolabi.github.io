@@ -784,7 +784,7 @@ body::after{opacity:.045}
 (function(){
   /* ===== Pour ajouter un film : une ligne ici (titre, catégorie, lien YouTube). ===== */
   var CLIPS = [
-    {title:'Multicam · Plateau talk', cat:'Interview', img:'img/multicam-talk.jpg', file:'videos/multicam-talk.mp4', url:'videos/multicam-talk.mp4'},
+    {title:'Multicam · Plateau talk', cat:'Interview', img:'img/multicam-talk-v.jpg', file:'videos/multicam-talk-vertical.mp4', url:'videos/multicam-talk-vertical.mp4', v:1},
     {title:'Salon de l’auto · Récap', cat:'Événement', img:'img/salon-auto.jpg', file:'videos/recap-salon-auto.mp4', url:'videos/recap-salon-auto.mp4'},
     {title:'Basket · Récap U18', cat:'Sport', img:'img/recap-u18.jpg', file:'videos/recap-u18.mp4', url:'videos/recap-u18.mp4', v:1},
     {title:'Court métrage 01', cat:'Fiction',   img:'img/court-metrage-01.jpg', url:'https://youtu.be/MBdshXfbeRU'},
@@ -817,7 +817,7 @@ body::after{opacity:.045}
     im.onerror = function(){ im.onerror = null; im.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; };
     return im;
   }
-  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Mode':'img/mode-01.jpg','Making-of':'img/making-of-02.jpg','Sport':'img/basket-01.jpg','Interview':'img/multicam-talk.jpg'};
+  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Mode':'img/mode-01.jpg','Making-of':'img/making-of-02.jpg','Sport':'img/basket-01.jpg','Interview':'img/multicam-talk-v.jpg'};
   var CARD_ORDER = ['Événement','Mariage','Fiction','Mode','Making-of','Sport','Interview'];
   var CARD_NAME = {'Fiction':'Court métrage'};
 
