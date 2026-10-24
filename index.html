@@ -448,6 +448,19 @@ body::after{opacity:.045}
 .motion .ctrl{align-items:flex-start}
 
 /* Campagne */
+
+.wf{padding:110px var(--gut);background:var(--bg);border-top:1px solid var(--line)}
+.wf-head{display:flex;flex-direction:column;gap:14px;max-width:760px;margin-bottom:48px}
+.wf-head h2{font-family:var(--serif);font-weight:400;text-transform:none;letter-spacing:-.015em;font-size:clamp(46px,6.6vw,100px);line-height:.96}
+.wf-head p{font-size:15px;line-height:1.6;color:var(--muted)}
+.wf-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;align-items:start}
+.wf-body video{display:block;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line);object-fit:contain}
+.wf-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:26px;counter-reset:wf}
+.wf-list li{counter-increment:wf;padding-top:18px;border-top:1px solid var(--line)}
+.wf-list li::before{content:counter(wf,decimal-leading-zero);display:block;font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--muted);margin-bottom:8px}
+.wf-list b{display:block;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;margin-bottom:6px}
+.wf-list p{font-size:14.5px;line-height:1.6;color:var(--muted);margin:0}
+@media(max-width:900px){.wf-body{grid-template-columns:1fr;gap:32px}}
 .camp{padding:110px var(--gut);background:var(--bg);border-top:1px solid var(--line)}
 .camp-head{display:flex;flex-direction:column;gap:14px;max-width:760px;margin-bottom:48px}
 .camp-head h2{font-family:var(--serif);font-weight:400;text-transform:none;letter-spacing:-.015em;font-size:clamp(46px,6.6vw,100px);line-height:.96}
@@ -473,6 +486,7 @@ body::after{opacity:.045}
     <a href="#bobine">Films</a>
     <a href="#campagne">Campagne</a>
     <a href="#etalonnage">Étalonnage</a>
+    <a href="#colorimetrie">Colorimétrie</a>
     <a href="#script">Script</a>
     <a href="#methode">Méthode</a>
     <a class="btn nav-cta" href="#contact">Contact</a>
@@ -485,9 +499,10 @@ body::after{opacity:.045}
   <a href="#bobine" data-s="bobine" aria-label="Films">03</a>
   <a href="#campagne" data-s="campagne" aria-label="Campagne">04</a>
   <a href="#etalonnage" data-s="etalonnage" aria-label="Étalonnage">05</a>
-  <a href="#script" data-s="script" aria-label="Script">06</a>
-  <a href="#methode" data-s="methode" aria-label="Méthode">07</a>
-  <a href="#contact" data-s="contact" aria-label="Contact">08</a>
+  <a href="#colorimetrie" data-s="colorimetrie" aria-label="Colorimétrie">06</a>
+  <a href="#script" data-s="script" aria-label="Script">07</a>
+  <a href="#methode" data-s="methode" aria-label="Méthode">08</a>
+  <a href="#contact" data-s="contact" aria-label="Contact">09</a>
 </nav>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -556,7 +571,7 @@ body::after{opacity:.045}
       <h2>Les films.</h2>
       <p>Chaque image est un film. Faites défiler la pellicule et cliquez sur un clip pour le regarder.</p>
     </div>
-    <div class="counter" aria-live="polite"><strong id="count">14</strong><span>clips<br>affichés</span></div>
+    <div class="counter" aria-live="polite"><strong id="count">15</strong><span>clips<br>affichés</span></div>
   </div>
   <div class="filters" id="filters" role="group" aria-label="Filtrer par catégorie"></div>
   <div class="strip" id="strip">
@@ -643,8 +658,26 @@ body::after{opacity:.045}
   </div>
 </section>
 
+<section class="wf" id="colorimetrie">
+  <div class="wf-head">
+    <div class="eyebrow">Colorimétrie</div>
+    <h2>Ma méthode d’étalonnage.</h2>
+    <p>Un étalonnage se construit dans un ordre précis. Voici la chaîne de nœuds que j’utilise sous DaVinci Resolve, de l’image brute à l’image finale.</p>
+  </div>
+  <div class="wf-body">
+    <video controls preload="metadata" playsinline poster="img/etalonnage-process.jpg" src="videos/etalonnage-process.mp4" aria-label="Chaîne d’étalonnage sous DaVinci Resolve"></video>
+    <ol class="wf-list">
+      <li><b>Assainir d’abord</b><p>Débruitage, exposition puis balance des blancs. Tant que la base n’est pas propre, tout réglage créatif est faussé.</p></li>
+      <li><b>Saturation et contraste, nœud par nœud</b><p>Un nœud par intention (saturation, contraste, ombres, glow, HSV), pour pouvoir corriger une chose sans en casser une autre.</p></li>
+      <li><b>Isoler la peau</b><p>Le visage est traité à part, avec un Power Window, pour que l’ambiance ne dégrade jamais le teint.</p></li>
+      <li><b>Des looks en parallèle</b><p>Daylight, Evening, Night, Outdoors, Overcast, BlueHour : chaque ambiance est une branche, recombinée en sortie. On compare et on change de direction sans repartir de zéro.</p></li>
+      <li><b>Contrôler aux scopes</b><p>La parade RVB valide les niveaux et l’équilibre des couleurs, plan après plan. L’œil décide, les scopes confirment.</p></li>
+    </ol>
+  </div>
+</section>
+
 <section class="stats" aria-label="En chiffres">
-  <div><b data-n="14" data-pad="2">14</b><span>Films en ligne</span></div>
+  <div><b data-n="15" data-pad="2">15</b><span>Films en ligne</span></div>
   <div><b data-n="44">44</b><span>Photographies</span></div>
   <div><b data-n="25">25</b><span>Images par seconde</span></div>
   <div><b>4K</b><span>Tournage &amp; export</span></div>
@@ -751,6 +784,7 @@ body::after{opacity:.045}
 (function(){
   /* ===== Pour ajouter un film : une ligne ici (titre, catégorie, lien YouTube). ===== */
   var CLIPS = [
+    {title:'Multicam · Plateau talk', cat:'Interview', img:'img/multicam-talk.jpg', file:'videos/multicam-talk.mp4', url:'videos/multicam-talk.mp4'},
     {title:'Salon de l’auto · Récap', cat:'Événement', img:'img/salon-auto.jpg', file:'videos/recap-salon-auto.mp4', url:'videos/recap-salon-auto.mp4'},
     {title:'Basket · Récap U18', cat:'Sport', img:'img/recap-u18.jpg', file:'videos/recap-u18.mp4', url:'videos/recap-u18.mp4', v:1},
     {title:'Court métrage 01', cat:'Fiction',   img:'img/court-metrage-01.jpg', url:'https://youtu.be/MBdshXfbeRU'},
@@ -783,8 +817,8 @@ body::after{opacity:.045}
     im.onerror = function(){ im.onerror = null; im.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; };
     return im;
   }
-  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Mode':'img/mode-01.jpg','Making-of':'img/making-of-02.jpg','Sport':'img/basket-01.jpg'};
-  var CARD_ORDER = ['Événement','Mariage','Fiction','Mode','Making-of','Sport'];
+  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Mode':'img/mode-01.jpg','Making-of':'img/making-of-02.jpg','Sport':'img/basket-01.jpg','Interview':'img/multicam-talk.jpg'};
+  var CARD_ORDER = ['Événement','Mariage','Fiction','Mode','Making-of','Sport','Interview'];
   var CARD_NAME = {'Fiction':'Court métrage'};
 
   function pad(n){ return (n < 10 ? '0' : '') + n; }
@@ -942,7 +976,7 @@ body::after{opacity:.045}
         }
       });
     }, {rootMargin:'-45% 0px -50% 0px'});
-    ['accueil','realisations','bobine','campagne','etalonnage','script','methode','contact'].forEach(function(id){ var s = document.getElementById(id); if(s) io.observe(s); });
+    ['accueil','realisations','bobine','campagne','etalonnage','colorimetrie','script','methode','contact'].forEach(function(id){ var s = document.getElementById(id); if(s) io.observe(s); });
   }
   if(map.accueil) map.accueil.classList.add('on');
 
@@ -1184,7 +1218,7 @@ body::after{opacity:.045}
       }, {passive:true});
     }
 
-    var targets = document.querySelectorAll('.sec-head, .cat, .grade-head, .cmp, .panel, .ctrl, .statement h2, .statement-foot, .step, .reel-head, .contact-grid, .tools, .script-head, .page, .camp-head, .camp-item');
+    var targets = document.querySelectorAll('.sec-head, .cat, .grade-head, .cmp, .panel, .ctrl, .statement h2, .statement-foot, .step, .reel-head, .contact-grid, .tools, .script-head, .page, .camp-head, .camp-item, .wf-head, .wf-body');
     if('IntersectionObserver' in window && !reduce){
       document.documentElement.classList.add('js');
       var cio = new IntersectionObserver(function(en){
