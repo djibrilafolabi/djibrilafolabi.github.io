@@ -509,6 +509,62 @@ body{background:var(--bg)}
 @media (hover:none){.cat>img,.clip img{filter:grayscale(.6) brightness(.82)}}
 .cmp-before img,.cmp .layer img{filter:none}
 .camp-item video,.wf-body video{border-radius:0}
+
+/* ===== DA « Play X » v2 : noir pur, capitales larges, lignes de projets, photos N&B ===== */
+:root{--bg:#000;--bg-deep:#000;--bg-lift:#0c0c0c;--line:rgba(255,255,255,.14)}
+body{background:#000}
+.nav{background:rgba(0,0,0,.78)}
+/* Hero : plein cadre, titre en escalier, plus de gadgets de caméra */
+.hud,.rec,.scene-ui,.hero-scan,.hero-flash,.lb-bar,.hero-fog,.hero-spot{display:none!important}
+.hero-veil{background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.25) 38%,rgba(0,0,0,.92) 88%,#000 100%),linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,0) 60%)!important}
+.hero h1{max-width:none;line-height:1.02;font-size:clamp(38px,6.6vw,104px)}
+.hero h1 .l1,.hero h1 .l2{display:block}
+.hero h1 .l2{padding-left:clamp(28px,7vw,120px)}
+.hero-lead{max-width:520px;color:#cfcfcf}
+.poles{border-top:0;gap:0;padding-bottom:36px;margin-top:8px}
+.pole{padding:22px 28px 0 28px;border-left:1px solid var(--line);flex-direction:column;gap:0}
+.pole:first-child{border-left:0;padding-left:0}
+.pole:first-child::before{display:none}
+.pole svg{display:none}
+.pole h3{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;letter-spacing:.1em}
+.pole h3::after{content:"↗";font-size:15px}
+.pole p{font-size:12.5px;line-height:1.55;color:#9b9b9b;max-width:300px}
+@media (max-width:900px){.pole,.pole:first-child{border-left:0;padding-left:0}.pole+.pole{border-top:1px solid var(--line)}}
+/* Titres de section alignés à gauche */
+.sec-head{align-items:flex-start;text-align:left}
+.sec-title{font-size:clamp(30px,4.4vw,64px);line-height:1}
+/* Réalisations : cartes verticales façon « services » */
+.cats{margin-top:56px;justify-content:flex-start}
+.cat{border:0;aspect-ratio:3/4}
+.cat-shade{background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.88) 100%)}
+.cat-num{top:14px;left:16px;font-size:13px;letter-spacing:.14em;color:#fff;-webkit-text-stroke:0}
+.cat-label{left:16px;right:16px;bottom:16px;text-align:left}
+.cat-label b{font-size:17px}
+.cat-label span{color:#bdbdbd;font-size:12px}
+.cat:nth-child(2){transform:none}
+/* Films : « Selected work », lignes pleine largeur */
+.reel{background:#000;border-block:0}
+.reel-head{padding-top:96px}
+.counter strong{font-size:clamp(60px,8vw,120px);color:rgba(255,255,255,.12)}
+.holes,.reel-foot .arrows{display:none}
+.strip{overflow:visible}
+.film{width:auto;min-width:0;padding-inline:0;gap:0}
+.frames{flex-direction:column;gap:0;border-bottom:1px solid var(--line)}
+.clip{flex:none;width:100%;height:clamp(150px,19vw,250px);aspect-ratio:auto;border:0;border-top:1px solid var(--line);border-radius:0;background:#000!important;transition:background .3s}
+.clip:hover{transform:none;background:#0b0b0b!important}
+.clip>img{left:auto;right:0;width:min(58%,820px);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 55%);mask-image:linear-gradient(90deg,transparent 0,#000 55%);object-position:center 30%}
+.clip-shade,.clip .play,.clip .k-n,.clip .k-c{display:none}
+.clip-foot{left:var(--gut);right:auto;top:0;bottom:0;flex-direction:column;align-items:flex-start;justify-content:center;gap:22px;max-width:46%}
+.clip-foot b{font-size:clamp(17px,2.3vw,32px);line-height:1.08}
+.row-meta{display:flex;flex-wrap:wrap;gap:6px 30px}
+.row-meta span{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.row-meta i{font-style:normal;font-size:10px;font-weight:500;letter-spacing:.14em;color:#8d8d8d}
+.row-arr{position:absolute;right:var(--gut);top:50%;transform:translateY(-50%);width:44px;height:44px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;background:rgba(0,0,0,.35);transition:background .25s,color .25s}
+.clip:hover .row-arr{background:#fff;color:#000}
+.clip.v>img{width:min(34%,420px);right:var(--gut);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40%);mask-image:linear-gradient(90deg,transparent 0,#000 40%)}
+.clip.v .row-arr{right:calc(var(--gut) + 8px)}
+.reel-foot{padding-top:24px}
+@media (max-width:700px){.clip{height:170px}.clip-foot{max-width:62%;gap:12px}.clip>img{width:62%}.clip.v>img{width:40%}.row-arr{width:36px;height:36px;right:14px}.row-meta{gap:4px 16px}.row-meta span:nth-child(3){display:none}}
 </style>
 </head>
 <body>
@@ -561,7 +617,7 @@ body{background:var(--bg)}
 
   <div class="hero-body">
     <div class="eyebrow">Communication digitale · Création de contenus &amp; vidéo</div>
-    <h1>Du message<br>à <em>l’image.</em></h1>
+    <h1><span class="l1">Du message</span><span class="l2">à l’image.</span></h1>
     <p class="hero-lead">Je conçois et réalise des contenus vidéo et digitaux pour les marques, les entreprises et les événements. Du brief à la publication.</p>
     <div class="hero-cta">
       <a class="btn" href="#contact">Me contacter
@@ -884,13 +940,17 @@ body{background:var(--bg)}
       a.href = c.url; a.target = '_blank'; a.rel = 'noopener'; if(c.v) a.classList.add('v');
       a.setAttribute('aria-label', c.title + ', lire la vidéo');
       a.addEventListener('click', function(e){ if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); openLb(c, a); });
-      a.style.background = GRAD[c.cat] || GRAD['Fiction'];
       var th = thumb(c); if(th) a.appendChild(th);
       a.appendChild(el('div','clip-shade'));
-      a.appendChild(el('small','k-n','Clip ' + pad(i + 1)));
-      a.appendChild(el('small','k-c', c.cat));
-      var play = el('div','play'); play.appendChild(svgPlay()); a.appendChild(play);
-      var foot = el('div','clip-foot'); foot.appendChild(el('b',null,c.title)); foot.appendChild(el('em',null,c.v ? '1080×1920' : '1920×1080')); a.appendChild(foot);
+      var foot = el('div','clip-foot');
+      foot.appendChild(el('b',null,c.title));
+      var meta = el('div','row-meta');
+      [['N°', pad(i + 1)], ['Catégorie', c.cat], ['Format', c.v ? 'Vertical' : 'Horizontal']].forEach(function(m){
+        var sp = el('span'); sp.appendChild(el('i',null,m[0])); sp.appendChild(document.createTextNode(m[1])); meta.appendChild(sp);
+      });
+      foot.appendChild(meta);
+      a.appendChild(foot);
+      var arr = el('span','row-arr','↗'); arr.setAttribute('aria-hidden','true'); a.appendChild(arr);
       framesEl.appendChild(a);
     });
     document.getElementById('count').textContent = pad(shown.length);
