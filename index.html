@@ -622,6 +622,7 @@ body{background:#000}
     <a href="#realisations">Réalisations</a>
     <a href="#bobine">Films</a>
     <a href="#campagne">Campagne</a>
+    <a href="#ia">IA</a>
     <a href="#etalonnage">Étalonnage</a>
     <a href="#colorimetrie">Colorimétrie</a>
     <a href="#script">Script</a>
@@ -635,11 +636,12 @@ body{background:#000}
   <a href="#realisations" data-s="realisations" aria-label="Réalisations">02</a>
   <a href="#bobine" data-s="bobine" aria-label="Films">03</a>
   <a href="#campagne" data-s="campagne" aria-label="Campagne">04</a>
-  <a href="#etalonnage" data-s="etalonnage" aria-label="Étalonnage">05</a>
-  <a href="#colorimetrie" data-s="colorimetrie" aria-label="Colorimétrie">06</a>
-  <a href="#script" data-s="script" aria-label="Script">07</a>
-  <a href="#methode" data-s="methode" aria-label="Méthode">08</a>
-  <a href="#contact" data-s="contact" aria-label="Contact">09</a>
+  <a href="#ia" data-s="ia" aria-label="Créations IA">05</a>
+  <a href="#etalonnage" data-s="etalonnage" aria-label="Étalonnage">06</a>
+  <a href="#colorimetrie" data-s="colorimetrie" aria-label="Colorimétrie">07</a>
+  <a href="#script" data-s="script" aria-label="Script">08</a>
+  <a href="#methode" data-s="methode" aria-label="Méthode">09</a>
+  <a href="#contact" data-s="contact" aria-label="Contact">10</a>
 </nav>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -723,7 +725,6 @@ body{background:#000}
       <button class="arrow" id="prev" type="button" aria-label="Clips précédents"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6H2M7 1L2 6l5 5"/></svg></button>
       <button class="arrow" id="next" type="button" aria-label="Clips suivants"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h15M11 1l5 5-5 5"/></svg></button>
     </div>
-    <a href="https://www.youtube.com/channel/UChz-QfMnSACJ5lstxM79wgg" target="_blank" rel="noopener">Toute la chaîne YouTube →</a>
   </div>
 </section>
 
@@ -741,6 +742,20 @@ body{background:#000}
     <figure class="camp-item">
       <video controls preload="metadata" playsinline poster="img/campagne-tupperware.jpg" src="videos/campagne-tupperware.mp4" aria-label="Tupperware, spot publicitaire"></video>
       <figcaption><b>Tupperware · Spot publicitaire</b><span>Film de marque · 1 min 34</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="camp" id="ia">
+  <div class="camp-head">
+    <div class="eyebrow">Création IA</div>
+    <h2>Généré par IA.</h2>
+    <p>Film entièrement généré avec l’intelligence artificielle.</p>
+  </div>
+  <div class="camp-grid">
+    <figure class="camp-item">
+      <video controls preload="metadata" playsinline poster="img/tupperware-ia.jpg" src="videos/tupperware-ia.mp4" aria-label="Tupperware, il a tout vu, film généré par IA"></video>
+      <figcaption><b>Tupperware · Il a tout vu</b><span>Généré par IA · 22 s</span></figcaption>
     </figure>
   </div>
 </section>
@@ -818,7 +833,7 @@ body{background:#000}
 </section>
 
 <section class="stats" aria-label="En chiffres">
-  <div><b data-n="17" data-pad="2">17</b><span>Films en ligne</span></div>
+  <div><b data-n="16" data-pad="2">16</b><span>Films en ligne</span></div>
   <div><b data-n="44">44</b><span>Photographies</span></div>
   <div><b data-n="25">25</b><span>Images par seconde</span></div>
   <div><b>4K</b><span>Tournage &amp; export</span></div>
@@ -898,7 +913,6 @@ body{background:#000}
       </a>
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/djibril-roberto-afolabi-511a39220/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.youtube.com/channel/UChz-QfMnSACJ5lstxM79wgg" target="_blank" rel="noopener">YouTube</a>
         <a href="https://djibrilrobertoaf.myportfolio.com/photographie" target="_blank" rel="noopener">Photographie</a>
       </div>
     </div>
@@ -918,7 +932,7 @@ body{background:#000}
   <button class="lb-x" id="lbClose" type="button" aria-label="Fermer la vidéo"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 2l14 14M16 2L2 16"/></svg></button>
   <div class="lb-title" id="lbTitle"></div>
   <div class="lb-box" id="lbBox"></div>
-  <a class="lb-yt" id="lbYt" href="#" target="_blank" rel="noopener">Ouvrir sur YouTube →</a>
+  <a class="lb-yt" id="lbYt" href="#" target="_blank" rel="noopener" hidden style="display:none"></a>
 </div>
 
 <script>
@@ -926,7 +940,6 @@ body{background:#000}
   /* ===== Pour ajouter un film : une ligne ici (titre, catégorie, lien YouTube). ===== */
   var CLIPS = [
     {title:'Multicam · Plateau talk', cat:'Interview', img:'img/multicam-talk-v.jpg', file:'videos/multicam-talk-vertical.mp4', url:'videos/multicam-talk-vertical.mp4', v:1},
-    {title:'Tupperware · Il a tout vu', cat:'IA', img:'img/tupperware-ia.jpg', file:'videos/tupperware-ia.mp4', url:'videos/tupperware-ia.mp4', ia:1},
     {title:'Salon de l’auto · Récap', cat:'Événement', img:'img/salon-auto.jpg', file:'videos/recap-salon-auto.mp4', url:'videos/recap-salon-auto.mp4'},
     {title:'Basket · Hype', cat:'Sport', img:'img/basket-hype.jpg', file:'videos/basket-hype.mp4', url:'videos/basket-hype.mp4', v:1},
     {title:'Basket · Récap U18', cat:'Sport', img:'img/recap-u18.jpg', file:'videos/recap-u18.mp4', url:'videos/recap-u18.mp4', v:1},
@@ -960,9 +973,9 @@ body{background:#000}
     im.onerror = function(){ im.onerror = null; im.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; };
     return im;
   }
-  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Mode':'img/mode-01.jpg','Making-of':'img/making-of-02.jpg','Sport':'img/basket-01.jpg','Interview':'img/multicam-talk-v.jpg','IA':'img/tupperware-ia.jpg'};
-  var CARD_ORDER = ['Événement','Mariage','Fiction','Mode','Making-of','Sport','Interview','IA'];
-  var CARD_NAME = {'Fiction':'Court métrage','IA':'Généré par IA'};
+  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Mode':'img/mode-01.jpg','Making-of':'img/making-of-02.jpg','Sport':'img/basket-01.jpg','Interview':'img/multicam-talk-v.jpg'};
+  var CARD_ORDER = ['Événement','Mariage','Fiction','Mode','Making-of','Sport','Interview'];
+  var CARD_NAME = {'Fiction':'Court métrage'};
 
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function el(tag, cls, text){ var e = document.createElement(tag); if(cls) e.className = cls; if(text != null) e.textContent = text; return e; }
@@ -1058,7 +1071,7 @@ body{background:#000}
       document.body.style.overflow = 'hidden'; lbClose.focus(); return;
     }
     var id = ytId(c.url); if(!id){ window.open(c.url, '_blank', 'noopener'); return; }
-    lbYt.hidden = false;
+    lbYt.hidden = true;
     lastFocus = trigger || document.activeElement;
     lbBox.textContent = ''; lbBox.classList.toggle('v', !!c.v);
     var f = document.createElement('iframe');
