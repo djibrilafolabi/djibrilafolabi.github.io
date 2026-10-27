@@ -608,6 +608,21 @@ body{background:#000}
 
 /* v27 : badge IA */
 .ia-badge{position:absolute;left:12px;top:12px;z-index:2;padding:6px 10px;background:#fff;color:#000;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:2px}
+
+/* v29 : formats verticaux en affiches 9:16 plein cadre */
+.frames{grid-template-columns:repeat(12,minmax(0,1fr))}
+.clip{grid-column:span 4}
+.clip.v{grid-column:span 3}
+.clip.v .clip-media{aspect-ratio:9/16}
+.clip.v .clip-media>img.bg{display:none}
+.clip.v .clip-media>img:not(.bg){object-fit:cover;object-position:center 30%}
+.clip.v .clip-foot b{font-size:clamp(13px,1.2vw,17px)}
+@media (max-width:1000px){.clip{grid-column:span 6}.clip.v{grid-column:span 6}}
+@media (max-width:600px){.clip,.clip.v{grid-column:span 12}.clip.v .clip-media{aspect-ratio:9/16;max-height:78vh}}
+.clip .clip-foot b{max-width:none;width:100%;display:block}.clip .row-meta{flex-direction:row}
+.clip.v .clip-foot{max-width:none}
+@media (max-width:1000px){.frames{column-gap:0}.clip,.clip.v{padding-inline:9px}}
+@media (max-width:600px){.clip,.clip.v{padding-inline:0}}
 </style>
 </head>
 <body>
@@ -993,6 +1008,7 @@ body{background:#000}
   function renderFrames(){
     framesEl.textContent = '';
     var shown = CLIPS.filter(function(c){ return current === 'Tous' || c.cat === current; });
+    shown = shown.filter(function(c){ return !c.v; }).concat(shown.filter(function(c){ return c.v; }));
     shown.forEach(function(c, i){
       var a = el('a','clip');
       a.href = c.url; a.target = '_blank'; a.rel = 'noopener'; if(c.v) a.classList.add('v');
