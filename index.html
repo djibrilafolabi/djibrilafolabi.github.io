@@ -565,6 +565,18 @@ body{background:#000}
 .clip.v .row-arr{right:calc(var(--gut) + 8px)}
 .reel-foot{padding-top:24px}
 @media (max-width:700px){.clip{height:170px}.clip-foot{max-width:62%;gap:12px}.clip>img{width:62%}.clip.v>img{width:40%}.row-arr{width:36px;height:36px;right:14px}.row-meta{gap:4px 16px}.row-meta span:nth-child(3){display:none}}
+
+/* v24 : vignettes entières et nettes dans les lignes de films */
+.clip{height:clamp(210px,23vw,330px)}
+.clip>img{top:14px;bottom:14px;left:auto;right:calc(var(--gut) + 70px);width:auto;height:calc(100% - 28px);aspect-ratio:16/9;max-width:56%;object-fit:cover;object-position:center;-webkit-mask-image:none;mask-image:none;filter:brightness(.88) saturate(.95);transform:none;transition:filter .4s}
+.clip.v>img{aspect-ratio:9/16;width:auto;max-width:none;right:calc(var(--gut) + 70px);-webkit-mask-image:none;mask-image:none}
+.clip:hover>img{filter:brightness(1) saturate(1.05)}
+.clip-foot{max-width:calc(100% - 640px)}
+.clip.v .clip-foot{max-width:calc(100% - 420px)}
+.row-arr{right:var(--gut)}
+.clip.v .row-arr{right:var(--gut)}
+@media (max-width:900px){.clip-foot,.clip.v .clip-foot{max-width:44%}.clip>img{max-width:52%}}
+@media (max-width:700px){.clip{height:190px}.clip>img,.clip.v>img{right:14px;top:10px;bottom:10px;height:calc(100% - 20px)}.clip-foot,.clip.v .clip-foot{left:16px;max-width:42%;gap:10px}.clip-foot b{font-size:15px}.row-arr{display:none}}
 </style>
 </head>
 <body>
