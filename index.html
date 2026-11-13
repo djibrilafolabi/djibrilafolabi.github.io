@@ -757,6 +757,8 @@ body{background:#000}
 .wf-list li::before{display:none!important}
 .step:first-child::before{display:none!important}
 .step h3{margin-top:0}
+.camp-grid.camp-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:800px){.camp-grid.camp-4{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -862,9 +864,9 @@ body{background:#000}
   <div class="camp-head">
     <div class="eyebrow">Pour les marques</div>
     <h2>Spots &amp; films de marque.</h2>
-    <p>Deux spots publicitaires et un film entièrement généré par IA.</p>
+    <p>Trois spots publicitaires et un film entièrement généré par IA.</p>
   </div>
-  <div class="camp-grid camp-3">
+  <div class="camp-grid camp-4">
     <figure class="camp-item">
       <video controls preload="none" playsinline poster="img/campagne-sofinco-app.jpg" src="videos/campagne-sofinco-app.mp4" aria-label="Sofinco, la nouvelle app"></video>
       <figcaption><b>Sofinco · La nouvelle app</b><span>Spot publicitaire · 30 s</span></figcaption>
@@ -872,6 +874,10 @@ body{background:#000}
     <figure class="camp-item">
       <video controls preload="none" playsinline poster="img/campagne-tupperware.jpg" src="videos/campagne-tupperware.mp4" aria-label="Tupperware, spot publicitaire"></video>
       <figcaption><b>Tupperware · Spot publicitaire</b><span>Film de marque · 1 min 34</span></figcaption>
+    </figure>
+    <figure class="camp-item">
+      <video controls preload="none" playsinline poster="img/campagne-tupperware-adam.jpg" src="videos/adam.mp4" aria-label="Tupperware, Adam, spot publicitaire"></video>
+      <figcaption><b>Tupperware · Adam</b><span>Spot publicitaire · 58 s</span></figcaption>
     </figure>
     <figure class="camp-item">
       <video controls preload="none" playsinline poster="img/tupperware-ia.jpg" src="videos/tupperware-ia.mp4" aria-label="Tupperware, il a tout vu, film généré par IA"></video>
