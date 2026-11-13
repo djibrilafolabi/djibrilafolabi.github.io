@@ -623,41 +623,159 @@ body{background:#000}
 .clip.v .clip-foot{max-width:none}
 @media (max-width:1000px){.frames{column-gap:0}.clip,.clip.v{padding-inline:9px}}
 @media (max-width:600px){.clip,.clip.v{padding-inline:0}}
+
+/* ===== v30 : simplification, images en couleur, accueil plus complet, compétences ===== */
+/* Images en couleur directement */
+.cat>img,.clip img,.clip-media>img:not(.bg),.clip.v .clip-media>img:not(.bg){filter:none!important}
+.clip:hover .clip-media>img:not(.bg){transform:scale(1.04)}
+.cat>img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.cat:hover>img{transform:scale(1.05)}
+.pager{display:none}
+/* Navigation : nom + e-mail */
+.brand{gap:12px;text-transform:none;letter-spacing:0}
+.brand span{display:flex;flex-direction:column;font-family:var(--serif);font-weight:700;font-stretch:125%;font-variation-settings:'wdth' 125;font-size:15px;letter-spacing:.04em;text-transform:uppercase;line-height:1.1}
+.brand small{font-family:'Inter',system-ui,sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.18em;color:var(--muted);margin-top:3px}
+.nav-mail{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px;border-radius:999px;background:#fff;color:#111;font-size:13px;font-weight:600;white-space:nowrap;transition:background .2s}
+.nav-mail:hover{background:#d9d9d9}
+.nav-links .nav-cta{display:none}
+@media (max-width:1180px){.nav-mail{display:none}.nav-links .nav-cta{display:inline-flex}}
+/* Accueil */
+.hero{min-height:min(100svh,900px)}
+.hero-body{gap:22px;padding-block:120px 72px;justify-content:flex-end}
+.hero-rule{display:block;width:120px;height:2px;background:#fff;margin-top:4px}
+.hero-sub{font-size:clamp(17px,1.7vw,24px);font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#fff;max-width:900px;line-height:1.3}
+.hero-lead{max-width:620px;font-size:16.5px}
+.hero-cta{gap:12px}
+.btn{border-radius:999px;min-height:54px;padding-inline:28px}
+.btn-hi{font-size:14px}
+.btn-ghost{background:transparent!important;color:#fff!important;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
+.btn-ghost:hover{background:#fff!important;color:#111!important}
+.hero-facts{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 0;padding:0}
+.hero-facts li{padding:9px 16px;border:1px solid var(--line-strong);border-radius:999px;font-size:13px;color:#d6d6d6;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hero-facts b{color:#fff;font-weight:700;margin-right:4px}
+@media (max-width:700px){.hero-body{padding-top:150px}.hero-facts li{font-size:12px;padding:8px 12px}}
+/* Compétences : texte + image en alternance */
+.skills{padding:110px var(--gut) 40px}
+.skill{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,80px);align-items:center;margin-top:clamp(56px,7vw,96px)}
+.skill.rev .skill-txt{order:2}
+.skill h3{font-family:var(--serif);font-weight:700;font-stretch:125%;font-variation-settings:'wdth' 125;text-transform:uppercase;font-size:clamp(24px,2.6vw,38px);line-height:1.05;letter-spacing:-.01em}
+.checks{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-direction:column;gap:20px}
+.checks li{display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start;font-size:clamp(16px,1.25vw,19px);line-height:1.5;color:#e9e9e9}
+.checks svg{margin-top:2px;color:#fff}
+.skill-link{display:inline-flex;align-items:center;gap:12px;margin-top:34px;min-height:44px;font-size:15px;font-weight:600;letter-spacing:.04em;border-bottom:1px solid rgba(255,255,255,.4);transition:gap .25s,border-color .25s}
+.skill-link:hover{gap:18px;border-color:#fff}
+.skill-img{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:#0d0d0e}
+.skill-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.skill:hover .skill-img img{transform:scale(1.04)}
+@media (max-width:860px){.skill{grid-template-columns:1fr;gap:28px}.skill.rev .skill-txt{order:0}.skill-img{order:-1}}
+/* Réalisations : 5 cartes sur une ligne */
+.cat{flex:0 0 calc((100% - 80px)/5)}
+@media (max-width:1100px){.cat{flex-basis:calc((100% - 40px)/3)}}
+@media (max-width:700px){.cat{flex-basis:calc((100% - 12px)/2)}.cat-label{left:12px;right:12px}.cat-label b{font-size:12.5px;letter-spacing:0}}
+/* Contact */
+.contact-intro{margin-top:18px;max-width:420px;font-size:16px;line-height:1.6;color:#cfcfcf}
+/* Marques : 3 vidéos */
+.camp-grid.camp-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1000px){.camp-grid.camp-3{grid-template-columns:1fr}}
+
+/* ===== v31 : épuré, moins de formes rondes, compétences et réalisations refaites ===== */
+.eyebrow::before{display:none!important}
+.eyebrow{gap:0}
+.hero-rule,.hero-lead,.hero-facts{display:none!important}
+.btn,.nav-mail,.nav-cta{border-radius:2px!important}
+.hero-meta{display:flex;align-items:baseline;gap:14px;margin:10px 0 0;color:#cfcfcf;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+.hero-meta b{font-family:var(--serif);font-weight:700;font-stretch:125%;font-variation-settings:'wdth' 125;font-size:28px;letter-spacing:0;color:#fff}
+/* Compétences : 3 colonnes */
+.skills{padding:110px var(--gut) 90px}
+.skill-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,36px);margin-top:48px}
+.skill{display:block;margin:0}
+.skill-img{margin:0 0 22px;border-radius:2px;overflow:hidden;aspect-ratio:4/3;background:#0d0d0e}
+.skill-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.skill:hover .skill-img img{transform:scale(1.04)}
+.skill-n{display:block;font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--muted);margin-bottom:10px}
+.skill h3{font-family:var(--serif);font-weight:700;font-stretch:125%;font-variation-settings:'wdth' 125;text-transform:uppercase;font-size:clamp(19px,1.6vw,24px);line-height:1.1}
+.skill p{margin-top:12px;font-size:15px;line-height:1.65;color:#bdbdbd;max-width:42ch}
+@media (max-width:900px){.skill-grid{grid-template-columns:1fr;gap:48px}}
+/* Réalisations */
+.work{padding:110px var(--gut) 100px;border-top:1px solid var(--line)}
+.work-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px;margin-bottom:40px}
+.work-head .sec-title{margin-top:14px}
+.tabs{display:flex;flex-wrap:wrap;gap:4px 28px}
+.tab{position:relative;min-height:44px;padding:0;background:none;border:0;color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:color .2s}
+.tab sup{font-size:10px;margin-left:4px;letter-spacing:0;opacity:.7}
+.tab::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:2px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.tab:hover{color:#fff}
+.tab[aria-pressed="true"]{color:#fff}
+.tab[aria-pressed="true"]::after{transform:scaleX(1)}
+.work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.work-grid:empty{display:none}
+.wh,.wv{position:relative;display:block;overflow:hidden;background:#0d0d0e}
+.wh{aspect-ratio:16/10}
+.wv{aspect-ratio:9/16}
+.wh img,.wv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.wh::after,.wv::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.78) 100%);pointer-events:none}
+.wh:hover img,.wv:hover img,.wh:focus-visible img,.wv:focus-visible img{transform:scale(1.05)}
+.w-cap{position:absolute;left:16px;right:60px;bottom:14px;z-index:2}
+.w-cap span{display:block;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#cfcfcf}
+.w-cap b{display:block;margin-top:5px;font-family:var(--serif);font-weight:700;font-stretch:125%;font-variation-settings:'wdth' 125;text-transform:uppercase;font-size:clamp(14px,1.25vw,18px);line-height:1.1}
+.w-play{position:absolute;right:14px;bottom:14px;z-index:2;width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.6);transition:background .25s,border-color .25s}
+.w-play svg{width:16px;height:16px}
+.wh:hover .w-play,.wv:hover .w-play{background:#fff;border-color:#fff}
+.wh:hover .w-play svg,.wv:hover .w-play svg{fill:#000}
+.work-v-head{display:flex;align-items:baseline;justify-content:space-between;margin:44px 0 16px;padding-top:20px;border-top:1px solid var(--line)}
+.work-v-head[hidden]{display:none}
+.work-v-head h3{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.work-v-head span{font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.work-v{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.work-v:empty{display:none}
+.wv .w-cap{left:12px;right:12px;bottom:12px}
+.wv .w-cap b{font-size:13px}
+.wv .w-play{display:none}
+.photo-band{display:grid;grid-template-columns:1.6fr 1fr;margin-top:56px;background:#0d0d0e;overflow:hidden;min-height:320px}
+.photo-band img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.photo-band:hover img{transform:scale(1.03)}
+.photo-band-txt{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:clamp(28px,4vw,56px)}
+.photo-band h3{font-family:var(--serif);font-weight:700;font-stretch:125%;font-variation-settings:'wdth' 125;text-transform:uppercase;font-size:clamp(28px,3.4vw,52px);line-height:1}
+.photo-band p{color:#bdbdbd;font-size:15px}
+.photo-band-link{margin-top:10px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.4);align-self:flex-start;padding-bottom:4px}
+.photo-band:hover .photo-band-link{border-color:#fff}
+@media (max-width:1000px){.work-v{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:700px){
+  .work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .w-cap{left:10px;right:10px;bottom:10px}.w-cap b{font-size:12.5px}.w-cap span{font-size:9.5px}
+  .wh .w-play{display:none}
+  .wh .w-cap span{display:none}
+  .grade-head h2,.script-head h2,.camp-head h2,.wf-head h2,.sec-title,.contact h2{font-size:clamp(26px,8.4vw,40px);overflow-wrap:break-word}
+  .skill-img{aspect-ratio:16/9;margin-bottom:16px}
+  .skill-grid{gap:36px}
+  .work-v{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gut) * -1);padding:0 var(--gut);scrollbar-width:none}
+  .work-v::-webkit-scrollbar{display:none}
+  .wv{flex:0 0 40%;scroll-snap-align:start}
+  .photo-band{grid-template-columns:1fr}.photo-band img{aspect-ratio:16/10;height:auto}
+  .tabs{gap:0 20px}
+}
+.wf-list li::before{display:none!important}
+.step:first-child::before{display:none!important}
+.step h3{margin-top:0}
 </style>
 </head>
 <body>
 
 
 <header class="nav">
-  <a class="brand" href="#accueil" aria-label="Accueil"><i></i></a>
+  <a class="brand" href="#accueil"><i></i><span>Djibril Afolabi<small>Vidéaste · Monteur</small></span></a>
   <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu">
     <svg width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 1h18M1 7h18M1 13h18"/></svg>
   </button>
   <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
+    <a href="#competences">Compétences</a>
     <a href="#realisations">Réalisations</a>
-    <a href="#bobine">Films</a>
-    <a href="#campagne">Campagne</a>
-    <a href="#ia">IA</a>
+    <a href="#marques">Marques</a>
     <a href="#etalonnage">Étalonnage</a>
-    <a href="#colorimetrie">Colorimétrie</a>
-    <a href="#script">Script</a>
-    <a href="#methode">Méthode</a>
     <a class="btn nav-cta" href="#contact">Contact</a>
   </nav>
+  <a class="nav-mail" href="mailto:djibrilafolabi@gmail.com"><svg width="20" height="16" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="22" height="16" rx="2"/><path d="M1.5 2l10.5 8 10.5-8"/></svg>djibrilafolabi@gmail.com</a>
 </header>
-
-<nav class="pager" aria-label="Sections">
-  <a href="#accueil" data-s="accueil" aria-label="Accueil">01</a>
-  <a href="#realisations" data-s="realisations" aria-label="Réalisations">02</a>
-  <a href="#bobine" data-s="bobine" aria-label="Films">03</a>
-  <a href="#campagne" data-s="campagne" aria-label="Campagne">04</a>
-  <a href="#ia" data-s="ia" aria-label="Créations IA">05</a>
-  <a href="#etalonnage" data-s="etalonnage" aria-label="Étalonnage">06</a>
-  <a href="#colorimetrie" data-s="colorimetrie" aria-label="Colorimétrie">07</a>
-  <a href="#script" data-s="script" aria-label="Script">08</a>
-  <a href="#methode" data-s="methode" aria-label="Méthode">09</a>
-  <a href="#contact" data-s="contact" aria-label="Contact">10</a>
-</nav>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
 <div class="cursor" id="cursor" aria-hidden="true"><i></i><span></span></div>
@@ -676,34 +794,17 @@ body{background:#000}
   <div class="rec" aria-hidden="true"><i></i><span>REC</span><span id="tc">00:00:00:00</span></div>
 
   <div class="hero-body">
-    <div class="eyebrow">Communication digitale · Création de contenus &amp; vidéo</div>
+    <div class="eyebrow">Vidéaste · Monteur · Étalonneur</div>
     <h1><span class="l1">Du message</span><span class="l2">à l’image.</span></h1>
-    <p class="hero-lead">Je conçois et réalise des contenus vidéo et digitaux pour les marques, les entreprises et les événements. Du brief à la publication.</p>
     <div class="hero-cta">
-      <a class="btn" href="#contact">Me contacter
+      <a class="btn btn-hi" href="#realisations">Voir mes réalisations
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
       </a>
-      <a class="link-play" href="#bobine">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="1.4" aria-hidden="true"><circle cx="20" cy="20" r="19"/><path d="M16.5 13.5v13l10-6.5z" fill="#fff" stroke="none"/></svg>
-        Voir les films
-      </a>
+      <a class="btn btn-ghost" href="#contact">Me contacter</a>
     </div>
+    <p class="hero-meta"><b>4K</b><span>Tournage · Drone · Multicam</span></p>
   </div>
 
-  <div class="poles">
-    <div class="pole">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4-1 11-11a2.1 2.1 0 0 0-3-3L5 16l-1 4z"/><path d="M14 7l3 3"/></svg>
-      <div><h3>Communication digitale</h3><p>Rédaction des publications, préparation des contenus et suivi des résultats sur les réseaux sociaux.</p></div>
-    </div>
-    <div class="pole">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 11l5-3v8l-5-3z"/></svg>
-      <div><h3>Production vidéo</h3><p>Préparation de tournage, interviews, films d’entreprise et captation d’événements.</p></div>
-    </div>
-    <div class="pole">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="9" cy="6" r="2" fill="#0b0b0c"/><circle cx="15" cy="12" r="2" fill="#0b0b0c"/><circle cx="7" cy="18" r="2" fill="#0b0b0c"/></svg>
-      <div><h3>Montage &amp; postproduction</h3><p>Montage, nettoyage du son, étalonnage et déclinaisons pour chaque format de diffusion.</p></div>
-    </div>
-  </div>
 </section>
 
 <div class="ticker" aria-hidden="true"><div>
@@ -711,65 +812,69 @@ body{background:#000}
   <span>Premiere Pro</span><span>DaVinci Resolve</span><span>After Effects</span><span>Prises de vue drone</span><span>Étalonnage</span><span>Montage</span><span>Motion design</span><span>Sound design</span><span>Storytelling</span><span>Court métrage</span><span>Publicité</span>
 </div></div>
 
-<section class="cats-sec" id="realisations">
+<section class="skills" id="competences">
   <div class="sec-head">
-    <h2 class="sec-title">Réalisations</h2>
-    <p id="catsSub">Choisissez une catégorie pour voir les films.</p>
+    <div class="eyebrow">Compétences</div>
+    <h2 class="sec-title">Ce que je sais faire</h2>
   </div>
-  <div class="cats" id="cats"></div>
-</section>
-
-<section class="reel" id="bobine">
-  <div class="reel-head">
-    <div class="txt">
-      <h2>Les films.</h2>
-      <p>Chaque image est un film. Faites défiler la pellicule et cliquez sur un clip pour le regarder.</p>
-    </div>
-    <div class="counter" aria-live="polite"><strong id="count">16</strong><span>clips<br>affichés</span></div>
-  </div>
-  <div class="filters" id="filters" role="group" aria-label="Filtrer par catégorie"></div>
-  <div class="strip" id="strip">
-    <div class="film">
-      <div class="holes"></div>
-      <div class="frames" id="frames"></div>
-      <div class="holes"></div>
-    </div>
-  </div>
-  <div class="reel-foot">
-    <div class="arrows">
-      <button class="arrow" id="prev" type="button" aria-label="Clips précédents"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 6H2M7 1L2 6l5 5"/></svg></button>
-      <button class="arrow" id="next" type="button" aria-label="Clips suivants"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h15M11 1l5 5-5 5"/></svg></button>
-    </div>
+  <div class="skill-grid">
+    <article class="skill">
+      <figure class="skill-img"><img src="img/ia-tournage.jpg" alt="Caméra cinéma sur trépied dans un studio de tournage (image générée par IA)" loading="lazy"></figure>
+      <h3>Tournage &amp; réalisation</h3>
+      <p>Repérage, lumière, découpage. Je filme interviews, événements et mariages, seul ou en multicam, avec des prises de vue drone quand le projet s’y prête.</p>
+    </article>
+    <article class="skill">
+      <figure class="skill-img"><img src="img/ia-montage.jpg" alt="Poste de montage et d’étalonnage avec surface de contrôle (image générée par IA)" loading="lazy"></figure>
+      <h3>Montage &amp; étalonnage</h3>
+      <p>Du rush au fichier final : rythme, son, motion design sous After Effects, et un étalonnage construit nœud par nœud sous DaVinci Resolve.</p>
+    </article>
+    <article class="skill">
+      <figure class="skill-img"><img src="img/ia-reseaux.jpg" alt="Caméra avec micro et lumière LED au bord d’un terrain de basket (image générée par IA)" loading="lazy"></figure>
+      <h3>Contenus réseaux</h3>
+      <p>Chaque film décliné en formats courts 9:16 pour Reels, TikTok et Shorts, avec les publications préparées et les résultats suivis.</p>
+    </article>
   </div>
 </section>
 
-<section class="camp" id="campagne">
+<section class="work" id="realisations">
+  <div class="work-head">
+    <div>
+      <div class="eyebrow">Réalisations</div>
+      <h2 class="sec-title">Les films</h2>
+    </div>
+    <div class="tabs" id="filters" role="group" aria-label="Filtrer par catégorie"></div>
+  </div>
+  <div class="work-grid" id="gridH"></div>
+  <div class="work-v-head" id="vHead"><h3>Formats verticaux</h3><span id="vCount"></span></div>
+  <div class="work-v" id="gridV"></div>
+  <a class="photo-band" href="https://djibrilrobertoaf.myportfolio.com/photographie" target="_blank" rel="noopener">
+    <img src="img/photo-creative.jpg" alt="Portrait éditorial en noir et blanc de trois jeunes hommes" loading="lazy">
+    <div class="photo-band-txt">
+      <span class="eyebrow">Photographie</span>
+      <h3>44 photos</h3>
+      <p>Portraits, mode et reportage.</p>
+      <span class="photo-band-link">Ouvrir la galerie ↗</span>
+    </div>
+  </a>
+</section>
+
+<section class="camp" id="marques">
   <div class="camp-head">
-    <div class="eyebrow">Campagne</div>
-    <h2>Les campagnes.</h2>
-    <p>Spots publicitaires et films de marque.</p>
+    <div class="eyebrow">Pour les marques</div>
+    <h2>Spots &amp; films de marque.</h2>
+    <p>Deux spots publicitaires et un film entièrement généré par IA.</p>
   </div>
-  <div class="camp-grid">
+  <div class="camp-grid camp-3">
     <figure class="camp-item">
-      <video controls preload="metadata" playsinline poster="img/campagne-sofinco-app.jpg" src="videos/campagne-sofinco-app.mp4" aria-label="Sofinco, la nouvelle app"></video>
+      <video controls preload="none" playsinline poster="img/campagne-sofinco-app.jpg" src="videos/campagne-sofinco-app.mp4" aria-label="Sofinco, la nouvelle app"></video>
       <figcaption><b>Sofinco · La nouvelle app</b><span>Spot publicitaire · 30 s</span></figcaption>
     </figure>
     <figure class="camp-item">
-      <video controls preload="metadata" playsinline poster="img/campagne-tupperware.jpg" src="videos/campagne-tupperware.mp4" aria-label="Tupperware, spot publicitaire"></video>
+      <video controls preload="none" playsinline poster="img/campagne-tupperware.jpg" src="videos/campagne-tupperware.mp4" aria-label="Tupperware, spot publicitaire"></video>
       <figcaption><b>Tupperware · Spot publicitaire</b><span>Film de marque · 1 min 34</span></figcaption>
     </figure>
-  </div>
-</section>
-
-<section class="camp" id="ia">
-  <div class="camp-head">
-    <div class="eyebrow">Création IA</div>
-    <h2>Généré par IA.</h2>
-    <p>Film entièrement généré avec l’intelligence artificielle.</p>
-  </div>
-  <div class="camp-grid">
     <figure class="camp-item">
-      <video controls preload="metadata" playsinline poster="img/tupperware-ia.jpg" src="videos/tupperware-ia.mp4" aria-label="Tupperware, il a tout vu, film généré par IA"></video>
+      <video controls preload="none" playsinline poster="img/tupperware-ia.jpg" src="videos/tupperware-ia.mp4" aria-label="Tupperware, il a tout vu, film généré par IA"></video>
       <figcaption><b>Tupperware · Il a tout vu</b><span>Généré par IA · 22 s</span></figcaption>
     </figure>
   </div>
@@ -819,7 +924,7 @@ body{background:#000}
       <p>Glissez sur la vidéo, de gauche à droite : l’image passe du log à l’étalonnage. Choisissez un plan ci-dessous.</p>
     </div>
     <div class="mv" id="mv">
-      <video id="mvVideo" src="videos/etalonnage-anime.mp4" muted playsinline preload="auto" aria-label="Plans avant et après étalonnage"></video>
+      <video id="mvVideo" src="videos/etalonnage-anime.mp4" muted playsinline preload="none" aria-label="Plans avant et après étalonnage"></video>
       <input class="sr" id="mvRange" type="range" min="0" max="1000" value="0" step="1" aria-label="Passer de l’image brute à l’image étalonnée">
     </div>
     <div class="ctrl">
@@ -836,7 +941,7 @@ body{background:#000}
     <p>Un étalonnage se construit dans un ordre précis. Voici la chaîne de nœuds que j’utilise sous DaVinci Resolve, de l’image brute à l’image finale.</p>
   </div>
   <div class="wf-body">
-    <video controls preload="metadata" playsinline poster="img/etalonnage-process.jpg" src="videos/etalonnage-process.mp4" aria-label="Chaîne d’étalonnage sous DaVinci Resolve"></video>
+    <video controls preload="none" playsinline poster="img/etalonnage-process.jpg" src="videos/etalonnage-process.mp4" aria-label="Chaîne d’étalonnage sous DaVinci Resolve"></video>
     <ol class="wf-list">
       <li><b>Assainir d’abord</b><p>Débruitage, exposition puis balance des blancs. Tant que la base n’est pas propre, tout réglage créatif est faussé.</p></li>
       <li><b>Saturation et contraste, nœud par nœud</b><p>Un nœud par intention (saturation, contraste, ombres, glow, HSV), pour pouvoir corriger une chose sans en casser une autre.</p></li>
@@ -892,26 +997,22 @@ body{background:#000}
   </div>
 </section>
 
-<div class="tools" aria-label="Outils">
-  <span>Premiere Pro</span><span>DaVinci Resolve</span><span>After Effects</span><span>Prises de vue drone</span>
-</div>
-
 <section class="method" id="methode">
   <div class="method-head">
     <h2 class="sec-title">Comment je travaille</h2>
     <p>Un cadre simple, du premier échange à la livraison des fichiers.</p>
   </div>
   <ol class="steps">
-    <li class="step"><span class="step-n">01</span><h3>Brief</h3><p>Nous définissons ensemble l’objectif, le public visé et les formats de diffusion.</p></li>
-    <li class="step"><span class="step-n">02</span><h3>Tournage</h3><p>Préparation et tournage adaptés au lieu, à l’image de la marque et au message.</p></li>
-    <li class="step"><span class="step-n">03</span><h3>Montage</h3><p>Montage, son, étalonnage et déclinaisons pour chaque plateforme.</p></li>
-    <li class="step"><span class="step-n">04</span><h3>Livraison</h3><p>Fichiers prêts à diffuser, dans les formats dont vous avez besoin.</p></li>
+    <li class="step"><h3>Brief</h3><p>On définit ensemble l’objectif, le public visé et les formats de diffusion.</p></li>
+    <li class="step"><h3>Tournage</h3><p>Préparation et tournage adaptés au lieu, à l’image de la marque et au message.</p></li>
+    <li class="step"><h3>Montage</h3><p>Montage, son, étalonnage et déclinaisons pour chaque plateforme.</p></li>
+    <li class="step"><h3>Livraison</h3><p>Des fichiers prêts à diffuser, dans tous les formats nécessaires.</p></li>
   </ol>
 </section>
 
 <section class="contact" id="contact">
   <div class="contact-grid">
-    <h2>Contact.</h2>
+    <div><h2>Contact.</h2><p class="contact-intro">Une offre, un projet ou simplement une question : je réponds rapidement, par mail, téléphone ou WhatsApp.</p></div>
     <div class="contact-side">
       <div>
         <div class="label">Téléphone</div>
@@ -954,7 +1055,7 @@ body{background:#000}
 (function(){
   /* ===== Pour ajouter un film : une ligne ici (titre, catégorie, lien YouTube). ===== */
   var CLIPS = [
-    {title:'Multicam · Plateau talk', cat:'Interview', img:'img/multicam-talk-v.jpg', file:'videos/multicam-talk-vertical.mp4', url:'videos/multicam-talk-vertical.mp4', v:1},
+    {title:'Multicam · Plateau talk', cat:'Événement', img:'img/multicam-talk-v.jpg', file:'videos/multicam-talk-vertical.mp4', url:'videos/multicam-talk-vertical.mp4', v:1},
     {title:'Salon de l’auto · Récap', cat:'Événement', img:'img/salon-auto.jpg', file:'videos/recap-salon-auto.mp4', url:'videos/recap-salon-auto.mp4'},
     {title:'Basket · Hype', cat:'Sport', img:'img/basket-hype.jpg', file:'videos/basket-hype.mp4', url:'videos/basket-hype.mp4', v:1},
     {title:'Basket · Récap U18', cat:'Sport', img:'img/recap-u18.jpg', file:'videos/recap-u18.mp4', url:'videos/recap-u18.mp4', v:1},
@@ -966,9 +1067,9 @@ body{background:#000}
     {title:'Mariage 04',       cat:'Mariage',   img:'img/mariage-04.jpg', url:'https://youtu.be/7ZokOXl0UUI'},
     {title:'Mariage 05',       cat:'Mariage',   img:'img/mariage-05.jpg', url:'https://youtu.be/fL5ZR_PzBl0'},
     {title:'Mariage 06',       cat:'Mariage',   img:'img/mariage-06.jpg', url:'https://youtu.be/rDqIY-SyS6U'},
-    {title:'Mode · La cour',          cat:'Mode',       img:'img/mode-01.jpg',      v:1, url:'https://youtube.com/shorts/JFMqfV5zNZE'},
-    {title:'Making-of · Le plateau',  cat:'Making-of',  img:'img/making-of-01.jpg', v:1, url:'https://youtube.com/shorts/aKxolHKaxKs'},
-    {title:'Making-of · Le cadre',    cat:'Making-of',  img:'img/making-of-02.jpg', v:1, url:'https://youtube.com/shorts/ih9gttcFc7E'},
+    {title:'Mode · La cour',          cat:'Fiction',       img:'img/mode-01.jpg',      v:1, url:'https://youtube.com/shorts/JFMqfV5zNZE'},
+    {title:'Making-of · Le plateau',  cat:'Fiction',  img:'img/making-of-01.jpg', v:1, url:'https://youtube.com/shorts/aKxolHKaxKs'},
+    {title:'Making-of · Le cadre',    cat:'Fiction',  img:'img/making-of-02.jpg', v:1, url:'https://youtube.com/shorts/ih9gttcFc7E'},
     {title:'Basket · Portrait',       cat:'Sport',      img:'img/basket-01.jpg',    v:1, url:'https://youtube.com/shorts/shoz_PzI104'}
   ];
   var ADOBE = 'https://djibrilrobertoaf.myportfolio.com/photographie';
@@ -988,9 +1089,9 @@ body{background:#000}
     im.onerror = function(){ im.onerror = null; im.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; };
     return im;
   }
-  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Mode':'img/mode-01.jpg','Making-of':'img/making-of-02.jpg','Sport':'img/basket-01.jpg','Interview':'img/multicam-talk-v.jpg'};
-  var CARD_ORDER = ['Événement','Mariage','Fiction','Mode','Making-of','Sport','Interview'];
-  var CARD_NAME = {'Fiction':'Court métrage'};
+  var CAT_IMG = {'Événement':'img/cat-evenement.jpg','Mariage':'img/cat-mariage.jpg','Fiction':'img/cat-court-metrage.jpg','Photographie':'img/cat-photo.jpg','Sport':'img/basket-01.jpg'};
+  var CARD_ORDER = ['Mariage','Événement','Sport','Fiction'];
+  var CARD_NAME = {'Fiction':'Fiction & mode','Mariage':'Mariages','Événement':'Événements'};
 
   function pad(n){ return (n < 10 ? '0' : '') + n; }
   function el(tag, cls, text){ var e = document.createElement(tag); if(cls) e.className = cls; if(text != null) e.textContent = text; return e; }
@@ -1001,76 +1102,38 @@ body{background:#000}
   }
 
   var current = 'Tous';
-  var framesEl = document.getElementById('frames');
-  var filtersEl = document.getElementById('filters');
-  var strip = document.getElementById('strip');
-
-  function renderFrames(){
-    framesEl.textContent = '';
-    var shown = CLIPS.filter(function(c){ return current === 'Tous' || c.cat === current; });
-    shown = shown.filter(function(c){ return !c.v; }).concat(shown.filter(function(c){ return c.v; }));
-    shown.forEach(function(c, i){
-      var a = el('a','clip');
-      a.href = c.url; a.target = '_blank'; a.rel = 'noopener'; if(c.v) a.classList.add('v');
-      a.setAttribute('aria-label', c.title + ', lire la vidéo');
-      a.addEventListener('click', function(e){ if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); openLb(c, a); });
-      var media = el('div','clip-media');
-      if(c.v && c.img){ var bg = document.createElement('img'); bg.alt=''; bg.className='bg'; bg.src=c.img; bg.loading='lazy'; media.appendChild(bg); }
-      var th = thumb(c); if(th) media.appendChild(th);
-      if(c.ia){ media.appendChild(el('span','ia-badge','Généré par IA')); }
-      a.appendChild(media);
-      var foot = el('div','clip-foot');
-      foot.appendChild(el('b',null,c.title));
-      var meta = el('div','row-meta');
-      [['N°', pad(i + 1)], ['Catégorie', c.cat], ['Format', c.v ? 'Vertical' : 'Horizontal']].forEach(function(m){
-        var sp = el('span'); sp.appendChild(el('i',null,m[0])); sp.appendChild(document.createTextNode(m[1])); meta.appendChild(sp);
-      });
-      foot.appendChild(meta);
-      a.appendChild(foot);
-      framesEl.appendChild(a);
-    });
-    document.getElementById('count').textContent = pad(shown.length);
-    strip.scrollLeft = 0;
+  var gridH = document.getElementById('gridH'), gridV = document.getElementById('gridV'), filtersEl = document.getElementById('filters');
+  function tile(c){
+    var a = el('a', c.v ? 'wv' : 'wh'); a.href = c.url; a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', c.title + ', lire la vidéo');
+    a.addEventListener('click', function(e){ if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); openLb(c, a); });
+    var th = thumb(c); if(th) a.appendChild(th);
+    var cap = el('div','w-cap'); cap.appendChild(el('span', null, CARD_NAME[c.cat] || c.cat)); cap.appendChild(el('b', null, c.title)); a.appendChild(cap);
+    var pl = el('span','w-play'); pl.appendChild(svgPlay()); a.appendChild(pl);
+    return a;
   }
-
+  function renderFrames(){
+    gridH.textContent = ''; gridV.textContent = '';
+    var shown = CLIPS.filter(function(c){ return current === 'Tous' || c.cat === current; });
+    shown = shown.map(function(c, i){ return [c, i]; }).sort(function(x, y){ return CARD_ORDER.indexOf(x[0].cat) - CARD_ORDER.indexOf(y[0].cat) || x[1] - y[1]; }).map(function(p){ return p[0]; });
+    var nv = 0;
+    shown.forEach(function(c){ if(c.v){ nv++; gridV.appendChild(tile(c)); } else gridH.appendChild(tile(c)); });
+    document.getElementById('vHead').hidden = nv === 0;
+    document.getElementById('vCount').textContent = nv ? nv + (nv > 1 ? ' vidéos' : ' vidéo') : '';
+  }
   function renderFilters(){
     filtersEl.textContent = '';
-    var cats = ['Tous'];
-    CLIPS.forEach(function(c){ if(cats.indexOf(c.cat) < 0) cats.push(c.cat); });
-    cats.forEach(function(name){
-      var b = el('button','chip', name === 'Tous' ? 'Tous (' + pad(CLIPS.length) + ')' : name);
+    ['Tous'].concat(CARD_ORDER).forEach(function(name){
+      var n = name === 'Tous' ? CLIPS.length : CLIPS.filter(function(c){ return c.cat === name; }).length;
+      var b = el('button','tab', name === 'Tous' ? 'Tout' : (CARD_NAME[name] || name));
+      b.appendChild(el('sup', null, String(n)));
       b.type = 'button';
       b.setAttribute('aria-pressed', name === current ? 'true' : 'false');
-      b.addEventListener('click', function(){ setFilter(name); });
+      b.addEventListener('click', function(){ current = name; renderFilters(); renderFrames(); });
       filtersEl.appendChild(b);
     });
   }
-
-  function setFilter(name){ current = name; renderFilters(); renderFrames(); }
-
-  function renderCats(){
-    var wrap = document.getElementById('cats');
-    CARD_ORDER.forEach(function(name){
-      var n = CLIPS.filter(function(c){ return c.cat === name; }).length;
-      var a = el('a','cat'); a.href = '#bobine';
-      a.style.background = GRAD[name];
-      var ct = document.createElement('img'); ct.alt = ''; ct.loading = 'lazy'; ct.decoding = 'async'; ct.src = CAT_IMG[name]; a.appendChild(ct);
-      a.appendChild(el('div','cat-shade'));
-      a.appendChild(el('div','cat-num', pad(n)));
-      var lab = el('div','cat-label'); lab.appendChild(el('b',null, CARD_NAME[name] || name)); lab.appendChild(el('span',null, n + (n > 1 ? ' vidéos' : ' vidéo'))); a.appendChild(lab);
-      a.addEventListener('click', function(){ setFilter(name); });
-      wrap.appendChild(a);
-    });
-    var p = el('a','cat'); p.href = ADOBE; p.target = '_blank'; p.rel = 'noopener';
-    p.style.background = GRAD['Photographie'];
-    var pim = document.createElement('img'); pim.alt = ''; pim.loading = 'lazy'; pim.decoding = 'async'; pim.src = CAT_IMG['Photographie']; p.appendChild(pim);
-    p.appendChild(el('div','cat-shade'));
-    p.appendChild(el('div','cat-num', String(PHOTO_COUNT)));
-    var pl = el('div','cat-label'); pl.appendChild(el('b',null,'Photographie')); pl.appendChild(el('span',null, PHOTO_COUNT + ' photos')); p.appendChild(pl);
-    wrap.appendChild(p);
-  }
-
-  renderCats(); renderFilters(); renderFrames();
+  renderFilters(); renderFrames();
 
 
   /* Lecteur intégré */
@@ -1110,12 +1173,6 @@ body{background:#000}
   lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !lb.hidden) closeLb(); });
 
-  function step(dir){
-    var w = Math.min(window.innerWidth * 0.78, 440) + 16;
-    strip.scrollBy({left: dir * w, behavior: 'smooth'});
-  }
-  document.getElementById('prev').addEventListener('click', function(){ step(-1); });
-  document.getElementById('next').addEventListener('click', function(){ step(1); });
 
   /* Menu mobile */
   var menuBtn = document.getElementById('menuBtn');
@@ -1154,7 +1211,7 @@ body{background:#000}
         }
       });
     }, {rootMargin:'-45% 0px -50% 0px'});
-    ['accueil','realisations','bobine','campagne','etalonnage','colorimetrie','script','methode','contact'].forEach(function(id){ var s = document.getElementById(id); if(s) io.observe(s); });
+    ['accueil','competences','realisations','marques','etalonnage','colorimetrie','script','methode','contact'].forEach(function(id){ var s = document.getElementById(id); if(s) io.observe(s); });
   }
   if(map.accueil) map.accueil.classList.add('on');
 
@@ -1320,6 +1377,7 @@ body{background:#000}
     v.addEventListener('loadedmetadata', function(){ v.currentTime = startOf(0); });
     mark();
     if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en, o){ if(en[0].isIntersecting){ v.preload = 'auto'; v.load(); o.disconnect(); } }, {rootMargin:'400px 0px'}).observe(mv);
       new IntersectionObserver(function(en){
         visible = en[0].isIntersecting;
         if(visible){ if(!reduce && !drag && (playing || v.currentTime < .2)) setPlay(true); }
@@ -1343,7 +1401,7 @@ body{background:#000}
     var FALLBACK = [0,1,2,4,6].map(function(i){ var c = CLIPS[i]; return c && c.img ? {src:c.img, label:c.cat} : null; }).filter(Boolean);
     function isVid(s){ return /\.mp4$/i.test(s.src); }
     function loadScene(s){ return new Promise(function(res){
-      if(isVid(s)){ var v = document.createElement('video'); v.preload = 'auto'; v.muted = true; v.onloadeddata = function(){ res(s); }; v.onerror = function(){ res(null); }; v.src = s.src; setTimeout(function(){ res(null); }, 9000); }
+      if(isVid(s)){ var v = document.createElement('video'); v.preload = 'metadata'; v.muted = true; v.onloadedmetadata = function(){ res(s); }; v.onerror = function(){ res(null); }; v.src = s.src; setTimeout(function(){ res(null); }, 9000); }
       else { var im = new Image(); im.onload = function(){ res(s); }; im.onerror = function(){ res(null); }; im.src = s.src; }
     }); }
     var ui = document.getElementById('sceneUi'), uiN = document.getElementById('sceneN'), uiL = document.getElementById('sceneL'), uiBars = document.getElementById('sceneBars');
@@ -1396,7 +1454,7 @@ body{background:#000}
       }, {passive:true});
     }
 
-    var targets = document.querySelectorAll('.sec-head, .cat, .grade-head, .cmp, .panel, .ctrl, .statement h2, .statement-foot, .step, .reel-head, .contact-grid, .tools, .script-head, .page, .camp-head, .camp-item, .wf-head, .wf-body');
+    var targets = document.querySelectorAll('.sec-head, .work-head, .skill, .photo-band, .cat, .grade-head, .cmp, .panel, .ctrl, .statement h2, .statement-foot, .step, .reel-head, .contact-grid, .tools, .script-head, .page, .camp-head, .camp-item, .wf-head, .wf-body');
     if('IntersectionObserver' in window && !reduce){
       document.documentElement.classList.add('js');
       var cio = new IntersectionObserver(function(en){
@@ -1437,9 +1495,9 @@ body{background:#000}
       (function loop(){ cx += (tx - cx) * .2; cy += (ty - cy) * .2; cur.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)'; requestAnimationFrame(loop); })();
       var label = cur.querySelector('span');
       document.addEventListener('pointerover', function(e){
-        var t = e.target.closest ? e.target.closest('.clip, .cat, #cmp, .btn, .chip, .link-play, .seg button') : null;
+        var t = e.target.closest ? e.target.closest('.clip, .wh, .wv, .cat, #cmp, .btn, .chip, .link-play, .seg button') : null;
         if(!t){ cur.classList.remove('big'); return; }
-        var txt = t.classList.contains('clip') ? 'Lire' : t.id === 'cmp' ? 'Glisser' : t.classList.contains('cat') ? 'Voir' : '';
+        var txt = (t.classList.contains('clip') || t.classList.contains('wh') || t.classList.contains('wv')) ? 'Lire' : t.id === 'cmp' ? 'Glisser' : t.classList.contains('cat') ? 'Voir' : '';
         label.textContent = txt;
         cur.classList.toggle('big', !!txt);
       });
