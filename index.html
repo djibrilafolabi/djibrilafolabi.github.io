@@ -15,7 +15,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Djibril Afolabi","jobTitle":"Communication digitale et création de contenus vidéo","url":"https://djibrilafolabi.github.io/"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Inter:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Archivo:wdth,wght@100..125,400..800&family=Inter:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* Layout : site sombre en une page, plein cadre, grandes capitales, un seul rouge d'accent.
    Hero plein écran de texte, puis catégories, pellicule de clips, parcours, contact. */
@@ -759,6 +759,20 @@ body{background:#000}
 .step h3{margin-top:0}
 .camp-grid.camp-4{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:800px){.camp-grid.camp-4{grid-template-columns:1fr}}
+
+/* ===== v32 : titres en Gloock (serif d'affichage proche d'Asthyla) ===== */
+:root{--display:'Gloock','Bodoni Moda',Georgia,serif}
+.hero h1,.sec-title,.reel-head h2,.statement h2,.contact h2,.grade-head h2,.script-head h2,.camp-head h2,.wf-head h2,.motion-head h3,.skill h3,.photo-band h3,.method-head .sec-title{
+  font-family:var(--display)!important;font-weight:400!important;font-stretch:normal!important;font-variation-settings:normal!important;text-transform:none!important;letter-spacing:-.015em!important}
+.hero h1{font-size:clamp(46px,7.6vw,124px);line-height:.98}
+.hero h1 .l2{padding-left:clamp(28px,7vw,120px)}
+.sec-title,.reel-head h2,.grade-head h2,.script-head h2,.camp-head h2,.wf-head h2{font-size:clamp(38px,5.4vw,84px);line-height:1}
+.statement h2{font-size:clamp(32px,4.4vw,64px);line-height:1.06}
+.contact h2{font-size:clamp(48px,8vw,124px);line-height:.98}
+.skill h3{font-size:clamp(24px,2vw,30px);line-height:1.08}
+.photo-band h3{font-size:clamp(34px,3.8vw,58px)}
+.motion-head h3{font-size:clamp(28px,3vw,44px)}
+@media (max-width:700px){.sec-title,.grade-head h2,.script-head h2,.camp-head h2,.wf-head h2{font-size:clamp(32px,10vw,46px)}.contact h2{font-size:clamp(40px,12vw,60px)}}
 </style>
 </head>
 <body>
