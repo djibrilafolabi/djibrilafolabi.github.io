@@ -910,19 +910,19 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
   </div>
   <div class="camp-grid camp-4">
     <figure class="camp-item">
-      <video controls preload="none" playsinline poster="img/campagne-sofinco-app.jpg" src="videos/campagne-sofinco-app.mp4" aria-label="Sofinco, la nouvelle app"></video>
+      <video controls preload="none" playsinline data-poster="img/campagne-sofinco-app.jpg" src="videos/campagne-sofinco-app.mp4" aria-label="Sofinco, la nouvelle app"></video>
       <figcaption><b>Sofinco · La nouvelle app</b><span>Spot publicitaire · 30 s</span></figcaption>
     </figure>
     <figure class="camp-item">
-      <video controls preload="none" playsinline poster="img/campagne-tupperware.jpg" src="videos/campagne-tupperware.mp4" aria-label="Tupperware, spot publicitaire"></video>
+      <video controls preload="none" playsinline data-poster="img/campagne-tupperware.jpg" src="videos/campagne-tupperware.mp4" aria-label="Tupperware, spot publicitaire"></video>
       <figcaption><b>Tupperware · Spot publicitaire</b><span>Film de marque · 1 min 34</span></figcaption>
     </figure>
     <figure class="camp-item">
-      <video controls preload="none" playsinline poster="img/campagne-tupperware-adam.jpg" src="videos/adam.mp4" aria-label="Tupperware, spot publicitaire de 58 secondes"></video>
+      <video controls preload="none" playsinline data-poster="img/campagne-tupperware-adam.jpg" src="videos/adam.mp4" aria-label="Tupperware, spot publicitaire de 58 secondes"></video>
       <figcaption><b>Tupperware · Spot publicitaire</b><span>58 s</span></figcaption>
     </figure>
     <figure class="camp-item">
-      <video controls preload="none" playsinline poster="img/tupperware-ia.jpg" src="videos/tupperware-ia.mp4" aria-label="Tupperware, il a tout vu, film généré par IA"></video>
+      <video controls preload="none" playsinline data-poster="img/tupperware-ia.jpg" src="videos/tupperware-ia.mp4" aria-label="Tupperware, il a tout vu, film généré par IA"></video>
       <figcaption><b>Tupperware · Il a tout vu</b><span>Généré par IA · 22 s</span></figcaption>
     </figure>
   </div>
@@ -937,8 +937,8 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
   <div class="grade-body">
     <div>
       <div class="cmp" id="cmp">
-        <div class="layer"><img id="imgAfter" src="etalonnage/apres.jpg" alt="Image étalonnée, après" draggable="false"><span class="tag">Après</span></div>
-        <div class="layer cmp-before"><img id="imgBefore" src="etalonnage/avant.jpg" alt="Image brute, avant étalonnage" draggable="false"><span class="tag">Avant</span></div>
+        <div class="layer"><img id="imgAfter" loading="lazy" src="etalonnage/apres.jpg" alt="Image étalonnée, après" draggable="false"><span class="tag">Après</span></div>
+        <div class="layer cmp-before"><img id="imgBefore" loading="lazy" src="etalonnage/avant.jpg" alt="Image brute, avant étalonnage" draggable="false"><span class="tag">Avant</span></div>
         <div class="cmp-handle"><span class="grip"><svg width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1L1 7l6 6M15 1l6 6-6 6"/></svg></span></div>
         <input class="sr" id="cmpRange" type="range" min="0" max="100" value="50" step="1" aria-label="Comparer avant et après étalonnage">
       </div>
@@ -989,7 +989,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
     <p>Un étalonnage se construit dans un ordre précis. Voici la chaîne de nœuds que j’utilise sous DaVinci Resolve, de l’image brute à l’image finale.</p>
   </div>
   <div class="wf-body">
-    <video controls preload="none" playsinline poster="img/etalonnage-process.jpg" src="videos/etalonnage-process.mp4" aria-label="Chaîne d’étalonnage sous DaVinci Resolve"></video>
+    <video controls preload="none" playsinline data-poster="img/etalonnage-process.jpg" src="videos/etalonnage-process.mp4" aria-label="Chaîne d’étalonnage sous DaVinci Resolve"></video>
     <ol class="wf-list">
       <li><b>Assainir d’abord</b><p>Débruitage, exposition puis balance des blancs. Tant que la base n’est pas propre, tout réglage créatif est faussé.</p></li>
       <li><b>Saturation et contraste, nœud par nœud</b><p>Un nœud par intention (saturation, contraste, ombres, glow, HSV), pour pouvoir corriger une chose sans en casser une autre.</p></li>
@@ -1591,6 +1591,16 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
     }
   })();
 
+})();
+</script>
+<script>
+/* Affiches des vidéos chargées à l'approche de leur section */
+(function(){
+  var vids = document.querySelectorAll('video[data-poster]');
+  function set(v){ if(v.dataset.poster){ v.poster = v.dataset.poster; v.removeAttribute('data-poster'); } }
+  if(!('IntersectionObserver' in window)){ vids.forEach(set); return; }
+  var io = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ set(e.target); io.unobserve(e.target); } }); }, {rootMargin:'600px 0px'});
+  vids.forEach(function(v){ io.observe(v); });
 })();
 </script>
 </body>
