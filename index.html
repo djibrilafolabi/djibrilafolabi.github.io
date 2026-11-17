@@ -801,9 +801,143 @@ html,body{background:var(--bg);color:var(--fg)}
 .page{background:var(--fg);color:var(--bg)}
 .contact .mail:hover,.foot a:hover,.contact-links a:hover{color:#C9474B}
 a:focus-visible,button:focus-visible{outline-color:var(--accent)}
+
+/* ===== v34 : habillage « papier déchiré / vintage » ===== */
+:root{--sheet:#E8DCCB;--sheet-ink:#120C0C;--sheet-mute:#5E5147;--fiber:#F2EADF;--red:#8E1E22;--type:'Courier Prime','Courier New',monospace;--rip:46px}
+/* Grain de pellicule + vignettage */
+.grain{position:fixed;inset:-50%;z-index:120;pointer-events:none;opacity:.075;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(4%,4%)}100%{transform:translate(0,0)}}
+body::before{content:"";position:fixed;inset:0;z-index:119;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(18,12,12,.55) 100%)}
+/* Feuilles de papier */
+.sheet,.sheet-red{position:relative;z-index:2;isolation:isolate}
+.sheet{background-color:var(--sheet)!important;background-image:url(img/deco/paper.jpg)!important;background-size:640px!important;background-blend-mode:multiply;color:var(--sheet-ink)!important;border:0!important}
+.sheet-red{background-color:var(--red)!important;background-image:url(img/deco/paper.jpg)!important;background-size:640px!important;background-blend-mode:multiply;color:var(--sheet)!important;border:0!important}
+.sheet .eyebrow,.sheet .camp-head p,.sheet .method-head p,.sheet .skill p,.sheet .step p{color:var(--sheet-mute)!important}
+.sheet .sec-title,.sheet h2,.sheet h3,.sheet .skill h3{color:var(--sheet-ink)!important}
+.sheet .eyebrow,.sheet-red .label,.hero .eyebrow{font-family:var(--type)!important;letter-spacing:.12em!important}
+.sheet .eyebrow{color:var(--red)!important;font-weight:700}
+/* Bords déchirés (liseré de fibres + bord) */
+.rip{position:absolute;left:0;right:0;height:var(--rip);z-index:3;pointer-events:none;background:var(--fiber);
+  -webkit-mask:url(img/deco/tear-a-fiber.svg) center/100% 100% no-repeat;mask:url(img/deco/tear-a-fiber.svg) center/100% 100% no-repeat}
+.rip::after{content:"";position:absolute;inset:0;background:inherit;
+  -webkit-mask:url(img/deco/tear-a.svg) center/100% 100% no-repeat;mask:url(img/deco/tear-a.svg) center/100% 100% no-repeat}
+.sheet .rip::after{background:var(--sheet) url(img/deco/paper.jpg) 0 0/640px;background-blend-mode:multiply}
+.sheet-red .rip{background:#B24A4D}
+.sheet-red .rip::after{background:var(--red) url(img/deco/paper.jpg) 0 0/640px;background-blend-mode:multiply}
+.rip-t{top:calc(var(--rip) * -1 + 2px)}
+.rip-b{bottom:calc(var(--rip) * -1 + 2px);transform:scaleY(-1)}
+.rip-b,.rip-b::after{-webkit-mask-image:url(img/deco/tear-b-fiber.svg);mask-image:url(img/deco/tear-b-fiber.svg)}
+.rip-b::after{-webkit-mask-image:url(img/deco/tear-b.svg);mask-image:url(img/deco/tear-b.svg)}
+.sheet,.sheet-red{margin-block:var(--rip)}
+/* Scotch */
+.tape{position:absolute;z-index:4;width:118px;height:30px;top:-14px;left:50%;margin-left:-59px;transform:rotate(-4deg);
+  background:linear-gradient(90deg,rgba(232,220,203,.72),rgba(242,234,223,.86) 45%,rgba(232,220,203,.7));
+  -webkit-mask:url(img/deco/tape.svg) center/100% 100% no-repeat;mask:url(img/deco/tape.svg) center/100% 100% no-repeat;box-shadow:0 1px 2px rgba(18,12,12,.2)}
+.tape.r{left:auto;right:-18px;top:auto;bottom:18px;margin:0;transform:rotate(-38deg)}
+.sheet .tape{background:linear-gradient(90deg,rgba(142,30,34,.62),rgba(168,41,46,.7) 50%,rgba(142,30,34,.6))}
+/* Accueil */
+.hero-tag{position:relative;align-self:flex-start;display:inline-block;padding:9px 16px 8px;background:var(--sheet) url(img/deco/paper.jpg) 0 0/400px;background-blend-mode:multiply;color:var(--sheet-ink);font-family:var(--type);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transform:rotate(-2deg);box-shadow:0 6px 16px rgba(18,12,12,.45)}
+.hero-tag .tape{width:70px;height:22px;top:-11px;left:-14px;margin:0;transform:rotate(-24deg)}
+.hero-stamp{position:absolute;right:clamp(16px,6vw,110px);bottom:clamp(110px,16vh,190px);z-index:3;width:clamp(120px,13vw,190px);color:var(--red);opacity:.92;transform:rotate(-12deg)}
+.stamp{display:block;width:100%;height:auto;font-family:var(--type);font-weight:700}
+.stamp-ring{transform-origin:100px 100px;animation:spin 26s linear infinite}
+.stamp-c{font-family:var(--display);font-weight:400}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-stamp .stamp{color:#C9474B}
+/* Bande de pellicule */
+.filmband{position:relative;z-index:1;background:var(--bg);overflow:hidden;height:clamp(84px,11vw,170px);border-block:1px solid var(--line)}
+.filmstrip{position:absolute;inset:0}
+.filmstrip svg{width:100%!important;height:100%!important}
+.ticker{background:var(--bg)!important}
+.ticker div{font-family:var(--type)!important;font-weight:700!important;letter-spacing:.14em!important}
+/* Compétences : polaroids */
+.skills.sheet{padding-block:110px 120px}
+.skill-grid{gap:clamp(28px,3vw,52px)!important}
+.polaroid{position:relative;background:var(--fiber);padding:14px 14px 26px;box-shadow:0 2px 3px rgba(18,12,12,.18),0 22px 40px -18px rgba(18,12,12,.55)}
+.polaroid:nth-child(1){transform:rotate(-2.2deg)}.polaroid:nth-child(2){transform:rotate(1.6deg) translateY(18px)}.polaroid:nth-child(3){transform:rotate(-1deg)}
+.polaroid .skill-img{border-radius:0!important;margin-bottom:18px!important}
+.polaroid h3{font-size:clamp(22px,1.8vw,28px)!important}
+.polaroid p{font-family:var(--type);font-size:14.5px!important;line-height:1.55!important}
+/* Films : perforations de pellicule */
+.wh,.wv{border-radius:0!important}
+.perf{position:absolute;left:0;right:0;height:13px;z-index:3;pointer-events:none;background:#0D0808;
+  background-image:linear-gradient(90deg,transparent 5px,rgba(232,220,203,.82) 5px,rgba(232,220,203,.82) 13px,transparent 13px);background-size:20px 6px;background-repeat:repeat-x;background-position:0 center}
+.perf-t{top:0}.perf-b{bottom:0}
+.w-cap{bottom:24px!important}.w-play{bottom:24px!important}
+.tabs .tab{font-family:var(--type)!important;letter-spacing:.08em!important}
+.work .eyebrow{font-family:var(--type);color:#C9474B}
+/* Photographie : morceau de papier scotché */
+.photo-band.scrap{position:relative;overflow:visible!important;background:var(--sheet) url(img/deco/paper.jpg) 0 0/640px!important;background-blend-mode:multiply;color:var(--sheet-ink);padding:16px;transform:rotate(-.8deg);box-shadow:0 30px 60px -25px rgba(0,0,0,.7)}
+.photo-band.scrap img{filter:none}
+.photo-band.scrap h3{color:var(--sheet-ink)!important}
+.photo-band.scrap p{color:var(--sheet-mute)!important}
+.photo-band.scrap .eyebrow{color:var(--red)!important;font-family:var(--type)}
+.photo-band.scrap .photo-band-link{color:var(--sheet-ink);border-color:var(--red)}
+.photo-band.scrap .tape{left:8%;margin:0}
+/* Marques : gazette */
+.gazette{padding-block:110px 120px!important}
+.gazette .camp-head{text-align:center;max-width:none!important;border-block:3px double rgba(18,12,12,.55);padding:22px 0 18px;margin-bottom:48px}
+.gazette .camp-head .eyebrow{justify-content:center}
+.gazette .camp-head h2{margin-inline:auto}
+.gazette .camp-grid{column-gap:56px!important;row-gap:64px!important}
+.clipping{position:relative;background:var(--fiber);padding:12px 12px 16px;box-shadow:0 2px 3px rgba(18,12,12,.15),0 20px 40px -20px rgba(18,12,12,.5)}
+.clipping:nth-child(odd){transform:rotate(-1deg)}.clipping:nth-child(even){transform:rotate(.9deg)}
+.clipping video{border:0!important}
+.clipping figcaption b{color:var(--sheet-ink)!important}
+.clipping figcaption span{font-family:var(--type);color:var(--red)!important}
+/* Scénario : feuille scotchée */
+.page{transform:rotate(-.6deg);overflow:visible}
+.page .tape{top:-15px}
+/* Méthode : tickets */
+.method.sheet{padding-block:110px 130px}
+.method.sheet .sec-title{color:var(--sheet-ink)!important}
+.ticket{position:relative;background:var(--sheet-ink);color:var(--sheet);padding:26px 24px 24px!important;border:0!important;
+  -webkit-mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
+.ticket::after{content:"";position:absolute;left:20px;right:20px;top:58px;border-top:2px dashed rgba(232,220,203,.35)}
+.ticket h3{color:var(--sheet)!important;font-family:var(--type)!important;letter-spacing:.14em!important}
+.ticket p{color:#CFC2B0!important;margin-top:26px!important}
+.ticket:nth-child(even){transform:rotate(1.2deg)}.ticket:nth-child(odd){transform:rotate(-1deg)}
+/* Contact : papier rouge, tampon, ticket */
+.sheet-red{padding-block:120px 110px!important}
+.sheet-red h2,.sheet-red .contact-intro{color:var(--sheet)!important}
+.contact-main{position:relative}
+.contact-stamp{position:absolute;top:-70px;left:clamp(150px,30vw,420px);width:130px;color:var(--sheet);opacity:.85;transform:rotate(14deg)}
+.ticket-card{position:relative;background:var(--sheet) url(img/deco/paper.jpg) 0 0/640px;background-blend-mode:multiply;color:var(--sheet-ink);padding:34px 30px 28px!important;transform:rotate(1.4deg);box-shadow:0 30px 60px -25px rgba(0,0,0,.6)}
+.ticket-card .label{color:var(--red)!important}
+.ticket-card .phone,.ticket-card .mail,.ticket-card .contact-links a{color:var(--sheet-ink)!important}
+.ticket-card .btn{background:var(--sheet-ink)!important;color:var(--sheet)!important}
+.ticket-card .btn:hover{background:var(--red)!important}
+.ticket-card::before{content:"";position:absolute;left:0;right:0;bottom:-10px;height:12px;background:radial-gradient(circle at 8px 0,transparent 7px,var(--sheet) 7.5px) 0 0/16px 12px repeat-x}
+/* Mobile */
+@media (max-width:700px){
+  :root{--rip:28px}
+  .hero-stamp{width:96px;right:12px;bottom:auto;top:96px}
+  .polaroid:nth-child(n){transform:rotate(-1deg)}
+  .clipping:nth-child(n),.ticket:nth-child(n){transform:none}
+  .contact-stamp{top:-56px;left:auto;right:0;width:96px}
+  .gazette .camp-head{padding:16px 0 12px}
+}
+@media (prefers-reduced-motion:reduce){.grain,.stamp-ring{animation:none}}
+
+/* v34b : retouches */
+.contact-stamp{width:170px!important;opacity:1!important;top:-96px!important;color:#E8DCCB}
+.snap{position:relative;padding:12px;background:var(--fiber);transform:rotate(-.7deg);box-shadow:0 30px 60px -25px rgba(0,0,0,.7)}
+.snap .tape{top:-15px}
+.snap .ctrl,.snap .hint{color:var(--sheet-ink)}
+.snap .hint{color:var(--sheet-mute)!important;font-family:var(--type)}
+.snap .seg button,.snap .chip{color:var(--sheet-ink)!important;border-color:rgba(18,12,12,.35)!important}
+.snap .seg button[aria-pressed="true"],.snap .chip[aria-pressed="true"]{color:var(--sheet)!important}
+.wf-body{position:relative}
+.film-label{position:absolute;top:-16px;left:18px;z-index:3;padding:6px 12px;background:var(--red);color:var(--sheet);font-family:var(--type);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transform:rotate(-2deg)}
+.grade .eyebrow,.wf .eyebrow,.script .eyebrow,.statement .eyebrow{font-family:var(--type)!important;color:#C9474B!important}
+@media (max-width:700px){.contact-stamp{width:110px!important;top:-70px!important}}
 </style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
 
 
 <header class="nav">
@@ -838,6 +972,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
   <div class="rec" aria-hidden="true"><i></i><span>REC</span><span id="tc">00:00:00:00</span></div>
 
   <div class="hero-body">
+    <div class="hero-tag"><span class="tape" aria-hidden="true"></span><span>Portfolio · Édition 2026</span></div>
     <div class="eyebrow">Vidéaste · Monteur · Étalonneur</div>
     <h1><span class="l1">Du message</span><span class="l2">à l’image.</span></h1>
     <div class="hero-cta">
@@ -848,36 +983,43 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
     </div>
     <p class="hero-meta"><b>4K</b><span>Tournage · Drone · Multicam</span></p>
   </div>
+  <div class="hero-stamp"><svg class="stamp" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="stampC" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/><filter id="stampGrunge"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.35" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></defs><g filter="url(#stampGrunge)"><circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" stroke-width="2.5"/><g class="stamp-ring"><text font-size="17" letter-spacing="3.2" fill="currentColor"><textPath href="#stampC">VIDÉASTE · MONTEUR · ÉTALONNEUR · </textPath></text></g><text x="100" y="114" text-anchor="middle" font-size="42" fill="currentColor" class="stamp-c">4K</text></g></svg></div>
 
 </section>
 
+<div class="filmband" aria-hidden="true"><div class="filmstrip" id="filmStrip"></div></div>
 <div class="ticker" aria-hidden="true"><div>
   <span>Premiere Pro</span><span>DaVinci Resolve</span><span>After Effects</span><span>Prises de vue drone</span><span>Étalonnage</span><span>Montage</span><span>Motion design</span><span>Sound design</span><span>Storytelling</span><span>Court métrage</span><span>Publicité</span>
   <span>Premiere Pro</span><span>DaVinci Resolve</span><span>After Effects</span><span>Prises de vue drone</span><span>Étalonnage</span><span>Montage</span><span>Motion design</span><span>Sound design</span><span>Storytelling</span><span>Court métrage</span><span>Publicité</span>
 </div></div>
 
-<section class="skills" id="competences">
+<section class="skills sheet" id="competences">
+  <div class="rip rip-t" aria-hidden="true"></div>
   <div class="sec-head">
     <div class="eyebrow">Compétences</div>
     <h2 class="sec-title">Ce que je sais faire</h2>
   </div>
   <div class="skill-grid">
-    <article class="skill">
+    <article class="skill polaroid">
+      <span class="tape" aria-hidden="true"></span>
       <figure class="skill-img"><img src="img/ia-tournage.jpg" alt="Caméra cinéma sur trépied dans un studio de tournage (image générée par IA)" loading="lazy"></figure>
       <h3>Tournage &amp; réalisation</h3>
       <p>Repérage, lumière, découpage. Je filme interviews, événements et mariages, seul ou en multicam, avec des prises de vue drone quand le projet s’y prête.</p>
     </article>
-    <article class="skill">
+    <article class="skill polaroid">
+      <span class="tape" aria-hidden="true"></span>
       <figure class="skill-img"><img src="img/ia-montage.jpg" alt="Poste de montage et d’étalonnage avec surface de contrôle (image générée par IA)" loading="lazy"></figure>
       <h3>Montage &amp; étalonnage</h3>
       <p>Du rush au fichier final : rythme, son, motion design sous After Effects, et un étalonnage construit nœud par nœud sous DaVinci Resolve.</p>
     </article>
-    <article class="skill">
+    <article class="skill polaroid">
+      <span class="tape" aria-hidden="true"></span>
       <figure class="skill-img"><img src="img/ia-reseaux.jpg" alt="Caméra avec micro et lumière LED au bord d’un terrain de basket (image générée par IA)" loading="lazy"></figure>
       <h3>Contenus réseaux</h3>
       <p>Chaque film décliné en formats courts 9:16 pour Reels, TikTok et Shorts, avec les publications préparées et les résultats suivis.</p>
     </article>
   </div>
+  <div class="rip rip-b" aria-hidden="true"></div>
 </section>
 
 <section class="work" id="realisations">
@@ -891,7 +1033,8 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
   <div class="work-grid" id="gridH"></div>
   <div class="work-v-head" id="vHead"><h3>Formats verticaux</h3><span id="vCount"></span></div>
   <div class="work-v" id="gridV"></div>
-  <a class="photo-band" href="https://djibrilrobertoaf.myportfolio.com/photographie" target="_blank" rel="noopener">
+  <a class="photo-band scrap" href="https://djibrilrobertoaf.myportfolio.com/photographie" target="_blank" rel="noopener">
+    <span class="tape" aria-hidden="true"></span><span class="tape r" aria-hidden="true"></span>
     <img src="img/photo-creative.jpg" alt="Portrait éditorial en noir et blanc de trois jeunes hommes" loading="lazy">
     <div class="photo-band-txt">
       <span class="eyebrow">Photographie</span>
@@ -902,30 +1045,36 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
   </a>
 </section>
 
-<section class="camp" id="marques">
+<section class="camp sheet gazette" id="marques">
+  <div class="rip rip-t" aria-hidden="true"></div>
   <div class="camp-head">
     <div class="eyebrow">Pour les marques</div>
     <h2>Spots &amp; films de marque.</h2>
     <p>Trois spots publicitaires et un film entièrement généré par IA.</p>
   </div>
   <div class="camp-grid camp-4">
-    <figure class="camp-item">
+    <figure class="camp-item clipping">
+      <span class="tape" aria-hidden="true"></span>
       <video controls preload="none" playsinline data-poster="img/campagne-sofinco-app.jpg" src="videos/campagne-sofinco-app.mp4" aria-label="Sofinco, la nouvelle app"></video>
       <figcaption><b>Sofinco · La nouvelle app</b><span>Spot publicitaire · 30 s</span></figcaption>
     </figure>
-    <figure class="camp-item">
+    <figure class="camp-item clipping">
+      <span class="tape" aria-hidden="true"></span>
       <video controls preload="none" playsinline data-poster="img/campagne-tupperware.jpg" src="videos/campagne-tupperware.mp4" aria-label="Tupperware, spot publicitaire"></video>
       <figcaption><b>Tupperware · Spot publicitaire</b><span>Film de marque · 1 min 34</span></figcaption>
     </figure>
-    <figure class="camp-item">
+    <figure class="camp-item clipping">
+      <span class="tape" aria-hidden="true"></span>
       <video controls preload="none" playsinline data-poster="img/campagne-tupperware-adam.jpg" src="videos/adam.mp4" aria-label="Tupperware, spot publicitaire de 58 secondes"></video>
       <figcaption><b>Tupperware · Spot publicitaire</b><span>58 s</span></figcaption>
     </figure>
-    <figure class="camp-item">
+    <figure class="camp-item clipping">
+      <span class="tape" aria-hidden="true"></span>
       <video controls preload="none" playsinline data-poster="img/tupperware-ia.jpg" src="videos/tupperware-ia.mp4" aria-label="Tupperware, il a tout vu, film généré par IA"></video>
       <figcaption><b>Tupperware · Il a tout vu</b><span>Généré par IA · 22 s</span></figcaption>
     </figure>
   </div>
+  <div class="rip rip-b" aria-hidden="true"></div>
 </section>
 
 <section class="grade" id="etalonnage">
@@ -935,7 +1084,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
     <p>Faites glisser le curseur pour voir ce que l’étalonnage apporte à une image : contraste, couleur et ambiance, sans changer le plan.</p>
   </div>
   <div class="grade-body">
-    <div>
+    <div class="snap"><span class="tape" aria-hidden="true"></span>
       <div class="cmp" id="cmp">
         <div class="layer"><img id="imgAfter" loading="lazy" src="etalonnage/apres.jpg" alt="Image étalonnée, après" draggable="false"><span class="tag">Après</span></div>
         <div class="layer cmp-before"><img id="imgBefore" loading="lazy" src="etalonnage/avant.jpg" alt="Image brute, avant étalonnage" draggable="false"><span class="tag">Avant</span></div>
@@ -989,6 +1138,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
     <p>Un étalonnage se construit dans un ordre précis. Voici la chaîne de nœuds que j’utilise sous DaVinci Resolve, de l’image brute à l’image finale.</p>
   </div>
   <div class="wf-body">
+    <span class="film-label" aria-hidden="true">DaVinci Resolve · Nœuds</span>
     <video controls preload="none" playsinline data-poster="img/etalonnage-process.jpg" src="videos/etalonnage-process.mp4" aria-label="Chaîne d’étalonnage sous DaVinci Resolve"></video>
     <ol class="wf-list">
       <li><b>Assainir d’abord</b><p>Débruitage, exposition puis balance des blancs. Tant que la base n’est pas propre, tout réglage créatif est faussé.</p></li>
@@ -1014,6 +1164,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
     <p>Avant la caméra, il y a une page. Voici comment j’aborde une histoire.</p>
   </div>
   <div class="page" id="page" role="img" aria-label="Extrait de scénario">
+    <span class="tape" aria-hidden="true"></span><span class="tape r" aria-hidden="true"></span>
     <span class="pg">1.</span>
     <div class="sp-l tr">FONDU AU NOIR.</div>
     <div class="sp-l sl">INT. SALLE DE MONTAGE – NUIT</div>
@@ -1045,23 +1196,26 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
   </div>
 </section>
 
-<section class="method" id="methode">
+<section class="method sheet" id="methode">
+  <div class="rip rip-t" aria-hidden="true"></div>
   <div class="method-head">
     <h2 class="sec-title">Comment je travaille</h2>
     <p>Un cadre simple, du premier échange à la livraison des fichiers.</p>
   </div>
   <ol class="steps">
-    <li class="step"><h3>Brief</h3><p>On définit ensemble l’objectif, le public visé et les formats de diffusion.</p></li>
-    <li class="step"><h3>Tournage</h3><p>Préparation et tournage adaptés au lieu, à l’image de la marque et au message.</p></li>
-    <li class="step"><h3>Montage</h3><p>Montage, son, étalonnage et déclinaisons pour chaque plateforme.</p></li>
-    <li class="step"><h3>Livraison</h3><p>Des fichiers prêts à diffuser, dans tous les formats nécessaires.</p></li>
+    <li class="step ticket"><h3>Brief</h3><p>On définit ensemble l’objectif, le public visé et les formats de diffusion.</p></li>
+    <li class="step ticket"><h3>Tournage</h3><p>Préparation et tournage adaptés au lieu, à l’image de la marque et au message.</p></li>
+    <li class="step ticket"><h3>Montage</h3><p>Montage, son, étalonnage et déclinaisons pour chaque plateforme.</p></li>
+    <li class="step ticket"><h3>Livraison</h3><p>Des fichiers prêts à diffuser, dans tous les formats nécessaires.</p></li>
   </ol>
 </section>
 
-<section class="contact" id="contact">
+<section class="contact sheet-red" id="contact">
+  <div class="rip rip-t" aria-hidden="true"></div>
   <div class="contact-grid">
-    <div><h2>Contact.</h2><p class="contact-intro">Une offre, un projet ou simplement une question : je réponds rapidement, par mail, téléphone ou WhatsApp.</p></div>
-    <div class="contact-side">
+    <div class="contact-main"><div class="contact-stamp"><svg class="stamp" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="stampC2" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"/><filter id="stampGrunge2"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.35" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></defs><g filter="url(#stampGrunge2)"><circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="100" cy="100" r="54" fill="none" stroke="currentColor" stroke-width="2.5"/><g class="stamp-ring"><text font-size="17" letter-spacing="3.2" fill="currentColor"><textPath href="#stampC2">VIDÉASTE · MONTEUR · ÉTALONNEUR · </textPath></text></g><text x="100" y="114" text-anchor="middle" font-size="42" fill="currentColor" class="stamp-c">4K</text></g></svg></div><h2>Contact.</h2><p class="contact-intro">Une offre, un projet ou simplement une question : je réponds rapidement, par mail, téléphone ou WhatsApp.</p></div>
+    <div class="contact-side ticket-card">
+      <span class="tape" aria-hidden="true"></span>
       <div>
         <div class="label">Téléphone</div>
         <div class="phone-row">
@@ -1156,6 +1310,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
     a.setAttribute('aria-label', c.title + ', lire la vidéo');
     a.addEventListener('click', function(e){ if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); openLb(c, a); });
     var th = thumb(c); if(th) a.appendChild(th);
+    a.appendChild(el('span','perf perf-t')); a.appendChild(el('span','perf perf-b'));
     var cap = el('div','w-cap'); cap.appendChild(el('span', null, CARD_NAME[c.cat] || c.cat)); cap.appendChild(el('b', null, c.title)); a.appendChild(cap);
     var pl = el('span','w-play'); pl.appendChild(svgPlay()); a.appendChild(pl);
     return a;
@@ -1602,6 +1757,42 @@ a:focus-visible,button:focus-visible{outline-color:var(--accent)}
   var io = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ set(e.target); io.unobserve(e.target); } }); }, {rootMargin:'600px 0px'});
   vids.forEach(function(v){ io.observe(v); });
 })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js" defer></script>
+<script defer>
+/* Habillage papier : animations GSAP + bande de pellicule Lottie */
+window.addEventListener('load', function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var strip = document.getElementById('filmStrip');
+  if(strip && window.lottie){
+    var anim = lottie.loadAnimation({container: strip, renderer: 'svg', loop: true, autoplay: false, path: 'img/deco/film-strip.json', rendererSettings: {preserveAspectRatio: 'xMidYMid slice'}});
+    if(reduce){ anim.addEventListener('DOMLoaded', function(){ anim.goToAndStop(120, true); }); }
+    else if('IntersectionObserver' in window){ new IntersectionObserver(function(e){ e[0].isIntersecting ? anim.play() : anim.pause(); }).observe(strip); }
+    else anim.play();
+  }
+  if(reduce || !window.gsap || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('paper-anim');
+  function inView(el){ var r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; }
+  function reveal(sel, from, to){
+    gsap.utils.toArray(sel).forEach(function(el, i){
+      if(inView(el)) return;
+      var f = typeof from === 'function' ? from(el, i) : from;
+      gsap.set(el, f);
+      var io = new IntersectionObserver(function(en){
+        if(!en[0].isIntersecting) return; io.disconnect();
+        gsap.to(el, Object.assign({}, typeof to === 'function' ? to(el, i) : to));
+      }, {rootMargin: '0px 0px -8% 0px'});
+      io.observe(el);
+    });
+  }
+  reveal('.polaroid, .clipping, .photo-band, .page, .ticket, .ticket-card',
+    function(el, i){ return {y: -70, rotation: '+=' + (i % 2 ? 7 : -7), opacity: 0}; },
+    function(el, i){ return {y: 0, rotation: '-=' + (i % 2 ? 7 : -7), opacity: 1, duration: 1.05, ease: 'back.out(1.5)'}; });
+  reveal('.tape', {scale: 1.6, opacity: 0}, {scale: 1, opacity: 1, duration: .45, ease: 'power3.out', delay: .6});
+  reveal('.stamp', {scale: 2.4, opacity: 0, rotation: -35}, {scale: 1, opacity: 1, rotation: 0, duration: .7, ease: 'expo.out', delay: .35});
+  reveal('.sheet .sec-title, .sheet .camp-head h2, .sheet-red h2', {clipPath: 'inset(0 100% 0 0)'}, {clipPath: 'inset(0 0% 0 0)', duration: 1.1, ease: 'power3.inOut'});
+});
 </script>
 </body>
 </html>
