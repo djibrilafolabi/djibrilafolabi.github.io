@@ -705,14 +705,14 @@ section{position:relative}
     {title:'Basket · Stade Français', cat:'Sport', img:'img/basket-stade-francais.jpg', file:'videos/basket-stade-francais.mp4', v:1},
     {title:'Basket · Hype', cat:'Sport', img:'img/basket-hype.jpg', file:'videos/basket-hype.mp4', v:1},
     {title:'Basket · Récap U18', cat:'Sport', img:'img/recap-u18.jpg', file:'videos/recap-u18.mp4', v:1},
-    {title:'Court métrage 01', cat:'Fiction',   img:'img/court-metrage-01.jpg', url:'https://youtu.be/MBdshXfbeRU'},
-    {title:'Événement 02',     cat:'Événement', img:'img/evenement-02.jpg', url:'https://youtu.be/AqtWBB1l7SE'},
-    {title:'Mariage 01',       cat:'Mariage',   img:'img/mariage-01.jpg', url:'https://youtu.be/toEyJCL-teQ'},
-    {title:'Mariage 02',       cat:'Mariage',   img:'img/mariage-02.jpg', url:'https://youtu.be/P9t-Rjw0wDM'},
-    {title:'Mariage 03',       cat:'Mariage',   img:'img/mariage-03.jpg', url:'https://youtu.be/q1xqYx5cMXw'},
-    {title:'Mariage 04',       cat:'Mariage',   img:'img/mariage-04.jpg', url:'https://youtu.be/7ZokOXl0UUI'},
-    {title:'Mariage 05',       cat:'Mariage',   img:'img/mariage-05.jpg', url:'https://youtu.be/fL5ZR_PzBl0'},
-    {title:'Mariage 06',       cat:'Mariage',   img:'img/mariage-06.jpg', url:'https://youtu.be/rDqIY-SyS6U'},
+    {title:'Court métrage', cat:'Fiction',   img:'img/court-metrage-01.jpg', url:'https://youtu.be/MBdshXfbeRU'},
+    {title:'Événement',     cat:'Événement', img:'img/evenement-02.jpg', url:'https://youtu.be/AqtWBB1l7SE'},
+    {title:'Mariage',       cat:'Mariage',   img:'img/mariage-01.jpg', url:'https://youtu.be/toEyJCL-teQ'},
+    {title:'Mariage',       cat:'Mariage',   img:'img/mariage-02.jpg', url:'https://youtu.be/P9t-Rjw0wDM'},
+    {title:'Mariage',       cat:'Mariage',   img:'img/mariage-03.jpg', url:'https://youtu.be/q1xqYx5cMXw'},
+    {title:'Mariage',       cat:'Mariage',   img:'img/mariage-04.jpg', url:'https://youtu.be/7ZokOXl0UUI'},
+    {title:'Mariage',       cat:'Mariage',   img:'img/mariage-05.jpg', url:'https://youtu.be/fL5ZR_PzBl0'},
+    {title:'Mariage',       cat:'Mariage',   img:'img/mariage-06.jpg', url:'https://youtu.be/rDqIY-SyS6U'},
     {title:'Mode · La cour',         cat:'Fiction', img:'img/mode-01.jpg',      v:1, url:'https://youtube.com/shorts/JFMqfV5zNZE'},
     {title:'Making-of · Le plateau', cat:'Fiction', img:'img/making-of-01.jpg', v:1, url:'https://youtube.com/shorts/aKxolHKaxKs'},
     {title:'Making-of · Le cadre',   cat:'Fiction', img:'img/making-of-02.jpg', v:1, url:'https://youtube.com/shorts/ih9gttcFc7E'},
@@ -720,15 +720,15 @@ section{position:relative}
   ];
   /* Les 5 films mis en avant en plein écran */
   var FEATURED = [
-    byTitle('Court métrage 01'),
-    byTitle('Salon de l’auto · Récap'),
-    byTitle('Basket · Stade Français'),
-    byTitle('Mariage 01'),
+    byImg('img/court-metrage-01.jpg'),
+    byImg('img/salon-auto.jpg'),
+    byImg('img/basket-stade-francais.jpg'),
+    byImg('img/mariage-01.jpg'),
     {title:'Tupperware · Spot publicitaire', cat:'Publicité', img:'img/campagne-tupperware.jpg', file:'videos/campagne-tupperware.mp4'}
   ];
   var CARD_ORDER = ['Mariage','Événement','Sport','Fiction'];
   var CARD_NAME = {'Fiction':'Fiction & mode','Mariage':'Mariages','Événement':'Événements'};
-  function byTitle(t){ for(var i = 0; i < CLIPS.length; i++) if(CLIPS[i].title === t) return CLIPS[i]; }
+  function byImg(src){ for(var i = 0; i < CLIPS.length; i++) if(CLIPS[i].img === src) return CLIPS[i]; }
   function el(tag, cls, text){ var e = document.createElement(tag); if(cls) e.className = cls; if(text != null) e.textContent = text; return e; }
   function svg(html, w, h, vb){ var s = document.createElementNS('http://www.w3.org/2000/svg','svg'); s.setAttribute('width', w); s.setAttribute('height', h); s.setAttribute('viewBox', vb); s.setAttribute('aria-hidden','true'); s.innerHTML = html; return s; }
   function playIcon(){ return svg('<path d="M8 5v14l11-7z" fill="#fff"/>', 18, 18, '0 0 24 24'); }
@@ -786,9 +786,8 @@ section{position:relative}
   function renderFilters(){
     filtersEl.textContent = '';
     ['Tous'].concat(CARD_ORDER).forEach(function(name){
-      var n = name === 'Tous' ? CLIPS.length : CLIPS.filter(function(c){ return c.cat === name; }).length;
       var b = el('button','tab', name === 'Tous' ? 'Tout' : (CARD_NAME[name] || name));
-      b.appendChild(el('sup', null, String(n))); b.type = 'button';
+      b.type = 'button';
       b.setAttribute('aria-pressed', name === current ? 'true' : 'false');
       b.addEventListener('click', function(){ current = name; renderFilters(); renderFrames(); });
       filtersEl.appendChild(b);
