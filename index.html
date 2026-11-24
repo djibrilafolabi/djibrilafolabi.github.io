@@ -75,8 +75,10 @@ section{position:relative}
 
 /* ===== Accueil ===== */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;padding:120px var(--gut) 40px;isolation:isolate}
-.hero-media{position:absolute;inset:0;z-index:-3;opacity:.26;filter:saturate(.7)}
-.hero-media video,.hero-media i{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background-size:cover;background-position:center;transition:opacity 1.6s ease}
+.hero-media{position:absolute;inset:0;z-index:-3;opacity:.52;background:#000 url(img/hero-poster.jpg) center/cover no-repeat}
+.hero-media video,.hero-media i{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background-size:cover;background-position:center;opacity:0;transform:scale(1.12);filter:blur(10px) brightness(1.25);transition:opacity 1.1s cubic-bezier(.65,0,.35,1),filter 1.1s cubic-bezier(.65,0,.35,1),transform 7.5s cubic-bezier(.22,1,.36,1)}
+.hero-media .on{opacity:1;transform:scale(1);filter:none;z-index:1}
+.hero-media .off{opacity:0;transform:scale(1.04);filter:blur(6px) brightness(.6);transition-duration:1.1s}
 .aurora{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .aurora i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.6;mix-blend-mode:screen;will-change:transform}
 .aurora .a1{width:62vmax;height:62vmax;left:-22vmax;top:-26vmax;background:radial-gradient(circle,#1E73BE 0,rgba(30,115,190,0) 68%);animation:d1 19s ease-in-out infinite alternate}
@@ -112,14 +114,11 @@ section{position:relative}
 .cat>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.04);transition:transform 1.2s var(--ease)}
 .cat::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.15) 0,rgba(0,0,0,.35) 40%,rgba(0,0,0,.9) 100%);transition:background .45s var(--ease)}
 .cat::after{content:"";position:absolute;inset:0;z-index:-1;background:var(--deep);opacity:0;transition:opacity .45s var(--ease)}
-.cat-ico{width:clamp(76px,7vw,96px);height:clamp(76px,7vw,96px);border-radius:50%;background:var(--deep);border:1.5px solid var(--deep);display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:background .45s var(--ease),border-color .45s var(--ease),transform .45s var(--ease)}
-.cat-ico svg{width:46%;height:46%}
 .cat h3{margin:0 0 12px;font-family:var(--display);font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:clamp(26px,2.8vw,40px);line-height:1}
 .cat p{margin:0;max-width:40ch;color:var(--soft);font-size:clamp(15px,1.15vw,17px);line-height:1.45;transition:color .45s}
 .cat-go{margin-top:20px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:8px;transition:color .45s}
 .cat:hover>img,.cat:focus-visible>img{transform:scale(1.1)}
 .cat:hover::after,.cat:focus-visible::after{opacity:.86}
-.cat:hover .cat-ico,.cat:focus-visible .cat-ico{background:transparent;border-color:#fff;transform:translateY(-4px)}
 .cat:hover p,.cat:focus-visible p,.cat:hover .cat-go,.cat:focus-visible .cat-go{color:#fff}
 
 /* Autres réalisations */
@@ -418,7 +417,6 @@ section{position:relative}
     <div class="refs-head rv">
       <span class="kicker">Réalisations</span>
       <h2 class="h-l">Explorez<br>mes réalisations</h2>
-      <p class="lead">Choisissez un univers pour voir les films correspondants.</p>
     </div>
     <div class="cats" id="cats"></div>
   </div>
@@ -463,8 +461,7 @@ section{position:relative}
 <section class="services" id="competences">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker">Compétences</span>
-      <h2 class="h-l">Ce que je<br>sais faire</h2>
+      <h2 class="h-l">Compétences</h2>
     </div>
     <div class="svc-stack">
       <article class="svc glass" style="--k:0">
@@ -491,8 +488,8 @@ section{position:relative}
         <div class="svc-txt">
           <h3>Contenus réseaux</h3>
           <div>
-            <p>Chaque film décliné en formats courts 9:16 pour Reels, TikTok et Shorts, avec les publications préparées et les résultats suivis.</p>
-            <div class="svc-tags" style="margin-top:22px"><span>Reels</span><span>TikTok</span><span>Shorts</span></div>
+            <p>Chaque film décliné en formats courts pour les réseaux sociaux, avec les publications préparées et les résultats suivis.</p>
+            <div class="svc-tags" style="margin-top:22px"><span>Formats courts</span><span>Publications</span><span>Suivi des résultats</span></div>
           </div>
         </div>
         <figure><img src="img/ia-reseaux.jpg" alt="Caméra avec micro et lumière LED au bord d’un terrain de basket (image générée par IA)" loading="lazy"></figure>
@@ -505,7 +502,6 @@ section{position:relative}
   <div class="wrap">
     <div class="brands-head rv">
       <div><span class="kicker">Pour les marques</span><h2 class="h-l">Spots &amp; films<br>de marque</h2></div>
-      <p class="lead">Trois spots publicitaires et un film entièrement généré par IA.</p>
     </div>
     <div class="camp-grid">
       <figure class="camp-item glass rv">
@@ -642,7 +638,6 @@ section{position:relative}
   <div class="wrap">
     <div class="method-head rv">
       <h2 class="h-l">Comment<br>je travaille</h2>
-      <p class="lead">Un cadre simple, du premier échange à la livraison des fichiers.</p>
     </div>
     <ol class="steps">
       <li class="step glass rv"><h3>Brief</h3><p>On définit ensemble l’objectif, le public visé et les formats de diffusion.</p></li>
@@ -660,9 +655,7 @@ section{position:relative}
     <path d="M0 520 C 360 380, 760 640, 1440 300"/><path d="M0 560 C 420 420, 820 680, 1440 340"/><path d="M0 600 C 480 460, 880 720, 1440 380"/><path d="M0 200 C 400 340, 900 80, 1440 260"/>
   </svg>
   <div class="wrap">
-    <span class="kicker rv">Contact</span>
-    <h2 class="h-xl rv">Travaillons ensemble</h2>
-    <p class="contact-intro rv">Une offre, un projet ou simplement une question : je réponds rapidement, par mail, téléphone ou WhatsApp.</p>
+    <h2 class="h-xl rv">Contact</h2>
     <div class="contact-cta rv">
       <a class="btn btn-blue" href="https://wa.me/33758457496?text=Bonjour%20Djibril%2C%20j%E2%80%99ai%20d%C3%A9couvert%20votre%20portfolio%20et%20je%20souhaiterais%20%C3%A9changer%20avec%20vous." target="_blank" rel="noopener">Écrire sur WhatsApp
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h15M11 1l5 5-5 5"/></svg>
@@ -703,7 +696,7 @@ section{position:relative}
   var CLIPS = [
     {title:'Multicam · Plateau talk', cat:'Événement', img:'img/multicam-talk-v.jpg', file:'videos/multicam-talk-vertical.mp4', v:1},
     {title:'Salon de l’auto · Récap', cat:'Événement', img:'img/salon-auto.jpg', file:'videos/recap-salon-auto.mp4'},
-    {title:'Basket · Stade Français', cat:'Sport', img:'img/basket-stade-francais.jpg', file:'videos/basket-stade-francais.mp4', v:1},
+    {title:'Basket · Stade Français', cat:'Sport', img:'img/basket-stade-francais.jpg?v=2', file:'videos/basket-stade-francais.mp4', v:1},
     {title:'Basket · Hype', cat:'Sport', img:'img/basket-hype.jpg', file:'videos/basket-hype.mp4', v:1},
     {title:'Basket · Récap U18', cat:'Sport', img:'img/recap-u18.jpg', file:'videos/recap-u18.mp4', v:1},
     {title:'Court métrage', cat:'Fiction',   img:'img/court-metrage-01.jpg', url:'https://youtu.be/MBdshXfbeRU'},
@@ -765,20 +758,15 @@ section{position:relative}
 
   /* Cartes par catégorie : un clic filtre la grille */
   var CATS = [
-    {cat:'Mariage', img:'img/mariage-01.jpg', text:'Préparatifs, cérémonie et soirée, racontés en films souvenirs.',
-      ico:'<circle cx="9" cy="14" r="5.5"/><circle cx="15" cy="14" r="5.5"/><path d="M10 5.5l2-2.5 2 2.5-2 2z"/>'},
-    {cat:'Événement', img:'img/salon-auto.jpg', text:'Salons, conférences et plateaux, filmés en multicam et montés en récap.',
-      ico:'<rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5v4M8.5 21.5h7"/>'},
-    {cat:'Sport', img:'img/basket-stade-francais.jpg', text:'Matchs, entraînements et vidéos hype, au rythme du terrain.',
-      ico:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3.2 3.6 3.2 9.2 0 12.8M18.4 5.6c-3.2 3.6-3.2 9.2 0 12.8"/>'},
-    {cat:'Fiction', img:'img/court-metrage-01.jpg', text:'Courts métrages, mode et making-of, de l’écriture à l’étalonnage.',
-      ico:'<rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M3 9l1.6-5 16.4 1.5L19.6 9M8 4.4L6.6 9M13.5 4.9L12 9"/>'}
+    {cat:'Mariage', img:'img/mariage-01.jpg', text:'Préparatifs, cérémonie et soirée, racontés en films souvenirs.'},
+    {cat:'Événement', img:'img/salon-auto.jpg', text:'Salons, conférences et plateaux, filmés en multicam et montés en récap.'},
+    {cat:'Sport', img:'img/basket-stade-francais.jpg?v=2', pos:'50% 16%', text:'Matchs, entraînements et vidéos hype, au rythme du terrain.'},
+    {cat:'Fiction', img:'img/court-metrage-01.jpg', text:'Courts métrages, mode et making-of, de l’écriture à l’étalonnage.'}
   ];
   var catsEl = document.getElementById('cats');
   CATS.forEach(function(k){
     var a = el('a','cat rv'); a.href = '#films';
-    var im = el('img'); im.src = k.img; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; a.appendChild(im);
-    var ic = el('span','cat-ico'); ic.appendChild(svg('<g fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' + k.ico + '</g>', 24, 24, '0 0 24 24')); a.appendChild(ic);
+    var im = el('img'); im.src = k.img; if(k.pos) im.style.objectPosition = k.pos; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; a.appendChild(im);
     a.appendChild(el('h3', null, CARD_NAME[k.cat] || k.cat));
     a.appendChild(el('p', null, k.text));
     var go = el('span','cat-go','Voir les films'); go.appendChild(arrowIcon()); a.appendChild(go);
@@ -829,22 +817,31 @@ section{position:relative}
     });
   })();
 
-  /* Vidéos discrètes derrière le halo de l'accueil */
+  /* Accueil : les deux spots Tupperware, sans le son, en alternance */
   (function(){
     var box = document.getElementById('heroSlides');
-    var SCENES = ['videos/plateau.mp4','videos/avant.mp4','videos/apres.mp4','videos/montage.mp4','videos/drone.mp4','videos/camera.mp4'];
-    if(reduce){ var i0 = el('i'); i0.style.backgroundImage = 'url(img/salon-auto.jpg)'; box.appendChild(i0); return; }
-    var cur = 0, layer = null;
-    function show(i){
-      var v = document.createElement('video'); v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true; v.setAttribute('playsinline',''); v.autoplay = true; v.preload = 'auto'; v.src = SCENES[i]; v.style.opacity = 0;
-      box.appendChild(v);
-      var prev = layer; layer = v;
-      v.addEventListener('playing', function once(){ v.removeEventListener('playing', once); v.style.opacity = 1; if(prev){ prev.style.opacity = 0; setTimeout(function(){ if(prev.parentNode) prev.parentNode.removeChild(prev); }, 1700); } });
-      v.addEventListener('error', function(){ if(v.parentNode) v.parentNode.removeChild(v); if(layer === v) layer = prev; });
+    if(reduce){ var i0 = el('i','on'); i0.style.backgroundImage = 'url(img/hero-poster.jpg)'; box.appendChild(i0); return; }
+    var SHOTS = ['videos/hero-tupperware.mp4','videos/hero-ia.mp4'];
+    var HOLD = [6200, 5200];
+    var vids = SHOTS.map(function(src){
+      var v = document.createElement('video'); v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true;
+      v.setAttribute('playsinline',''); v.setAttribute('muted',''); v.preload = 'auto'; v.src = src; box.appendChild(v); return v;
+    });
+    var cur = -1, timer = null;
+    function go(n){
+      var v = vids[n], prev = cur >= 0 ? vids[cur] : null; cur = n;
       var pp = v.play(); if(pp && pp.catch) pp.catch(function(){});
+      v.classList.remove('off'); void v.offsetWidth; v.classList.add('on');
+      if(prev){ prev.classList.remove('on'); prev.classList.add('off'); setTimeout(function(){ if(!prev.classList.contains('on')) prev.pause(); }, 1200); }
+      clearTimeout(timer); timer = setTimeout(next, HOLD[n]);
     }
-    show(0);
-    setInterval(function(){ if(document.hidden || scrollY > innerHeight) return; cur = (cur + 1) % SCENES.length; show(cur); }, 6500);
+    function next(){
+      if(document.hidden || scrollY > innerHeight){ timer = setTimeout(next, 1000); return; }
+      go((cur + 1) % vids.length);
+    }
+    var started = false;
+    function start(){ if(started) return; started = true; go(0); }
+    vids[0].addEventListener('canplay', start); setTimeout(start, 2500);
   })();
 
   /* Texte qui s'éclaire mot par mot */
