@@ -103,27 +103,27 @@ section{position:relative}
 .scroll-cue{position:absolute;left:50%;bottom:26px;width:1px;height:46px;background:linear-gradient(180deg,rgba(255,255,255,.6),rgba(255,255,255,0));animation:cue 2.2s ease-in-out infinite}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* ===== Réalisations : plein écran empilé ===== */
-.refs{padding-top:40px}
-.refs-title{position:sticky;top:0;z-index:5;height:0;pointer-events:none}
-.refs-title h2{padding:96px var(--gut) 0;text-shadow:0 4px 40px rgba(0,0,0,.6)}
-.ref{position:sticky;top:0;height:100svh;display:flex;align-items:center;padding:84px var(--gut) var(--gut)}
-.ref-frame{position:relative;width:100%;height:100%;border-radius:var(--r);overflow:hidden;background:#0b0b0b;cursor:pointer;transform-origin:50% 0;will-change:transform;border:1px solid var(--line)}
-.ref-frame>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.4s var(--ease)}
-.ref-frame:hover>img{transform:scale(1.0)}
-.ref-frame.v .ref-bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(40px) brightness(.55);transform:scale(1.1)}
-.ref-frame.v>img{object-fit:contain;transform:none}
-.ref-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0,rgba(0,0,0,0) 34%,rgba(0,0,0,0) 58%,rgba(0,0,0,.75) 100%);pointer-events:none}
-.ref-cap{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:clamp(20px,3vw,40px)}
-.ref-cap h3{margin:0;font-weight:500;font-size:clamp(26px,3.4vw,48px);line-height:1.05;letter-spacing:-.01em}
-.ref-meta{display:flex;align-items:center;gap:18px;flex-shrink:0}
-.ref-meta span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-.ref-go{width:56px;height:56px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:inline-flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .3s,border-color .3s,color .3s}
-.ref-frame:hover .ref-go{background:var(--blue);border-color:var(--blue);color:#000}
-.ref-dim{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+/* ===== Réalisations : cartes par catégorie ===== */
+.refs{padding:clamp(90px,11vw,150px) 0 0}
+.refs-head{margin-bottom:clamp(36px,4vw,56px)}
+.refs-head .lead{margin-top:22px}
+.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2.4vw,32px)}
+.cat{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;min-height:clamp(340px,34vw,460px);padding:clamp(26px,3vw,44px);border-radius:var(--r);overflow:hidden;background:#0b0b0b;border:1px solid var(--line);color:#fff;cursor:pointer;isolation:isolate}
+.cat>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.04);transition:transform 1.2s var(--ease)}
+.cat::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.15) 0,rgba(0,0,0,.35) 40%,rgba(0,0,0,.9) 100%);transition:background .45s var(--ease)}
+.cat::after{content:"";position:absolute;inset:0;z-index:-1;background:var(--deep);opacity:0;transition:opacity .45s var(--ease)}
+.cat-ico{width:clamp(76px,7vw,96px);height:clamp(76px,7vw,96px);border-radius:50%;background:var(--deep);border:1.5px solid var(--deep);display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:background .45s var(--ease),border-color .45s var(--ease),transform .45s var(--ease)}
+.cat-ico svg{width:46%;height:46%}
+.cat h3{margin:0 0 12px;font-family:var(--display);font-weight:800;font-stretch:112%;text-transform:uppercase;font-size:clamp(26px,2.8vw,40px);line-height:1}
+.cat p{margin:0;max-width:40ch;color:var(--soft);font-size:clamp(15px,1.15vw,17px);line-height:1.45;transition:color .45s}
+.cat-go{margin-top:20px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:8px;transition:color .45s}
+.cat:hover>img,.cat:focus-visible>img{transform:scale(1.1)}
+.cat:hover::after,.cat:focus-visible::after{opacity:.86}
+.cat:hover .cat-ico,.cat:focus-visible .cat-ico{background:transparent;border-color:#fff;transform:translateY(-4px)}
+.cat:hover p,.cat:focus-visible p,.cat:hover .cat-go,.cat:focus-visible .cat-go{color:#fff}
 
 /* Autres réalisations */
-.more{padding:120px 0 40px;position:relative;z-index:6;background:#000}
+.more{padding:clamp(80px,9vw,120px) 0 40px;position:relative}
 .more-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:40px}
 .more-head p{margin:0;font-size:clamp(24px,2.6vw,38px);line-height:1.15;font-weight:500;letter-spacing:-.01em}
 .more-head p em{font-style:normal;color:var(--mute)}
@@ -347,10 +347,8 @@ section{position:relative}
   body{font-size:16px}
   .hero-foot{flex-direction:column;align-items:center;bottom:20px;text-align:center}
   .scroll-cue{display:none}
-  .ref{padding:76px 12px 12px}
-  .refs-title h2{padding:84px 28px 0;font-size:34px}
-  .ref-cap{flex-direction:column;align-items:flex-start}
-  .ref-go{width:46px;height:46px}
+  .cats{grid-template-columns:1fr}
+  .cat{min-height:340px}
   .work-grid{grid-template-columns:1fr}
   .work-v{grid-template-columns:repeat(2,1fr)}
   .camp-grid{grid-template-columns:1fr}
@@ -416,14 +414,18 @@ section{position:relative}
 </section>
 
 <section class="refs" id="realisations" aria-label="Réalisations">
-  <div class="refs-pin">
-    <div class="refs-title"><h2 class="h-l">Explorez<br>mes réalisations</h2></div>
-    <div id="refStack"></div>
+  <div class="wrap">
+    <div class="refs-head rv">
+      <span class="kicker">Réalisations</span>
+      <h2 class="h-l">Explorez<br>mes réalisations</h2>
+      <p class="lead">Choisissez un univers pour voir les films correspondants.</p>
+    </div>
+    <div class="cats" id="cats"></div>
   </div>
-  <div class="more">
+  <div class="more" id="films">
     <div class="wrap">
       <div class="more-head rv">
-        <p>Découvrez mes autres films.<br><em>Mariages, événements, sport et fiction.</em></p>
+        <p>Tous mes films.<br><em>Mariages, événements, sport et fiction.</em></p>
         <div class="tabs" id="filters" role="group" aria-label="Filtrer par catégorie"></div>
       </div>
       <div class="work-grid" id="gridH"></div>
@@ -449,7 +451,6 @@ section{position:relative}
   </div>
   <p class="sr-only">Outils et savoir-faire : Premiere Pro, DaVinci Resolve, After Effects, prises de vue drone, étalonnage, montage, motion design, sound design, storytelling, court métrage, publicité.</p>
   <div class="about-body">
-    <p class="lightup">Mon objectif : des contenus clairs, soignés et adaptés à leur public, du film d’entreprise à la publication sur les réseaux sociaux. Je travaille sous Premiere Pro, DaVinci Resolve et After Effects.</p>
     <div class="about-sign rv">
       <b>Djibril Afolabi</b>
       <a class="btn" href="#contact">Me contacter
@@ -718,17 +719,8 @@ section{position:relative}
     {title:'Making-of · Le cadre',   cat:'Fiction', img:'img/making-of-02.jpg', v:1, url:'https://youtube.com/shorts/ih9gttcFc7E'},
     {title:'Basket · Portrait',      cat:'Sport',   img:'img/basket-01.jpg',    v:1, url:'https://youtube.com/shorts/shoz_PzI104'}
   ];
-  /* Les 5 films mis en avant en plein écran */
-  var FEATURED = [
-    byImg('img/court-metrage-01.jpg'),
-    byImg('img/salon-auto.jpg'),
-    byImg('img/basket-stade-francais.jpg'),
-    byImg('img/mariage-01.jpg'),
-    {title:'Tupperware · Spot publicitaire', cat:'Publicité', img:'img/campagne-tupperware.jpg', file:'videos/campagne-tupperware.mp4'}
-  ];
   var CARD_ORDER = ['Mariage','Événement','Sport','Fiction'];
   var CARD_NAME = {'Fiction':'Fiction & mode','Mariage':'Mariages','Événement':'Événements'};
-  function byImg(src){ for(var i = 0; i < CLIPS.length; i++) if(CLIPS[i].img === src) return CLIPS[i]; }
   function el(tag, cls, text){ var e = document.createElement(tag); if(cls) e.className = cls; if(text != null) e.textContent = text; return e; }
   function svg(html, w, h, vb){ var s = document.createElementNS('http://www.w3.org/2000/svg','svg'); s.setAttribute('width', w); s.setAttribute('height', h); s.setAttribute('viewBox', vb); s.setAttribute('aria-hidden','true'); s.innerHTML = html; return s; }
   function playIcon(){ return svg('<path d="M8 5v14l11-7z" fill="#fff"/>', 18, 18, '0 0 24 24'); }
@@ -736,30 +728,6 @@ section{position:relative}
   function ytId(u){ if(!u) return null; var m = u.match(/youtu\.be\/([\w-]{6,})/) || u.match(/shorts\/([\w-]{6,})/) || u.match(/[?&]v=([\w-]{6,})/); return m ? m[1] : null; }
   function bind(node, c){
     node.addEventListener('click', function(e){ if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; e.preventDefault(); openLb(c, node); });
-  }
-
-  /* Réalisations en plein écran */
-  var stack = document.getElementById('refStack');
-  FEATURED.forEach(function(c){
-    var sec = el('div','ref');
-    var fr = el('a','ref-frame' + (c.v ? ' v' : '')); fr.href = c.file || c.url; fr.setAttribute('aria-label', c.title + ', lire la vidéo');
-    if(c.v){ var bg = el('i','ref-bg'); bg.style.backgroundImage = 'url(' + c.img + ')'; fr.appendChild(bg); }
-    var im = el('img'); im.src = c.img; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; fr.appendChild(im);
-    fr.appendChild(el('span','ref-shade'));
-    var cap = el('div','ref-cap'); cap.appendChild(el('h3', null, c.title));
-    var meta = el('div','ref-meta'); meta.appendChild(el('span', null, c.cat)); var go = el('span','ref-go'); go.appendChild(arrowIcon()); meta.appendChild(go);
-    cap.appendChild(meta); fr.appendChild(cap); fr.appendChild(el('span','ref-dim'));
-    bind(fr, c); sec.appendChild(fr); stack.appendChild(sec);
-  });
-  /* La carte précédente recule quand la suivante arrive */
-  var refs = stack.querySelectorAll('.ref');
-  function stackFx(){
-    for(var i = 0; i < refs.length; i++){
-      var nx = refs[i + 1], fr = refs[i].firstChild, p = 0;
-      if(nx){ p = 1 - nx.getBoundingClientRect().top / innerHeight; p = Math.max(0, Math.min(1, p)); }
-      fr.style.transform = p ? 'scale(' + (1 - p * .08) + ')' : '';
-      fr.lastChild.style.opacity = (p * .7).toFixed(3);
-    }
   }
 
   /* Grille des autres films */
@@ -794,6 +762,32 @@ section{position:relative}
     });
   }
   renderFilters(); renderFrames();
+
+  /* Cartes par catégorie : un clic filtre la grille */
+  var CATS = [
+    {cat:'Mariage', img:'img/mariage-01.jpg', text:'Préparatifs, cérémonie et soirée, racontés en films souvenirs.',
+      ico:'<circle cx="9" cy="14" r="5.5"/><circle cx="15" cy="14" r="5.5"/><path d="M10 5.5l2-2.5 2 2.5-2 2z"/>'},
+    {cat:'Événement', img:'img/salon-auto.jpg', text:'Salons, conférences et plateaux, filmés en multicam et montés en récap.',
+      ico:'<rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5v4M8.5 21.5h7"/>'},
+    {cat:'Sport', img:'img/basket-stade-francais.jpg', text:'Matchs, entraînements et vidéos hype, au rythme du terrain.',
+      ico:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3.2 3.6 3.2 9.2 0 12.8M18.4 5.6c-3.2 3.6-3.2 9.2 0 12.8"/>'},
+    {cat:'Fiction', img:'img/court-metrage-01.jpg', text:'Courts métrages, mode et making-of, de l’écriture à l’étalonnage.',
+      ico:'<rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M3 9l1.6-5 16.4 1.5L19.6 9M8 4.4L6.6 9M13.5 4.9L12 9"/>'}
+  ];
+  var catsEl = document.getElementById('cats');
+  CATS.forEach(function(k){
+    var a = el('a','cat rv'); a.href = '#films';
+    var im = el('img'); im.src = k.img; im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; a.appendChild(im);
+    var ic = el('span','cat-ico'); ic.appendChild(svg('<g fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">' + k.ico + '</g>', 24, 24, '0 0 24 24')); a.appendChild(ic);
+    a.appendChild(el('h3', null, CARD_NAME[k.cat] || k.cat));
+    a.appendChild(el('p', null, k.text));
+    var go = el('span','cat-go','Voir les films'); go.appendChild(arrowIcon()); a.appendChild(go);
+    a.addEventListener('click', function(e){
+      e.preventDefault(); current = k.cat; renderFilters(); renderFrames();
+      document.getElementById('films').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+    });
+    catsEl.appendChild(a);
+  });
 
   /* Lecteur intégré */
   var lb = document.getElementById('lb'), lbBox = document.getElementById('lbBox'), lbTitle = document.getElementById('lbTitle'), lbClose = document.getElementById('lbClose');
@@ -886,7 +880,7 @@ section{position:relative}
     if(reduce) return;
     var h = document.documentElement.scrollHeight - innerHeight;
     bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, scrollY / h) : 0) + ')';
-    stackFx(); lightFx(); outlineFx();
+    lightFx(); outlineFx();
   }
   addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
   addEventListener('resize', onScroll);
